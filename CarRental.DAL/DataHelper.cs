@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CarRental.DAL.Context;
+using CarRental.DAL.Factories;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -12,15 +14,13 @@ namespace CarRental.DAL
     {
 
         static public string ConnectionString = "Server=.;Database=CarRental;User=sa;Password=sa123456";
-        //static public string ConnectionString = ConfigurationManager.ConnectionStrings["CarRentalConnection"].ConnectionString;
         static public string MasterConnection = "Server=.;Database=master;Trusted_Connection=true";
-        //static public string MasterConnection = ConfigurationManager.ConnectionStrings["MasterConnection"].ConnectionString;
 
 
         static public bool CheckConnection()
         {
-            //EF Cheack
-            return true;
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+            return context.Database.CanConnect();
         }
 
 

@@ -155,9 +155,9 @@ namespace CarRental
 
         //-------------------------Next---------------------------
 
-        void _NextPerosn()
+         private async void _NextPerosn()
         {
-            if(ctrlPersonInfoWithFilter1.SelectedPersonID<1?false:!Person.IsPersonExists(ctrlPersonInfoWithFilter1.SelectedPersonID))
+            if(ctrlPersonInfoWithFilter1.SelectedPersonID<1?false:!await Person.IsPersonExists(ctrlPersonInfoWithFilter1.SelectedPersonID))
             {
                 MessageBox.Show("Select Person First", "Select Person", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;

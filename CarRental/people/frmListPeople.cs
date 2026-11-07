@@ -189,7 +189,8 @@ namespace CarRental
             if (MessageBox.Show("Person With Person ID : " + dgvPeople.SelectedRows[0].Cells[0].Value +
                 " Will Be Deleted Are You Sure ?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                if (Person.DeletePerson((int)dgvPeople.SelectedRows[0].Cells[0].Value)) 
+                int ID = (int)dgvPeople.SelectedRows[0].Cells[0].Value;
+                if (await Person.DeletePerson(ID)) 
                 {
                     MessageBox.Show("Person Deleted Successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

@@ -34,13 +34,15 @@ namespace CarRental.DAL.Configurations
                    .HasMaxLength(20)
                    .IsRequired(false);
 
+            // Person Relationship (One-to-One)
             builder.HasOne(c => c.Person)
                    .WithOne(p => p.Customer)
                    .HasForeignKey<Customer>(c => c.PersonID);
 
-            builder.HasOne(c => c.CreatedByUser)
-                   .WithMany(u => u.CreatedCustomers)
-                   .HasForeignKey(c => c.CreatedByUserID);
+            // RentalBookings Relationship (One-to-Many)
+            builder.HasMany(c => c.RentalBookings)
+                   .WithOne(b => b.Customer)
+                   .HasForeignKey(b => b.CustomerID);
         }
     }
 }

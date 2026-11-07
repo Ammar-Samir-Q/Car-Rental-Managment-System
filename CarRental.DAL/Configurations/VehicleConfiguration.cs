@@ -54,10 +54,12 @@ namespace CarRental.DAL.Configurations
                    .HasColumnType("nchar(300)")
                    .IsRequired(false);
 
+            // RentalBookings Relationship (One-to-Many)
             builder.HasMany(v => v.RentalBookings)
                    .WithOne(b => b.Vehicle)
                    .HasForeignKey(b => b.VehicleID);
 
+            // Maintenances Relationship (One-to-Many)
             builder.HasMany(v => v.Maintenances)
                    .WithOne(m => m.Vehicle)
                    .HasForeignKey(m => m.VehicleID);

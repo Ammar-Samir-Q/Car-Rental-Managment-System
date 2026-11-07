@@ -83,25 +83,25 @@ namespace CarRental.BLL
 
         //----------------------------------------------------------------
 
-        private bool _AddPerson()
+        private async Task<bool> _AddPerson()
         {
-            this.PersonID = DAL.PersonRepository.AddPerson(FirstName, SecondName, ThirdName, LastName, Gender, NationalNo, Phone, Email, Address, DateOfBirth, ImagePath);
+            this.PersonID = await DAL.PersonRepository.AddPerson(FirstName, SecondName, ThirdName, LastName, Gender, NationalNo, Phone, Email, Address, DateOfBirth, ImagePath);
             return this.PersonID > 0;
         }
-        private bool _UpdatePerosn()
+        private async Task<bool> _UpdatePerosn()
         {
-            return DAL.PersonRepository.UpdatePerson(PersonID, FirstName, SecondName, ThirdName, LastName, Gender, NationalNo, Phone, Email, Address, DateOfBirth, ImagePath);
+            return await DAL.PersonRepository.UpdatePerson(PersonID, FirstName, SecondName, ThirdName, LastName, Gender, NationalNo, Phone, Email, Address, DateOfBirth, ImagePath);
         }
 
-        public bool Save()
+        public async Task<bool> Save()
         {
             switch (_Mode)
             {
                 case enMode.AddNew:
                     _Mode = enMode.Update;
-                    return _AddPerson();
+                    return await _AddPerson();
                 case enMode.Update:
-                    return _UpdatePerosn();
+                    return await _UpdatePerosn();
 
             }
 
@@ -139,29 +139,29 @@ namespace CarRental.BLL
                 return null;
         }
 
-        public static bool DeletePerson(int PersonID)
+        public static async Task<bool> DeletePerson(int PersonID)
         {
-            return DAL.PersonRepository.DeletePerson(PersonID);
+            return await DAL.PersonRepository.DeletePerson(PersonID);
         }
 
-        public bool Delete()
+        public async Task<bool> Delete()
         {
-            return DAL.PersonRepository.DeletePerson(this.PersonID);
+            return await DAL.PersonRepository.DeletePerson(this.PersonID);
         }
 
-        public static bool IsPersonExists(int PersonID)
+        public static async Task<bool> IsPersonExists(int PersonID)
         {
-            return DAL.PersonRepository.IsPersonExists(PersonID);
+            return await DAL.PersonRepository.IsPersonExists(PersonID);
         }
 
-        public static bool IsPersonExists(string NationaNo)
+        public static async Task<bool> IsPersonExists(string NationaNo)
         {
-            return DAL.PersonRepository.IsPersonExists(NationaNo);
+            return await DAL.PersonRepository.IsPersonExists(NationaNo);
         }
 
-        public bool IsExists()
+        public async Task<bool> IsExists()
         {
-            return DAL.PersonRepository.IsPersonExists(this.PersonID);
+            return await DAL.PersonRepository.IsPersonExists(this.PersonID);
         }
 
         public static DataTable GetAllPeople()

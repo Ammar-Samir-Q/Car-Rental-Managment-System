@@ -11,15 +11,15 @@ namespace CarRental.DAL.Entities
 
         public int PersonID { get; set; }
 
-        public string Username { get; set; }
+        public string Username { get; set; } = null!;
 
-        public string Password { get; set; }
+        public string Password { get; set; } = null!;
 
         public byte Role { get; set; }
 
         public bool IsActive { get; set; }
 
-        public DateTime CreationDate { get; set; }
+        public DateOnly CreationDate { get; set; }
 
         // Navigation Properties
         public Person Person { get; set; } = null!;

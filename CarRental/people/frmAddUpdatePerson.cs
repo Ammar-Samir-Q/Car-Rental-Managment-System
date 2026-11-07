@@ -184,7 +184,7 @@ namespace CarRental
             return false;   
 
         }
-        private void _SaveData()
+        private async void _SaveData()
         {
             
             _Person.FirstName=txtFirstName.Text.Trim();
@@ -203,7 +203,7 @@ namespace CarRental
             if (!_HandelImage())
                 return;
 
-            if(_Person.Save())
+            if(await _Person.Save())
             {
                 lblPersonID.Text=_Person.PersonID.ToString();
                 if (Properties.Settings.Default.Language == "en")
@@ -366,7 +366,7 @@ namespace CarRental
             }
         }
 
-        private void txtNationalNo_Validating(object sender, CancelEventArgs e)
+        private async void txtNationalNo_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(txtNationalNo.Text))
             {
@@ -383,7 +383,7 @@ namespace CarRental
             if (_Person.NationalNo == txtNationalNo.Text)
                 return;
 
-            if (Person.IsPersonExists(txtNationalNo.Text))
+            if (await Person.IsPersonExists(txtNationalNo.Text))
             {
                 e.Cancel = true;
                 ep.SetError(txtNationalNo, "National Number is Already Exists");

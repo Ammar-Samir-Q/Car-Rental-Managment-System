@@ -33,9 +33,9 @@ namespace CarRental.DAL.Configurations
                    .HasColumnType("smallmoney")
                    .IsRequired();
 
-            builder.HasOne(m => m.Vehicle)
-                   .WithMany(v => v.Maintenances)
-                   .HasForeignKey(m => m.VehicleID);
+            //builder.HasOne(m => m.Vehicle)
+            //       .WithMany(v => v.Maintenances)
+            //       .HasForeignKey(m => m.VehicleID);
         }
     }
 }

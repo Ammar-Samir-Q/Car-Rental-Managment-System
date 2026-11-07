@@ -12,7 +12,7 @@ namespace CarRental.DAL.Entities
 
         public string? Description { get; set; }
 
-        public DateTime MaintenanceDate { get; set; }
+        public DateOnly MaintenanceDate { get; set; }
 
         public decimal Cost { get; set; }
 

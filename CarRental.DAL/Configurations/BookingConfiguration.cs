@@ -50,18 +50,18 @@ namespace CarRental.DAL.Configurations
 
             builder.Property(b => b.CreatedByUserID)
                    .IsRequired();
-            //Relationships
-            builder.HasOne(b => b.Customer)
-                   .WithMany(c => c.RentalBookings)
-                   .HasForeignKey(b => b.CustomerID);
+            ////Relationships
+            //builder.HasOne(b => b.Customer)
+            //       .WithMany(c => c.RentalBookings)
+            //       .HasForeignKey(b => b.CustomerID);
 
-            builder.HasOne(b => b.Vehicle)
-                   .WithMany(v => v.RentalBookings)
-                   .HasForeignKey(b => b.VehicleID);
+            //builder.HasOne(b => b.Vehicle)
+            //       .WithMany(v => v.RentalBookings)
+            //       .HasForeignKey(b => b.VehicleID);
 
-            builder.HasOne(b => b.CreatedByUser)
-                   .WithMany(u => u.CreatedBookings)
-                   .HasForeignKey(b => b.CreatedByUserID);
+            //builder.HasOne(b => b.CreatedByUser)
+            //       .WithMany(u => u.CreatedBookings)
+            //       .HasForeignKey(b => b.CreatedByUserID);
         }
     }
 }

@@ -32,11 +32,11 @@ namespace CarRental
             this.ctrlPersonInfo1.ResetControl();
         }
 
-        public void LoadPerson(int PersonID)
+        public async void LoadPerson(int PersonID)
         {
             cbFilter.SelectedIndex = 0;
             _PersonID = PersonID;
-            if (Person.IsPersonExists(PersonID))
+            if (await Person.IsPersonExists(PersonID))
             {
                 txtFilter.Text =_PersonID.ToString();
                 FilterEnabled = false;
@@ -48,11 +48,11 @@ namespace CarRental
 
         }
 
-        public void LoadPerson(string NationalNo)
+        public async void LoadPerson(string NationalNo)
         {
             cbFilter.SelectedIndex = 1;
             _NationalNo = NationalNo;
-            if (Person.IsPersonExists(NationalNo))
+            if (await Person.IsPersonExists(NationalNo))
             {
                 _PersonID = Person.GetPerson(NationalNo).PersonID;
                 txtFilter.Text = NationalNo;
@@ -70,7 +70,7 @@ namespace CarRental
             ctrlPersonInfo1.ResetControl();
         }
 
-        private void btnFind_Click(object sender, EventArgs e)
+        private async void btnFind_Click(object sender, EventArgs e)
         {
             if(string.IsNullOrEmpty(txtFilter.Text))
             {
@@ -81,7 +81,7 @@ namespace CarRental
             if(cbFilter.SelectedIndex==0)
             {
                 _PersonID = int.Parse(txtFilter.Text);
-                if(!Person.IsPersonExists(_PersonID))
+                if(! await Person.IsPersonExists(_PersonID))
                 {
                     _ResetDefaults();
                     MessageBox.Show("Person With PersonID : " + _PersonID + " Not Found", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -96,7 +96,7 @@ namespace CarRental
 
                 _NationalNo= txtFilter.Text;
 
-                if(!Person.IsPersonExists(_NationalNo))
+                if(! await Person.IsPersonExists(_NationalNo))
                 {
                     _ResetDefaults();
                     MessageBox.Show("Person With NationalNo : " + _NationalNo + " Not Found", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -110,11 +110,11 @@ namespace CarRental
 
         }
 
-        private void LoadAddedPerson(int PersonID)
+        private async void LoadAddedPerson(int PersonID)
         {
             cbFilter.SelectedIndex = 0;
             _PersonID = PersonID;
-            if (Person.IsPersonExists(PersonID))
+            if (await Person.IsPersonExists(PersonID))
             {
                 txtFilter.Text = _PersonID.ToString();
                 ctrlPersonInfo1.LoadPerson(PersonID);

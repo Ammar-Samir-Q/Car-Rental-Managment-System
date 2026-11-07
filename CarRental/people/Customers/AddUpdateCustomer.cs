@@ -158,7 +158,7 @@ namespace CarRental
 
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private async void btnSave_Click(object sender, EventArgs e)
         {
             if(ctrlPersonInfoWithFilter1.SelectedPersonID<=0)
             {
@@ -166,7 +166,7 @@ namespace CarRental
                 return;
             }
 
-            if(!ctrlPersonInfoWithFilter1.SelectedPersonInfo.IsExists())
+            if(! await ctrlPersonInfoWithFilter1.SelectedPersonInfo.IsExists())
             {
                 MessageBox.Show("This Person is Not Exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

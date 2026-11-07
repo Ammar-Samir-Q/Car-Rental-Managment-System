@@ -33,7 +33,7 @@ namespace CarRental.DAL.Entities
 
         public User CreatedByUser { get; set; }=null!;
 
-        public Transaction Transaction { get; set; }=null!;
+        public Transaction? Transaction { get; set; }
 
     }
 }
