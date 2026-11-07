@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnClose.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnClose.Text" xml:space="preserve">
+    <value>اغلاق</value>
+  </data>
+  <data name="btnSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTitle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 42</value>
+  </data>
+  <data name="lblTitle.Text" xml:space="preserve">
+    <value>اضافة حجز</value>
+  </data>
+  <data name="label15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 42</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>تحديد العميل</value>
+  </data>
+  <data name="pictureBox24.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnNext.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label13.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 42</value>
+  </data>
+  <data name="label13.Text" xml:space="preserve">
+    <value>تحديد المركبة</value>
+  </data>
+  <data name="button3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button3.Text" xml:space="preserve">
+    <value>تحديد</value>
+  </data>
+  <data name="pictureBox23.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnNextVehicle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 42</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>تفاصيل الحجز</value>
+  </data>
+  <data name="pictureBox7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAA/VJREFUaEPtmUeoFEEQhn8z5oBiQvSiYkAxXIzo2RwPevOkiDcDXhQzgiCKoILh
+        roKoeDGiInjTg2ICM5jFHBADn1TDWMzszuy+mV3lfdAwzF9dXbPTXV3TKzXy/zNQ0ipJZyTdlPTRGten
+        Ja2UNMB3qidGSzor6VfKxoOO8k5qSQtJuyT9tABfS9onabq9nbbWuJ4hab/ZYEufnZKae6dF01nSOQvq
+        k6QNkjp4oxiw2Sjpc+TtdPJGRcGbCFPpiU2trAyX9MB8XJDU0hsUAdOJAB5J6uXFDND3sfna4cW84ddn
+        fjOdRnixAkbaNPth14URphRroqHYZD5J0YVA9gnZqdTCnmoPzB7ywa6neKMIHSW9Md/9vZgHbHYMRhpN
+        gowU3TOirdRbPGg2K7yQB7x6BmNPiIM3gf5V0nJJPa0RHPfQkt7MLNNPeSEPbttgSWVG2Fd4CA/lCRrT
+        LI4wbW95IQ+Y7wzWzgtG0Ht4we6hvfeCgU90fORO2I1be8EgSHSmk6e3ae+8YFDKoJPWc4ddnMH6esEI
+        qTluwYZEkTS1+pnOBpk7lBIMlrRguY/OwmZNsHPTeIhvZfpOM/28F/KAMoLBSLFJkGKxiWul0u9ms9nu
+        hTyYY4Pd8IKDX50pxMJNsyECH1/4Jg3nDrt5mCJDvVgFw8wnvtt7MS9O2qDrvFAF683nCS/kyXwb9I6k
+        pl6sAHzcNZ/zvJgnrSQ9s4H5pK0Wyh18PTXfhbLaBr/khQq4bL5I0YXDon9rAYzxYgbGmQ92+5p9t2+z
+        II56IQPHzcdWLxQJtRO1F5+9Y72YgvH2ENRWcbVZoYRP1CuSmnixDGFtkHprDpsX2YaAZnuxBHOtz/My
+        n8yFsiSyr6RJn9hgS5/FXqwlHHlezzBNQlFJn9yPS5nv92zApDYpYs/CZdFTKw2J3PdQn2GD7eTIfdJw
+        OD+Oaw8rWIN/mBDjzDf/ix6w+yz8ZpH7AUqRsMA56A5gey3Gv2/ElJk91pmslJYukl5Yv6VelLTMtFeS
+        unqxBOE7hZgywWFyOPovNU3iWGj92Kn7RO7zaRy+5xdE7qeBGOhHTJkOumdax6teSMkR63/Rpg1TKhwT
+        HfPGKSEW+iedp8Vy2DrFnU2loZvtD/hYI2mtXb+U1N0bp4RY8HHIC0lwBvvFTsYpQSolnBp+t8Z1NZ+w
+        xEJMxEaMZVlkgyYd2WQhJAzabi9WQDhqIsayZDIuQxs7pKBxXS2pf+TMry8Fg6w1BKmnPaeDPDGLvV5J
+        lYjC7kr6rVfKbg2DzYB/jdJUsLWCDZHKgFhjz9W2mLjXC3UIMRIrpctfUFXej6TKf6VREf91rjYxxuhf
+        acTeSN3xG2KVnvc11xWmAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="pictureBox7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAA/VJREFUaEPtmUeoFEEQhn8z5oBiQvSiYkAxXIzo2RwPevOkiDcDXhQzgiCKoILh
+        roKoeDGiInjTg2ICM5jFHBADn1TDWMzszuy+mV3lfdAwzF9dXbPTXV3TKzXy/zNQ0ipJZyTdlPTRGten
+        Ja2UNMB3qidGSzor6VfKxoOO8k5qSQtJuyT9tABfS9onabq9nbbWuJ4hab/ZYEufnZKae6dF01nSOQvq
+        k6QNkjp4oxiw2Sjpc+TtdPJGRcGbCFPpiU2trAyX9MB8XJDU0hsUAdOJAB5J6uXFDND3sfna4cW84ddn
+        fjOdRnixAkbaNPth14URphRroqHYZD5J0YVA9gnZqdTCnmoPzB7ywa6neKMIHSW9Md/9vZgHbHYMRhpN
+        gowU3TOirdRbPGg2K7yQB7x6BmNPiIM3gf5V0nJJPa0RHPfQkt7MLNNPeSEPbttgSWVG2Fd4CA/lCRrT
+        LI4wbW95IQ+Y7wzWzgtG0Ht4we6hvfeCgU90fORO2I1be8EgSHSmk6e3ae+8YFDKoJPWc4ddnMH6esEI
+        qTluwYZEkTS1+pnOBpk7lBIMlrRguY/OwmZNsHPTeIhvZfpOM/28F/KAMoLBSLFJkGKxiWul0u9ms9nu
+        hTyYY4Pd8IKDX50pxMJNsyECH1/4Jg3nDrt5mCJDvVgFw8wnvtt7MS9O2qDrvFAF683nCS/kyXwb9I6k
+        pl6sAHzcNZ/zvJgnrSQ9s4H5pK0Wyh18PTXfhbLaBr/khQq4bL5I0YXDon9rAYzxYgbGmQ92+5p9t2+z
+        II56IQPHzcdWLxQJtRO1F5+9Y72YgvH2ENRWcbVZoYRP1CuSmnixDGFtkHprDpsX2YaAZnuxBHOtz/My
+        n8yFsiSyr6RJn9hgS5/FXqwlHHlezzBNQlFJn9yPS5nv92zApDYpYs/CZdFTKw2J3PdQn2GD7eTIfdJw
+        OD+Oaw8rWIN/mBDjzDf/ix6w+yz8ZpH7AUqRsMA56A5gey3Gv2/ElJk91pmslJYukl5Yv6VelLTMtFeS
+        unqxBOE7hZgywWFyOPovNU3iWGj92Kn7RO7zaRy+5xdE7qeBGOhHTJkOumdax6teSMkR63/Rpg1TKhwT
+        HfPGKSEW+iedp8Vy2DrFnU2loZvtD/hYI2mtXb+U1N0bp4RY8HHIC0lwBvvFTsYpQSolnBp+t8Z1NZ+w
+        xEJMxEaMZVlkgyYd2WQhJAzabi9WQDhqIsayZDIuQxs7pKBxXS2pf+TMry8Fg6w1BKmnPaeDPDGLvV5J
+        lYjC7kr6rVfKbg2DzYB/jdJUsLWCDZHKgFhjz9W2mLjXC3UIMRIrpctfUFXej6TKf6VREf91rjYxxuhf
+        acTeSN3xG2KVnvc11xWmAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="pictureBox5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox22.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnNextRent.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 42</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>الخلاصة</value>
+  </data>
+  <data name="pictureBox21.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox20.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox19.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox18.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox17.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="linklblVehicleInfo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="linklblCustomerInfo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblEndDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblStartDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox16.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox13.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAArJJREFUaEPtmUnK1UAUhT8VbCaCIKKuwWagYrcCURTUmc4EBbtd6BpU1A2IzUBx
+        4hpsUNeg2CK2ExvOz72hXuVPyHupSl7hO1BQVFXOSaVyz819D4bDWuAgcBG4ATwGXgEfgE/AH2vqv7c5
+        rdFaXXPAOEbBauAU8AD4Dvzt2b4ZlzjFnR0rgHPAm+Am9LSfAzftCR8GtgEbgQ3BteprbLutuQTcsmvF
+        4Xziloa0smAVcC8QfAqcBTbHC2fAFuN6FvBLS5rJcdUE3gHH48mEOGEa0pJmcihQRb43nsgAaUhLmsnx
+        08j3xRMZIA1pfY0nUsDfXR27jj8XTgavllpyOLE3BaYCVIHaF+KQU4XBnn0jZxrsV1YqSz0C7AA2meWu
+        tKa+xnbamsvAbeDFMvYrjewbEdYApy2JKZnFT3HaJo77lhDFHeslRROxPi/2AxeA68Aj4CXw1j5LfltT
+        X2Oa0xqtPW+B7TcfokmvN7IRNyCb3hj2K83k8Ce0sN8W/N/226UQEsEX+9Z5DTwJiPcA68ay39SF0Efg
+        jnGuH8J+Sy6Eqo2UXAhN2G+phVDNfksqhFrtd4xM/AM4ZHHl9iv0sl/vDJ2JZ2mt9hsvHioTK+coL2lz
+        n22sl/16Z24y8ZSobUQorRCasN8m4nkvhOKYS0bcFX302mJuFPv9BRwDdgNbLc6U7XvFnHcW9tuCtleh
+        i/0+BK51jTnvLOy3pbW+CgngMadTbSR2+9Wx6ni72O9Ur0JPhDF3RQOpiLuij95yMXfX65sx7FeaR4Fd
+        dnOz2q9Mqao4faI0+639GRovLs1+KzhxqfZbISQuzX4n0EQ87/ZbQzbiBmTT819RhrTfpUycGsqKTj6U
+        /S5l4tRQIlJ29CPPbb9VJs4BZUfdfG77ncjEORH+Gp/afmuZeCjkst8s+AdBx+Ctn9fKwwAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="pictureBox13.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label25.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label22.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTransactionID.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTotalDays.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTransactionIDTitla.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label24.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblRentID.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTotalInitialAmount.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox10.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAArJJREFUaEPtmUnK1UAUhT8VbCaCIKKuwWagYrcCURTUmc4EBbtd6BpU1A2IzUBx
+        4hpsUNeg2CK2ExvOz72hXuVPyHupSl7hO1BQVFXOSaVyz819D4bDWuAgcBG4ATwGXgEfgE/AH2vqv7c5
+        rdFaXXPAOEbBauAU8AD4Dvzt2b4ZlzjFnR0rgHPAm+Am9LSfAzftCR8GtgEbgQ3BteprbLutuQTcsmvF
+        4Xziloa0smAVcC8QfAqcBTbHC2fAFuN6FvBLS5rJcdUE3gHH48mEOGEa0pJmcihQRb43nsgAaUhLmsnx
+        08j3xRMZIA1pfY0nUsDfXR27jj8XTgavllpyOLE3BaYCVIHaF+KQU4XBnn0jZxrsV1YqSz0C7AA2meWu
+        tKa+xnbamsvAbeDFMvYrjewbEdYApy2JKZnFT3HaJo77lhDFHeslRROxPi/2AxeA68Aj4CXw1j5LfltT
+        X2Oa0xqtPW+B7TcfokmvN7IRNyCb3hj2K83k8Ce0sN8W/N/226UQEsEX+9Z5DTwJiPcA68ay39SF0Efg
+        jnGuH8J+Sy6Eqo2UXAhN2G+phVDNfksqhFrtd4xM/AM4ZHHl9iv0sl/vDJ2JZ2mt9hsvHioTK+coL2lz
+        n22sl/16Z24y8ZSobUQorRCasN8m4nkvhOKYS0bcFX302mJuFPv9BRwDdgNbLc6U7XvFnHcW9tuCtleh
+        i/0+BK51jTnvLOy3pbW+CgngMadTbSR2+9Wx6ni72O9Ur0JPhDF3RQOpiLuij95yMXfX65sx7FeaR4Fd
+        dnOz2q9Mqao4faI0+639GRovLs1+KzhxqfZbISQuzX4n0EQ87/ZbQzbiBmTT819RhrTfpUycGsqKTj6U
+        /S5l4tRQIlJ29CPPbb9VJs4BZUfdfG77ncjEORH+Gp/afmuZeCjkst8s+AdBx+Ctn9fKwwAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="pictureBox10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label16.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblVehicleModel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblRentalPricePerDay.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label18.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblCurrentMilage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblCustomerName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblDriverLicenseNumber.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="gbSummary.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 31</value>
+  </data>
+</root>

@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ايجارToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 68</value>
+  </data>
+  <data name="ايجارToolStripMenuItem.Text" xml:space="preserve">
+    <value>الايجار</value>
+  </data>
+  <data name="transactionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 68</value>
+  </data>
+  <data name="transactionsToolStripMenuItem.Text" xml:space="preserve">
+    <value>العمليات</value>
+  </data>
+  <data name="VehiclesToolMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 68</value>
+  </data>
+  <data name="VehiclesToolMenuStrip.Text" xml:space="preserve">
+    <value>المركبات</value>
+  </data>
+  <data name="PeopleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 68</value>
+  </data>
+  <data name="PeopleToolStripMenuItem.Text" xml:space="preserve">
+    <value>الأشخاص</value>
+  </data>
+  <data name="mainteanceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 68</value>
+  </data>
+  <data name="mainteanceToolStripMenuItem.Text" xml:space="preserve">
+    <value>صيانة</value>
+  </data>
+  <data name="staticsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 68</value>
+  </data>
+  <data name="staticsToolStripMenuItem.Text" xml:space="preserve">
+    <value>التقارير</value>
+  </data>
+  <data name="settingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 68</value>
+  </data>
+  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>الأعدادات</value>
+  </data>
+  <data name="exitApplicationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>243, 68</value>
+  </data>
+  <data name="exitApplicationToolStripMenuItem.Text" xml:space="preserve">
+    <value>اغلاق النظام</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1904, 72</value>
+  </data>
+  <data name="addRentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>329, 56</value>
+  </data>
+  <data name="addRentToolStripMenuItem.Text" xml:space="preserve">
+    <value>اضافة ايجار</value>
+  </data>
+  <data name="returnToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>329, 56</value>
+  </data>
+  <data name="returnToolStripMenuItem.Text" xml:space="preserve">
+    <value>ارجاع تأجير</value>
+  </data>
+  <data name="manageRentsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>329, 56</value>
+  </data>
+  <data name="manageRentsToolStripMenuItem.Text" xml:space="preserve">
+    <value>اداراة الحجوزات</value>
+  </data>
+  <data name="showVehiclesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>327, 56</value>
+  </data>
+  <data name="showVehiclesToolStripMenuItem.Text" xml:space="preserve">
+    <value>عرض المركبات</value>
+  </data>
+  <data name="manageVehiclesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>327, 56</value>
+  </data>
+  <data name="manageVehiclesToolStripMenuItem.Text" xml:space="preserve">
+    <value>اداره المركبات</value>
+  </data>
+  <data name="customersToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 50</value>
+  </data>
+  <data name="customersToolStripMenuItem.Text" xml:space="preserve">
+    <value>العملاء</value>
+  </data>
+  <data name="usersToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 50</value>
+  </data>
+  <data name="usersToolStripMenuItem1.Text" xml:space="preserve">
+    <value>المستخدمين</value>
+  </data>
+  <data name="allPeopleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 50</value>
+  </data>
+  <data name="allPeopleToolStripMenuItem.Text" xml:space="preserve">
+    <value>الكل</value>
+  </data>
+  <data name="accountSettingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 70</value>
+  </data>
+  <data name="accountSettingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>الحساب</value>
+  </data>
+  <data name="currentUserInfoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 56</value>
+  </data>
+  <data name="currentUserInfoToolStripMenuItem.Text" xml:space="preserve">
+    <value>معلومات المستخدم</value>
+  </data>
+  <data name="changePasswordToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 56</value>
+  </data>
+  <data name="changePasswordToolStripMenuItem.Text" xml:space="preserve">
+    <value>تغيير كلمة المرور</value>
+  </data>
+  <data name="systemToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 70</value>
+  </data>
+  <data name="systemToolStripMenuItem.Text" xml:space="preserve">
+    <value>النظام</value>
+  </data>
+  <data name="signOutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 70</value>
+  </data>
+  <data name="signOutToolStripMenuItem.Text" xml:space="preserve">
+    <value>تسجيل خروج</value>
+  </data>
+  <data name="lblUsernameTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 18pt</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblUsernameTitle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblUsernameTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1687, 80</value>
+  </data>
+  <data name="lblUsernameTitle.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="lblUsernameTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 29</value>
+  </data>
+  <data name="lblUsernameTitle.Text" xml:space="preserve">
+    <value> المستخدم </value>
+  </data>
+  <data name="lblUsername.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblUsername.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1704, 122</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblTitle.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Bahnschrift Condensed, 36pt, style=Bold</value>
+  </data>
+  <data name="lblTitle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>809, 649</value>
+  </data>
+  <data name="lblTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>362, 58</value>
+  </data>
+  <data name="lblTitle.Text" xml:space="preserve">
+    <value>نظام تأجير السيارات</value>
+  </data>
+  <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>819, 397</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1612, 627</value>
+  </data>
+  <data name="lblTotalVehicles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>88, 44</value>
+  </data>
+  <data name="lblTitleTotalVehicles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1624, 566</value>
+  </data>
+  <data name="lblTitleTotalVehicles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>223, 58</value>
+  </data>
+  <data name="lblTitleTotalVehicles.Text" xml:space="preserve">
+    <value>عدد المركبات</value>
+  </data>
+  <data name="lblTitleTotalCustomers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>90, 566</value>
+  </data>
+  <data name="lblTitleTotalCustomers.Text" xml:space="preserve">
+    <value>عدد العملاء</value>
+  </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>69, 627</value>
+  </data>
+  <data name="lblTotalCustomers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>82, 44</value>
+  </data>
+  <data name="lblTitleTotalRents.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1612, 299</value>
+  </data>
+  <data name="lblTitleTotalRents.Size" type="System.Drawing.Size, System.Drawing">
+    <value>281, 59</value>
+  </data>
+  <data name="lblTitleTotalRents.Text" xml:space="preserve">
+    <value>اجمالي الايجارات</value>
+  </data>
+  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1612, 361</value>
+  </data>
+  <data name="lblTotalRents.Location" type="System.Drawing.Point, System.Drawing">
+    <value>88, 45</value>
+  </data>
+  <data name="lblTotalRents.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 58</value>
+  </data>
+  <data name="lblTitleTotalBookings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 306</value>
+  </data>
+  <data name="lblTitleTotalBookings.Text" xml:space="preserve">
+    <value>اجمالي الحجوزات</value>
+  </data>
+  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>69, 368</value>
+  </data>
+  <data name="lblTotalBookings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>82, 47</value>
+  </data>
+  <data name="lblRole.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblRole.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblRole.Location" type="System.Drawing.Point, System.Drawing">
+    <value>949, 369</value>
+  </data>
+  <data name="lblRole.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 25</value>
+  </data>
+  <data name="pbUserImage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pbUserImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1770, 80</value>
+  </data>
+  <data name="pbUserImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 38</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1904, 961</value>
+  </data>
+  <data name="$this.RightToLeftLayout" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>الشاشة الرئيسية</value>
+  </data>
+</root>
