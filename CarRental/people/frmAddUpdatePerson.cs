@@ -19,7 +19,7 @@ namespace CarRental
 
 
         private int _PersonID;
-        private Person _Person;
+        private Person? _Person;
 
         public delegate void delPersonID(int PersonID);
         public event delPersonID DataBackPersonID;
@@ -59,7 +59,7 @@ namespace CarRental
             pbImage.Image = Properties.Resources.png_Male;
         }
 
-        void _LoadData()
+       async void  _LoadData()
         {
             if (Properties.Settings.Default.Language == "en")
             {
@@ -72,7 +72,7 @@ namespace CarRental
                 this.Text = lblTitle.Text;
             }
 
-            _Person = Person.GetPerson(_PersonID);
+            _Person =await Person.GetPerson(_PersonID);
             if (_Person == null)
             {
                 MessageBox.Show("Error : Perosn Not Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

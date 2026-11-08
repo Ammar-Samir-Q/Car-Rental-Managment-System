@@ -15,7 +15,7 @@ namespace CarRental
     {
         private string _NationalNo="";
         private int _PersonID=-1;
-        private Person _Person;
+        private Person? _Person;
         public ctrlPersonInfo()
         {
             InitializeComponent();
@@ -25,25 +25,27 @@ namespace CarRental
         
         public Person Person { get { return _Person; }}
 
-        public void LoadPerson(int PersonID)
+        public async void LoadPerson(int PersonID)
         {
             _PersonID= PersonID;
             if (PersonID < 0)
                 return;
 
-            _Person = Person.GetPerson(PersonID);
+            _Person =await Person.GetPerson(PersonID);
             _LoadData();
 
 
         }
 
-        public void LoadPerson(string NationalNo)
+        public async void LoadPerson(string NationalNo)
         {
             _NationalNo = NationalNo;
             if (string.IsNullOrEmpty(_NationalNo))
                 return;
 
-            _Person = Person.GetPerson(_NationalNo);
+            _Person =await Person.GetPerson(_NationalNo);
+            if (_Person == null)
+                return;
             _PersonID=_Person.PersonID;
             _LoadData();
 

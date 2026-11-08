@@ -20,7 +20,10 @@ namespace CarRental
         private Booking _Booking = new Booking();
 
 
-        private Customer _Customer;
+        private int _CustomerID;
+
+        private int _VehicleID;
+        private Customer? _Customer;
         private Vehicle _Vehicle;
 
         public frmAddUpdateRent()
@@ -41,14 +44,14 @@ namespace CarRental
             InitializeComponent();
             if(VehicleID > 0)
             _Vehicle=Vehicle.GetVehicleByID(VehicleID);
-            if (CustomerID > 0)
-                _Customer = Customer.GetCustomerByID(CustomerID);
+            _CustomerID = CustomerID;
             _Mode = enMode.AddNew;
         }
         //-------------------------Load---------------------------
 
-        private void _LoadData()
+        private async void _LoadData()
         {
+
             if (_BookingID == -1)
                 return;
             
@@ -65,7 +68,7 @@ namespace CarRental
                 return;
             }
 
-            _Customer=Customer.GetCustomerByID(_Booking.CustomerID);
+            _Customer= await Customer.GetCustomerByID(_Booking.CustomerID);
             _Vehicle=Vehicle.GetVehicleByID(_Booking.VehicleID);
 
             _LoadUpdateForm();
@@ -74,8 +77,13 @@ namespace CarRental
          
         }
 
-        private void _SetDefaults()
+        private async void _SetDefaults()
         {
+            if(_CustomerID>0)
+      _Customer = await Customer.GetCustomerByID(_CustomerID);
+
+
+
             btnSave.Enabled = false;
             btnNextVehicle.Enabled = false;
             btnNextRent.Enabled = false;
@@ -164,7 +172,7 @@ namespace CarRental
             }
 
             //Handel Person To Customer Problem
-            if (!Customer.IsCustomerExistsByPersonID(ctrlPersonInfoWithFilter1.SelectedPersonID))
+            if (!await Customer.IsCustomerExistsByPersonID(ctrlPersonInfoWithFilter1.SelectedPersonID))
             {
                 if (MessageBox.Show("This Person Is Not a Customer Make it Customer First ?", "Not A Customer", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
                     return;
@@ -172,13 +180,13 @@ namespace CarRental
                 Form frm=new frmAddCustomer(ctrlPersonInfoWithFilter1.SelectedPersonID,frmAddCustomer.enMode.Convert);
                 frm.ShowDialog();
 
-                if (!Customer.IsCustomerExistsByPersonID(ctrlPersonInfoWithFilter1.SelectedPersonID))
+                if (! await Customer.IsCustomerExistsByPersonID(ctrlPersonInfoWithFilter1.SelectedPersonID))
                 {
                     return;
                 }
             }
 
-            _Customer= Customer.GetCustomerByPersonID(ctrlPersonInfoWithFilter1.SelectedPersonID);
+            _Customer= await Customer.GetCustomerByPersonID(ctrlPersonInfoWithFilter1.SelectedPersonID);
             tcRent.SelectedTab = tpVehicle;
             btnNext.Visible=false;
              gbSelectPerosn.Enabled = false;

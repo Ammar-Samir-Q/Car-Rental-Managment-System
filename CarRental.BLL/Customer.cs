@@ -1,8 +1,9 @@
-﻿using System;
+﻿using CarRental.DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
-
+using Data = CarRental.DAL.Entities;
 namespace CarRental.BLL
 {
     public class Customer
@@ -14,7 +15,7 @@ namespace CarRental.BLL
 
         public Person PersonInfo { get; }
 
-        public DateTime CreationDate { get; set; }
+        public DateOnly CreationDate { get; set; }
 
         public int CreatedByUserID { get; set; }
 
@@ -27,13 +28,13 @@ namespace CarRental.BLL
         {
             this.CustomerID = -1;
             this.PersonID = -1;
-            this.CreationDate = DateTime.Now;
+            this.CreationDate=DateOnly.FromDateTime(DateTime.Now);
             this.DriverLicnsesNumber = "";
             this.CreatedByUserID = -1;
             this._Mode = enMode.AddNew;
         }
 
-        public Customer(int CustomerID, int PersonID, DateTime CreationDate, string DriverLicenseNumber, int CreatedByUserID,Person personInfo)
+        public Customer(int CustomerID, int PersonID, DateOnly CreationDate, string DriverLicenseNumber, int CreatedByUserID,Person personInfo)
         {
             this.CustomerID = CustomerID;
             this.PersonID = PersonID;
@@ -46,39 +47,54 @@ namespace CarRental.BLL
 
         //-----------------------------------
 
-        private bool _AddCustomer()
+        private async Task<bool> _AddCustomer()
         {
-            this.CustomerID = DAL.CustomerRepository.Create(PersonID, CreationDate, CreatedByUserID, DriverLicnsesNumber);
+            Data.Customer customer = new Data.Customer()
+            {
+                PersonID = this.PersonID,
+                CreationDate=this.CreationDate,
+                DriverLicenseNumber=this.DriverLicnsesNumber,
+                CreatedByUserID=this.CreatedByUserID
+            };
+
+
+            this.CustomerID =await DAL.CustomerRepository.Create(customer);
             return this.CustomerID > 0;
         }
 
-        private bool _UpdateCustomer()
+        private async Task<bool> _UpdateCustomer()
         {
-            return DAL.CustomerRepository.Update(CustomerID, PersonID, CreationDate, CreatedByUserID, DriverLicnsesNumber);
+            Data.Customer customer = new Data.Customer()
+            {
+                CustomerID = this.CustomerID,
+                PersonID = this.PersonID,
+                CreationDate = this.CreationDate,
+                DriverLicenseNumber = this.DriverLicnsesNumber,
+                CreatedByUserID = this.CreatedByUserID
+            };
+            return await DAL.CustomerRepository.Update(customer);
         }
 
-        public bool Save()
+        public async  Task<bool> Save()
         {
             switch (this._Mode)
             {
                 case enMode.AddNew:
                     _Mode = enMode.Update;
-                    return _AddCustomer();
+                    return await _AddCustomer();
                 case enMode.Update:
-                    return _UpdateCustomer();
+                    return await _UpdateCustomer();
             }
             return false;
         }
 
         public static async Task<Customer?> GetCustomerByID(int CustomerID)
         {
-            int PersonID = -1, CreatedByUserID = -1;
-            string DriverLicenseNumber = "";
-            DateTime CreationDate = DateTime.Now;
-            if (DAL.CustomerRepository.GetByID(CustomerID, ref PersonID, ref CreationDate, ref CreatedByUserID, ref DriverLicenseNumber))
+            Data.Customer? customer = await DAL.CustomerRepository.GetByID(CustomerID);
+            if (customer!=null)
             {
-                    Person? personInfo = await BLL.Person.GetPerson(PersonID);
-                return new Customer(CustomerID, PersonID, CreationDate, DriverLicenseNumber, CreatedByUserID, personInfo);
+                    Person? personInfo = await BLL.Person.GetPerson(customer.PersonID);
+                return new Customer(customer.CustomerID, customer.PersonID, customer.CreationDate, customer.DriverLicenseNumber, customer.CreatedByUserID, personInfo);
             }
             else
                 return null;
@@ -87,33 +103,30 @@ namespace CarRental.BLL
 
         public async static Task<Customer?> GetCustomerByPersonID(int PersonID)
         {
-            int CustomerID = -1, CreatedByUserID = -1;
-            string DriverLicenseNumber = "";
-            DateTime CreationDate = DateTime.Now;
-            if (DAL.CustomerRepository.GetByPersonID(PersonID, ref CustomerID, ref CreationDate, ref CreatedByUserID, ref DriverLicenseNumber))
+            Data.Customer? customer = await DAL.CustomerRepository.GetByPersonID(PersonID);
+            if (customer != null)
             {
-                Person? personInfo = await BLL.Person.GetPerson(PersonID);
-
-                return new Customer(CustomerID, PersonID, CreationDate, DriverLicenseNumber, CreatedByUserID,personInfo);
+                Person? personInfo = await BLL.Person.GetPerson(customer.PersonID);
+                return new Customer(customer.CustomerID, customer.PersonID, customer.CreationDate, customer.DriverLicenseNumber, customer.CreatedByUserID, personInfo);
             }
             else
                 return null;
 
         }
 
-        public static bool DeleteCustomer(int CustomerID)
+        public static async Task<bool> DeleteCustomer(int CustomerID)
         {
-            return DAL.CustomerRepository.Delete(CustomerID);
+            return await DAL.CustomerRepository.Delete(CustomerID);
         }
 
-        public bool Delete()
+        public async Task<bool> Delete()
         {
-            return DAL.CustomerRepository.Delete(this.CustomerID);
+            return await DAL.CustomerRepository.Delete(this.CustomerID);
         }
 
-        public static DataTable GetAllCustomers()
+        public static async Task<DataTable> GetAllCustomers()
         {
-            return DAL.CustomerRepository.GetAll();
+            return await DAL.CustomerRepository.GetAll();
         }
 
         public static DataTable GetCustomerHistory(int CustomerID)
@@ -121,51 +134,51 @@ namespace CarRental.BLL
             return DAL.CustomerRepository.GetAllBookings(CustomerID);
         }
 
-        public static bool IsCustomerExists(int CustomerID)
+        public static async Task<bool> IsCustomerExists(int CustomerID)
         {
-            return DAL.CustomerRepository.IsExists(CustomerID);
+            return await DAL.CustomerRepository.IsExists(CustomerID);
         }
 
-        public static bool IsCustomerExists(string DriverLicneseNumber)
+        public static async Task<bool> IsCustomerExists(string DriverLicneseNumber)
         {
-            return DAL.CustomerRepository.IsExists(DriverLicneseNumber);
-        }
-
-
-        public static bool IsCustomerExistsByPersonID(int PersonID)
-        {
-            return DAL.CustomerRepository.IsExistsByPersonID(PersonID);
+            return await DAL.CustomerRepository.IsExists(DriverLicneseNumber);
         }
 
 
-        public bool IsExists()
+        public static async Task<bool> IsCustomerExistsByPersonID(int PersonID)
         {
-            return DAL.CustomerRepository.IsExists(this.CustomerID);
+            return await DAL.CustomerRepository.IsExistsByPersonID(PersonID);
         }
 
-        public static int GetTotalRentTimes(int CustomerID)
+
+        public async Task<bool> IsExists()
         {
-            return DAL.CustomerRepository.GetTotalRentTimes(CustomerID);
+            return await DAL.CustomerRepository.IsExists(this.CustomerID);
         }
 
-        public int GetTotalRentTimes()
+        public static async Task<int> GetTotalRentTimes(int CustomerID)
         {
-            return DAL.CustomerRepository.GetTotalRentTimes(this.CustomerID);
+            return await DAL.CustomerRepository.GetTotalRentTimes(CustomerID);
         }
 
-        public static DateTime GetLastRentDate(int CustomerID)
+        public async Task<int> GetTotalRentTimes()
         {
-            return DAL.CustomerRepository.GetLastRentDate(CustomerID);
+            return await DAL.CustomerRepository.GetTotalRentTimes(this.CustomerID);
         }
 
-        public DateTime GetLastRentDate()
+        public static async Task<DateTime> GetLastRentDate(int CustomerID)
         {
-            return DAL.CustomerRepository.GetLastRentDate(CustomerID);
+            return await DAL.CustomerRepository.GetLastRentDate(CustomerID);
         }
 
-        public static int GetTotalCustomers()
+        public async Task<DateTime> GetLastRentDate()
         {
-            return DAL.CustomerRepository.GetTotalCustomers();
+            return await DAL.CustomerRepository.GetLastRentDate(CustomerID);
+        }
+
+        public static async Task<int> GetTotalCustomers()
+        {
+            return await DAL.CustomerRepository.GetTotalCustomers();
         }
     }
 }

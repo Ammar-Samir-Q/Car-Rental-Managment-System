@@ -19,7 +19,7 @@ namespace CarRental
         public enum enMode {eAddNew=1,Update=2,Convert=3}
         private int _CustomerID = -1;
         private int _PersonID = -1;
-        private Customer _Customer;
+        private Customer? _Customer;
         private enMode _Mode;
         public frmAddCustomer()
         {
@@ -52,9 +52,9 @@ namespace CarRental
             txtDriverLicnese.Text = "";
         }
       
-        private void _LoadData()
+        private async void _LoadData()
         {
-            _Customer = Customer.GetCustomerByID(_CustomerID);
+            _Customer = await Customer.GetCustomerByID(_CustomerID);
             if (_Customer == null)
                 return;
 
@@ -77,12 +77,12 @@ namespace CarRental
             }
         }
         
-        private void _SetConvertingMode()
+        private async void _SetConvertingMode()
         {
             if (_PersonID <= 0)
                 return;
 
-            if (Customer.IsCustomerExistsByPersonID(_PersonID))
+            if (await Customer.IsCustomerExistsByPersonID(_PersonID))
             {
                 MessageBox.Show("This Person Is Already A Customer", "Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
@@ -118,17 +118,17 @@ namespace CarRental
 
         //--------------------------Save--------------------------
 
-        private void _SaveData()
+        private async void _SaveData()
         {
             _Customer.PersonID = ctrlPersonInfoWithFilter1.SelectedPersonID;
             if(_Mode==enMode.eAddNew||_Mode==enMode.Convert)
             {
-                _Customer.CreationDate = DateTime.Now;
+                _Customer.CreationDate = DateOnly.FromDateTime(DateTime.Now);
                 _Customer.CreatedByUserID = GlobalClass.CurrentUser.UserID;
             }
             _Customer.DriverLicnsesNumber = txtDriverLicnese.Text;
             
-            if(_Customer.Save())
+            if( await _Customer.Save())
             {
                 lblCustomerID.Text = _Customer.CustomerID.ToString();
 
@@ -172,7 +172,7 @@ namespace CarRental
                 return;
             }
 
-            if (Customer.IsCustomerExistsByPersonID(ctrlPersonInfoWithFilter1.SelectedPersonID)&&_Mode==enMode.eAddNew)
+            if ( await Customer.IsCustomerExistsByPersonID(ctrlPersonInfoWithFilter1.SelectedPersonID)&&_Mode==enMode.eAddNew)
             {
                 MessageBox.Show("This Perosn Is Already Customer", "Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -193,7 +193,7 @@ namespace CarRental
         //-----------------------Validation-----------------------
 
 
-        private void txtDriverLicnese_Validating(object sender, CancelEventArgs e)
+        private async void txtDriverLicnese_Validating(object sender, CancelEventArgs e)
         {
 
 
@@ -209,7 +209,7 @@ namespace CarRental
                 ep.SetError(txtDriverLicnese, "");
 
             }
-            if (Customer.IsCustomerExists(txtDriverLicnese.Text))
+            if ( await Customer.IsCustomerExists(txtDriverLicnese.Text))
             {
                 e.Cancel = true;
                 ep.SetError(txtDriverLicnese, "This Driver License Is Already Exists");

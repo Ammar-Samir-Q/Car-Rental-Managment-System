@@ -21,9 +21,9 @@ namespace CarRental
         private DataTable _dtCustomers;
 
 
-        private void _LoadDataGridView()
+        private async void _LoadDataGridView()
         {
-            _dtCustomers=Customer.GetAllCustomers();
+            _dtCustomers=await Customer.GetAllCustomers();
             dgvCustomers.DataSource=_dtCustomers;
             if(dgvCustomers.Rows.Count>0 )
             {
@@ -56,9 +56,9 @@ namespace CarRental
         }
        
 
-        private void _RefreashDataGridView()
+        private async void _RefreashDataGridView()
         {
-            _dtCustomers = Customer.GetAllCustomers();
+            _dtCustomers =await Customer.GetAllCustomers();
             dgvCustomers.DataSource = _dtCustomers;
         }
         private void _CountRecnords()
@@ -187,11 +187,11 @@ namespace CarRental
             _RefreashDataGridView();
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Are You Sure To Delete This Customer ?","Confirm",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
             {
-                if (Customer.DeleteCustomer((int)dgvCustomers.SelectedRows[0].Cells[0].Value))
+                if ( await Customer.DeleteCustomer((int)dgvCustomers.SelectedRows[0].Cells[0].Value))
                 {
                     MessageBox.Show("Customer Deleted Successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Question);
                     _RefreashDataGridView();

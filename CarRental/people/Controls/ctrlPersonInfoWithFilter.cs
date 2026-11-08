@@ -21,11 +21,13 @@ namespace CarRental
             InitializeComponent();
         }
 
+        private Person? SelectedPerson;
+
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool FilterEnabled { set { gbFilter.Enabled = value; }  get { return gbFilter.Enabled; } }
         public  int SelectedPersonID { get { return _PersonID; } }
 
-        public Person SelectedPersonInfo { get { return Person.GetPerson(_PersonID); } }
+        public Person? SelectedPersonInfo { get { return SelectedPerson; } }
 
         public void ResetControl()
         {
@@ -52,9 +54,10 @@ namespace CarRental
         {
             cbFilter.SelectedIndex = 1;
             _NationalNo = NationalNo;
-            if (await Person.IsPersonExists(NationalNo))
+            var person = await Person.GetPerson(NationalNo);
+            if (person!=null)
             {
-                _PersonID = Person.GetPerson(NationalNo).PersonID;
+                _PersonID = person.PersonID;
                 txtFilter.Text = NationalNo;
                 FilterEnabled = false;
                 ctrlPersonInfo1.LoadPerson(NationalNo);
@@ -132,8 +135,9 @@ namespace CarRental
             frm.ShowDialog();
         }
 
-        private void ctrlPersonInfoWithFilter_Load(object sender, EventArgs e)
+        private async void ctrlPersonInfoWithFilter_Load(object sender, EventArgs e)
         {
+            SelectedPerson = await Person.GetPerson(_PersonID);
             cbFilter.SelectedIndex = 0;
         }
 

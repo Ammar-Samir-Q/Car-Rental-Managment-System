@@ -31,12 +31,12 @@ namespace CarRental
 
         }
 
-        private void _LoadData()
+        private async void _LoadData()
         {
-            Customer Customer=Customer.GetCustomerByID(CustomerID);
+            Customer? Customer= await Customer.GetCustomerByID(CustomerID);
             if (Customer == null)
                 return;
-            DateTime LastDate=Customer.GetLastRentDate();
+            DateTime LastDate= await Customer.GetLastRentDate();
             linklblEdirCustomers.Enabled = true;
             ctrlPersonInfo1.LoadPerson(Customer.PersonID);
             lblCustomerID.Text=Customer.CustomerID.ToString();

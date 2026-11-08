@@ -32,7 +32,6 @@ namespace CarRental.DAL.Context
 
         public DbSet<Return> VehicleReturns { get; set; }
 
-        public DbSet<PersonView> PeopleView { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -41,18 +40,6 @@ namespace CarRental.DAL.Context
 
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
-
-
-            //    //People View Config
-            //    modelBuilder.Entity<PersonView>(entity =>
-            //    {
-            //        entity.HasNoKey();
-            //        entity.ToView("People_View");
-            //    });
-            //}
-
-
-
 
         }
     }

@@ -21,12 +21,13 @@ namespace CarRental
             InitializeComponent();
         }
 
-        private void frmCustomerRentHistory_Load(object sender, EventArgs e)
+        private async void frmCustomerRentHistory_Load(object sender, EventArgs e)
         {
             if (_CustomerID == -1)
                 return;
-
-            ctrlPersonInfo1.LoadPerson(Customer.GetCustomerByID(_CustomerID).PersonID);
+            var customer = await Customer.GetCustomerByID(_CustomerID);
+            if (customer == null) return;
+            ctrlPersonInfo1.LoadPerson(customer.PersonID);
             dgvRentHistory.DataSource = Customer.GetCustomerHistory(_CustomerID);
             if( dgvRentHistory.Rows.Count > 0  )
             {
