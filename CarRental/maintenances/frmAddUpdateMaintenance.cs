@@ -26,15 +26,15 @@ namespace CarRental
             InitializeComponent();
         }
 
-        public void _SaveMaintenance()
+        public async void _SaveMaintenance()
         {
             Maintenance Maintenance=new Maintenance();
             Maintenance.VehicleID = ctrlVehicleInfo1.VehicleID;
             Maintenance.Description = txtDescription.Text;
-            Maintenance.MaintenanceDate = DateTime.Now;
-            Maintenance.Cost=float.Parse(txtCost.Text);
+            Maintenance.MaintenanceDate = DateOnly.FromDateTime(DateTime.Now);
+            Maintenance.Cost=Convert.ToDecimal(txtCost.Text);
             
-            if(Maintenance.Save())
+            if(await Maintenance.Save())
             {
                 lblMaintenanceID.Text = Maintenance.MaintenanceID.ToString();
                 lblDate.Text = Maintenance.MaintenanceDate.ToShortDateString();

@@ -31,9 +31,9 @@ namespace CarRental
 
 
         }
-        private void _LoadData()
+        private async void _LoadData()
         {
-            Maintenance Maintenance=Maintenance.GetMainteanceByID(_MaintenanceID);
+            Maintenance? Maintenance= await Maintenance.GetMainteanceByID(_MaintenanceID);
             if (Maintenance == null)
                 return;
 

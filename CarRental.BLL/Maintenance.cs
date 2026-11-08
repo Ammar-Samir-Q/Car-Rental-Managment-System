@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
-
+using Data = CarRental.DAL.Entities;
 namespace CarRental.BLL
 {
     public class Maintenance
@@ -15,11 +15,11 @@ namespace CarRental.BLL
 
         public Vehicle VehicleInfo { get; set; }
 
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
-        public DateTime MaintenanceDate { get; set; }
+        public DateOnly MaintenanceDate { get; set; }
 
-        public float Cost { get; set; }
+        public decimal Cost { get; set; }
 
         private enMode _Mode = enMode.AddNew;
 
@@ -31,12 +31,12 @@ namespace CarRental.BLL
             this.MaintenanceID = -1;
             this.VehicleID = -1;
             this.Description = "";
-            this.MaintenanceDate = DateTime.Now;
+            this.MaintenanceDate = DateOnly.FromDateTime(DateTime.Now);
             this.Cost = 0;
             this._Mode = enMode.AddNew;
         }
 
-        public Maintenance(int MainteanceID, int VehicleID, string Description, DateTime MaintenanceDate, float Cost)
+        public Maintenance(int MainteanceID, int VehicleID, string? Description, DateOnly MaintenanceDate, decimal Cost)
         {
             this.MaintenanceID = MainteanceID;
             this.VehicleID = VehicleID;
@@ -49,75 +49,82 @@ namespace CarRental.BLL
 
         //----------------------------------
 
-        private bool _AddMaintenance()
+        private async Task<bool> _AddMaintenance()
         {
-            this.MaintenanceID = DAL.MaintenanceRepository.AddMaintenance(VehicleID, Description, MaintenanceDate, Cost); ;
+            Data.Maintenance maintenance = new Data.Maintenance()
+            {
+                VehicleID = this.VehicleID,
+                Description = this.Description,
+                MaintenanceDate = this.MaintenanceDate,
+                Cost = this.Cost
+
+            };
+            this.MaintenanceID = await DAL.MaintenanceRepository.AddMaintenance(maintenance); ;
             return this.MaintenanceID > 0;
         }
 
-        private bool _UpdateMaintenance()
+        private async Task<bool> _UpdateMaintenance()
         {
-            return DAL.MaintenanceRepository.UpdateMainteance(MaintenanceID, VehicleID, Description, MaintenanceDate, Cost);
+            return await DAL.MaintenanceRepository.UpdateMainteance(MaintenanceID, VehicleID, Description, MaintenanceDate, Cost);
         }
 
-        public bool Save()
+        public async Task<bool> Save()
         {
             switch (_Mode)
             {
                 case enMode.AddNew:
                     this._Mode = enMode.Update;
-                    return _AddMaintenance();
+                    return await _AddMaintenance();
                 case enMode.Update:
-                    return _UpdateMaintenance();
+                    return await _UpdateMaintenance();
             }
             return false;
 
         }
 
-        public static Maintenance GetMainteanceByID(int MaintenanceID)
+        public static async Task<Maintenance?> GetMainteanceByID(int MaintenanceID)
         {
-            int VehicleID = -1;
-            string Description = "";
-            DateTime MaintenanceDate = DateTime.Now;
-            float Cost = 0;
-            if (DAL.MaintenanceRepository.GetMaintenanceByID(MaintenanceID, ref VehicleID, ref Description, ref MaintenanceDate, ref Cost))
+
+            var maintenace = await DAL.MaintenanceRepository.GetMaintenanceByID(MaintenanceID);
+            if (maintenace!=null)
             {
-                return new Maintenance(MaintenanceID, VehicleID, Description, MaintenanceDate, Cost);
+
+                return new Maintenance(MaintenanceID, maintenace.VehicleID, maintenace.Description, maintenace.MaintenanceDate, maintenace.Cost);
             }
             else
                 return null;
 
         }
 
-        public static DataTable GetAllMaintenances()
+        public static async Task<DataTable> GetAllMaintenances()
         {
-            return DAL.MaintenanceRepository.GetAllMaintenances();
+            return await DAL.MaintenanceRepository.GetAllMaintenances();
         }
 
-        public static DataTable GetAllMaintenancesForVehicle(int VehicleID)
+        public static async Task<DataTable> GetAllMaintenancesForVehicle(int VehicleID)
         {
-            return DAL.MaintenanceRepository.GetAllMaintenancesForVehicle(VehicleID);
+            return await DAL.MaintenanceRepository.GetAllMaintenancesForVehicle(VehicleID);
         }
 
 
-        public static bool DeleteMaintenance(int MaintenanceID)
+        public static async Task<bool> DeleteMaintenance(int MaintenanceID)
         {
-            return DAL.MaintenanceRepository.DeleteMaintenance(MaintenanceID);
+            return await DAL.MaintenanceRepository.DeleteMaintenance(MaintenanceID);
         }
 
-        public bool Delete()
+        public async Task<bool> Delete()
         {
-            return DAL.MaintenanceRepository.DeleteMaintenance(this.MaintenanceID);
+            return await DAL.MaintenanceRepository.DeleteMaintenance(this.MaintenanceID);
         }
 
-        public static bool IsMaintenanceExists(int MaintenanceID)
+        public static async Task<bool> IsMaintenanceExists(int MaintenanceID)
         {
-            return DAL.MaintenanceRepository.IsMaintenanceExists(MaintenanceID);
+            return await DAL.MaintenanceRepository.IsMaintenanceExists(MaintenanceID);
         }
 
-        public bool IsExists()
+        public async Task<bool> IsExists()
         {
-            return DAL.MaintenanceRepository.IsMaintenanceExists(this.MaintenanceID);
+            return await DAL.MaintenanceRepository.IsMaintenanceExists(this.MaintenanceID);
         }
 
     }

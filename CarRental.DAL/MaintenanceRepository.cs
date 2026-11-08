@@ -1,4 +1,8 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using CarRental.DAL.Context;
+using CarRental.DAL.Entities;
+using CarRental.DAL.Factories;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,131 +12,56 @@ namespace CarRental.DAL
 {
     public class MaintenanceRepository
     {
-        public static int AddMaintenance(int VehicleID, string Description, DateTime MaintenanceDate, float Cost)
+        public static async Task<int> AddMaintenance(Maintenance maintenance)
         {
-            int MaintenanceID = -1;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"Insert Into Maintenances
-(VehicleID,Description,MaintenanceDate,Cost)
-values
-(@VehicleID,@Description,@MaintenanceDate,@Cost);
-SELECT SCOPE_IDENTITY();
-";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@VehicleID", VehicleID);
-            if (string.IsNullOrEmpty(Description))
-                command.Parameters.AddWithValue("@Description", DBNull.Value);
-            else
-                command.Parameters.AddWithValue("@Description", Description);
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            command.Parameters.AddWithValue("@MaintenanceDate", MaintenanceDate);
-            command.Parameters.AddWithValue("@Cost", Cost);
+            await context.AddAsync(maintenance);
 
-            try
-            {
-                connection.Open();
-                object result = command.ExecuteScalar();
-                if (result != null && int.TryParse(result.ToString(), out int ID))
-                    MaintenanceID = ID;
-
-
-
-            }
-            catch (Exception ex)
-            { }
-            finally { connection.Close(); }
-
-            return MaintenanceID;
-        }
-
-        public static bool UpdateMainteance(int MaintenanceID, int VehicleID, string Description, DateTime MaintenanceDate, float Cost)
-        {
-            bool IsUpdated = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"UPDATE Maintenances
-Set VehicleID=@VehicleID,
-Description=@Description,
-MaintenanceDate=@MaintenanceDate,
-Cost=@Cost
-WHERE MaintenanceID=@MainrenanceID;";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@MaintenanceID", MaintenanceID);
-            command.Parameters.AddWithValue("@Vehicle", VehicleID);
-            if (string.IsNullOrEmpty(Description))
-                command.Parameters.AddWithValue("@Description", DBNull.Value);
-            else
-                command.Parameters.AddWithValue("@Description", Description);
-
-            command.Parameters.AddWithValue("@MaintenanceDate", MaintenanceDate);
-            command.Parameters.AddWithValue("@Cost", Cost); try
-            {
-                connection.Open();
-                IsUpdated = command.ExecuteNonQuery() > 0;
-            }
-            catch (System.Exception ex)
-            { }
-            finally { connection.Close(); }
-            return IsUpdated;
+            await context.SaveChangesAsync();
+            return maintenance.MaintenanceID;
 
         }
 
-        public static bool GetMaintenanceByID(int MaintenanceID, ref int VehicleID, ref string Description, ref DateTime MaintenanceDate, ref float Cost)
+        public static async Task<bool> UpdateMainteance(int MaintenanceID, int VehicleID, string Description, DateOnly MaintenanceDate, decimal Cost)
         {
-            bool IsFound = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT TOP 1 Maintenances.* FROM Maintenances WHERE MaintenanceID=@MaintenanceID";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@MaintenanceID", MaintenanceID);
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+            
+            var maintenance=await context.Maintenances.FindAsync(MaintenanceID);
+            if(maintenance==null) return false; 
 
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    VehicleID = (int)reader["VehicleID"];
-                    if (reader["Description"] == DBNull.Value)
-                        Description = "";
-                    else
-                        Description = (string)reader["Description"];
+            maintenance.VehicleID = VehicleID;
+            maintenance.Description = Description;
+            maintenance.MaintenanceDate = MaintenanceDate;
+            maintenance.Cost = Cost;
+            await context.SaveChangesAsync();
+            return true;
 
-                    MaintenanceDate = (DateTime)reader["MaintenanceDate"];
-                    Cost = (float)((decimal)reader["Cost"]);
+        }
 
-                    IsFound = true;
+        public static async Task<Maintenance?> GetMaintenanceByID(int MaintenanceID)
+        {
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            { }
-            finally { connection.Close(); }
-            return IsFound;
+            return await context.Maintenances.FindAsync(MaintenanceID);
+
+        }
+
+        public static async Task<bool> DeleteMaintenance(int MaintenanceID)
+        {
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+
+            var maintenances=await context.Maintenances.FindAsync(MaintenanceID);
+            if(maintenances==null) return false;
+            context.Maintenances.Remove(maintenances);
+           await context.SaveChangesAsync();
+            return true;
 
 
         }
 
-        public static bool DeleteMaintenance(int MaintenanceID)
-        {
-            bool IsDeleted = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"DELETE FROM Maintenances WHERE MaintenanceID=@MaintenanceID;";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@MaintenanceID", MaintenanceID);
-            try
-            {
-                connection.Open();
-                IsDeleted = command.ExecuteNonQuery() > 0;
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally { connection.Close(); }
-            return IsDeleted;
-        }
-
-        public static DataTable GetAllMaintenances()
+        //ADO.NET
+        public static async Task<DataTable> GetAllMaintenances()
         {
             DataTable dataTable = new DataTable();
             SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
@@ -140,8 +69,8 @@ WHERE MaintenanceID=@MainrenanceID;";
             SqlCommand command = new SqlCommand(Query, connection);
             try
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+               await connection.OpenAsync();
+                SqlDataReader reader =await command.ExecuteReaderAsync();
                 if (reader.HasRows)
                 {
                     dataTable.Load(reader);
@@ -150,14 +79,18 @@ WHERE MaintenanceID=@MainrenanceID;";
 
             }
             catch (Exception ex)
-            { }
+            {
+
+                throw ex;
+            }
             finally { connection.Close(); }
             return dataTable;
             {
             }
         }
 
-        public static DataTable GetAllMaintenancesForVehicle(int VehicleID)
+        //ADO.NET
+        public static async Task<DataTable> GetAllMaintenancesForVehicle(int VehicleID)
         {
             DataTable dataTable = new DataTable();
             SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
@@ -167,8 +100,8 @@ WHERE MaintenanceID=@MainrenanceID;";
             command.Parameters.AddWithValue("@VehicleID", VehicleID);
             try
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+               await connection.OpenAsync();
+                SqlDataReader reader =await command.ExecuteReaderAsync();
                 if (reader.HasRows)
                 {
                     dataTable.Load(reader);
@@ -177,7 +110,9 @@ WHERE MaintenanceID=@MainrenanceID;";
 
             }
             catch (Exception ex)
-            { }
+            {
+                throw ex;
+            }
             finally { connection.Close(); }
             return dataTable;
             {
@@ -185,29 +120,11 @@ WHERE MaintenanceID=@MainrenanceID;";
         }
 
 
-        public static bool IsMaintenanceExists(int MaintenanceID)
+        public static async Task<bool> IsMaintenanceExists(int MaintenanceID)
         {
-            bool IsExists = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT 1 FROM Maintenances WHERE MaintenanceID=@MaintenanceID";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("", 1);
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                IsExists = reader.HasRows;
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally { connection.Close(); }
-            return IsExists;
-
-
-
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+            
+            return await context.Maintenances.AnyAsync(m=>m.MaintenanceID== MaintenanceID);
         }
     }
 }

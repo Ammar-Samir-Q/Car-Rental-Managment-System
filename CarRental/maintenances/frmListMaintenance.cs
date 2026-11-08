@@ -20,9 +20,9 @@ namespace CarRental
 
         private DataTable _dtMaintenances;
 
-        private void _LoadDataGridView()
+        private async Task _LoadDataGridView()
         {
-            _dtMaintenances = Maintenance.GetAllMaintenances();
+            _dtMaintenances =await  Maintenance.GetAllMaintenances();
             dgvMaintenances.DataSource = _dtMaintenances;
             if(dgvMaintenances.Rows.Count > 0 )
             {
@@ -48,9 +48,9 @@ namespace CarRental
             }
         }
 
-        private void _RefreashDataGridView()
+        private async Task _RefreashDataGridView()
         {
-            _dtMaintenances = Maintenance.GetAllMaintenances();
+            _dtMaintenances =await Maintenance.GetAllMaintenances();
             dgvMaintenances.DataSource = _dtMaintenances;
         }
         private void _CountRecords()
@@ -58,9 +58,9 @@ namespace CarRental
             lblRecordsNumber.Text = dgvMaintenances.Rows.Count.ToString();
         }
 
-        private void frmListMaintenance_Load(object sender, EventArgs e)
+        private async void frmListMaintenance_Load(object sender, EventArgs e)
         {
-            _LoadDataGridView();
+            await _LoadDataGridView();
             _CountRecords();
             cbFilter.SelectedIndex = 0;
         }
@@ -78,11 +78,11 @@ namespace CarRental
             frm.ShowDialog();
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Are You Sure ?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) ==DialogResult.OK)
             {
-                if (Maintenance.DeleteMaintenance((int)dgvMaintenances.SelectedRows[0].Cells[0].Value))
+                if (await Maintenance.DeleteMaintenance((int)dgvMaintenances.SelectedRows[0].Cells[0].Value))
                 {
                     MessageBox.Show("Deleted Successufully", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _RefreashDataGridView();
@@ -143,11 +143,11 @@ namespace CarRental
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             Form frm= new frmAddUpdateMaintenance();
             frm.ShowDialog();
-            _RefreashDataGridView();
+            await _RefreashDataGridView();
         }
     }
 }
