@@ -14,21 +14,21 @@ namespace CarRental
     public partial class frmChangePassword : Form
     {
         private int _UserID = -1;
-        private User _User;
+        private User? _User;
         public frmChangePassword(int UserID)
         {
             _UserID = UserID;
             InitializeComponent();
         }
 
-        private void frmChangePassword_Load(object sender, EventArgs e)
+        private async void frmChangePassword_Load(object sender, EventArgs e)
         {
             if(_UserID == -1)
             {
                 this.Close();
                 return;
             }
-            _User=User.GetUserByID(this._UserID);
+            _User=await User.GetUserByID(this._UserID);
             if( _User == null )
             {
                 this.Close();
@@ -38,10 +38,10 @@ namespace CarRental
 
         }
 
-        private void _Save()
+        private async void _Save()
         {
             _User.Password = txtNewPassword.Text;
-            if (_User.Save())
+            if ( await _User.Save())
             {
                 MessageBox.Show("Password Updated Successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -57,7 +57,7 @@ namespace CarRental
                 _Save();
         }
 
-        private void txtPassword_Validating(object sender, CancelEventArgs e)
+        private async void txtPassword_Validating(object sender, CancelEventArgs e)
         {
           
             if(string.IsNullOrEmpty(txtPassword.Text))
@@ -71,7 +71,7 @@ namespace CarRental
                 ep.SetError(txtPassword, "");
             }
 
-            if (!User.IsUserExists(_User.Username,txtPassword.Text))
+            if (!await User.IsUserExists(_User.Username,txtPassword.Text))
             {
                 e.Cancel = true;
                 ep.SetError(txtPassword, "Wrong Password");

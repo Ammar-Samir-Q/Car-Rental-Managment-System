@@ -17,7 +17,7 @@ namespace CarRental
         private enMode _Mode;
         private int _UserID = -1;
         private int _PersonID = -1;
-        private User _User;
+        private User? _User;
         public frmAddUpdateUser()
         {
             InitializeComponent();
@@ -53,11 +53,11 @@ namespace CarRental
             cbRole.SelectedIndex = 0;
         }
 
-        private void _SetConvertingMode()
+        private async void _SetConvertingMode()
         {
             if (_PersonID <= 0)
                 return;
-            if(User.IsUserExistsByPersonID(_PersonID))
+            if( await User.IsUserExistsByPersonID(_PersonID))
             {
                 MessageBox.Show("This Person Is Already User In The System","Already Exists",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 this.Close();
@@ -69,9 +69,9 @@ namespace CarRental
             _Next();
         }
 
-        private void _LoadData()
+        private async void _LoadData()
         {
-            _User= User.GetUserByID(_UserID);
+            _User= await User.GetUserByID(_UserID);
             if( _User==null ) 
             {
                 MessageBox.Show("Error : Error While Loading The User Wuth ID : " + _UserID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -125,7 +125,7 @@ namespace CarRental
 
         //---------------------------------Save------------------------------------
 
-        private void _Save()
+        private async void _Save()
         {
             _User.Username=txtUsername.Text;
             _User.Password=txtPassword.Text;   
@@ -134,7 +134,7 @@ namespace CarRental
             _User.PersonID = ctrlPersonInfoWithFilter1.SelectedPersonID;
 
 
-            if(_User.Save())
+            if( await _User.Save())
             {
                 lblUserID.Text = _User.UserID.ToString();
                 if (Properties.Settings.Default.Language == "en")
@@ -190,7 +190,7 @@ namespace CarRental
                 return;
             }
 
-            if(User.IsUserExistsByPersonID(PersonID))
+            if(await User.IsUserExistsByPersonID(PersonID))
             {
                 MessageBox.Show("Error : Person is Already User In The System Choose Antoher One", "Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

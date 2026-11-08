@@ -1,5 +1,9 @@
-﻿using CarRental.DTO;
+﻿using CarRental.DAL.Context;
+using CarRental.DAL.Entities;
+using CarRental.DAL.Factories;
+using CarRental.DTO;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,138 +14,70 @@ namespace CarRental.DAL
     public class UserRepository
     {
 
-        public static int AddUser(int PersonID, string UserName, string Password, byte Role, bool IsActive)
+        public static async Task<int> AddUser(User NewUser)
         {
-            int UserID = -1;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"Insert Into Users
- (PersonID,UserName,Password,Role,IsActive,CreationDate)
- values
-(@PersonID,@UserName,@Password,@Role,@IsActive,@CreationDate)
-    SELECT SCOPE_IDENTITY();";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-            command.Parameters.AddWithValue("@UserName", UserName);
-            command.Parameters.AddWithValue("@Password", Password);
-            command.Parameters.AddWithValue("@Role", Role);
-            command.Parameters.AddWithValue("@IsActive", IsActive);
-            command.Parameters.AddWithValue("@CreationDate", DateTime.Now);
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            try
-            {
-                connection.Open();
-                object result = command.ExecuteScalar();
-                if (result != null && int.TryParse(result.ToString(), out int ID))
-                    UserID = ID;
+           await context.Users.AddAsync(NewUser);
 
+            await context.SaveChangesAsync();
 
+            return NewUser.UserID;
 
-            }
-            catch (Exception ex)
-            { }
-            finally { connection.Close(); }
-
-            return UserID;
         }
 
-        public static bool UpdateUser(int UserID, int PersonID, string UserName, string Password, byte Role, bool IsActive, DateTime CreationDate)
+        public static async Task<bool> UpdateUser(User User)
         {
-            bool IsUpdated = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"Update Users
-Set PersonID=@PersonID,
-UserName=@UserName,
-Password=@Password,
-Role=@Role,
-IsActive=@IsActive,
-CreationDate=@CreationDate
-WHERE UserID=@UserID;
-";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@UserID", UserID);
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-            command.Parameters.AddWithValue("@UserName", UserName);
-            command.Parameters.AddWithValue("@Password", Password);
-            command.Parameters.AddWithValue("@Role", Role);
-            command.Parameters.AddWithValue("@IsActive", IsActive);
-            command.Parameters.AddWithValue("@CreationDate", CreationDate);
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
+            var user =await context.Users.FindAsync(User.UserID);
 
+            if (user == null) return false;
 
-            try
-            {
-                connection.Open();
-                IsUpdated = command.ExecuteNonQuery() > 0;
-            }
-            catch (System.Exception ex)
-            { }
-            finally { connection.Close(); }
-            return IsUpdated;
+            user.PersonID = User.PersonID;
+            user.Username = User.Username;
+            user.Password = User.Password;
+            user.Role = User.Role;
+            user.IsActive = User.IsActive;
 
-        }
-        public static bool GetUserByID(int UserID, ref int PersonID, ref string UserName, ref string Password, ref byte Role, ref bool IsActive, ref DateTime CreationDate)
-        {
-            bool IsFound = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT TOP 1 Users.* FROM Users WHERE UserID=@UserID";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@UserID", UserID);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    PersonID = (int)reader["PersonID"];
-                    UserName = (string)reader["UserName"];
-                    Password = (string)reader["Password"];
-                    Role = (byte)reader["Role"];
-                    IsActive = (bool)reader["IsActive"];
-                    CreationDate = (DateTime)reader["CreationDate"];
-                    IsFound = true;
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-            }
-            finally { connection.Close(); }
-            return IsFound;
+            await context.SaveChangesAsync();
+            return true;
 
 
         }
-        public async static Task<UserDTO> GetUserByIDAsync(int UserID)
+        public static async Task<User?> GetUserByID(int UserID)
         {
-            return new UserDTO(1, 1, "Test", "P", 1, true, DateTime.Now);
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+
+            return await context.Users.FindAsync(UserID);
+
+        }
+        public async static Task<User?> GetUserByIDAsync(int UserID)
+        {
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+
+            return await context.Users.FindAsync(UserID);
         }
 
-        public async static Task<UserDTO> GetUserByUsernameAndPasswordAsync(string Username, string Password)
+        public async static Task<User?> GetUserByUsernameAndPasswordAsync(string Username, string Password)
         {
-            return new UserDTO(1, 1, "Test", "P", 1, true, DateTime.Now);
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+
+            return await context.Users.Where(u=>u.Username==Username&&u.Password==Password).FirstOrDefaultAsync();
         }
 
-        public static bool DeleteUser(int UserID)
+        public static async Task<bool> DeleteUser(int UserID)
         {
-            bool IsDeleted = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"DELETE FROM Users WHERE UserID=@UserID";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@UserID", UserID);
-            try
-            {
-                connection.Open();
-                IsDeleted = command.ExecuteNonQuery() > 0;
-            }
-            catch (Exception ex)
-            {
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+            var User=await context.Users.FindAsync(UserID);
+            if (User == null) return false;
 
-            }
-            finally { connection.Close(); }
-            return IsDeleted;
+            context.Users.Remove(User);
+            await context.SaveChangesAsync();
+            return true;
         }
 
-        public static DataTable GetAllUsers()
+        public async static Task<DataTable> GetAllUsers()
         {
             DataTable dataTable = new DataTable();
             SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
@@ -149,8 +85,8 @@ WHERE UserID=@UserID;
             SqlCommand command = new SqlCommand(Query, connection);
             try
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                await connection.OpenAsync();
+                SqlDataReader reader =await command.ExecuteReaderAsync();
                 if (reader.HasRows)
                 {
                     dataTable.Load(reader);
@@ -162,92 +98,31 @@ WHERE UserID=@UserID;
             { }
             finally { connection.Close(); }
             return dataTable;
-            {
-            }
         }
 
-        public static bool IsUserExists(int UserID)
+        public static async Task<bool> IsUserExists(int UserID)
         {
-            bool IsExists = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT 1 FROM Users WHERE UserID=@UserID";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@UserID", UserID);
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                IsExists = reader.HasRows;
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            }
-            finally { connection.Close(); }
-            return IsExists;
-
-
+            return await context.Users.AnyAsync(u=>u.UserID==UserID);
 
         }
 
-        public static bool IsUserExistsByPersonID(int PersonID)
+        public static async Task<bool> IsUserExistsByPersonID(int PersonID)
         {
-            bool IsExists = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT 1 FROM Users WHERE PersonID=@PersonID";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                IsExists = reader.HasRows;
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            }
-            finally { connection.Close(); }
-            return IsExists;
-
-
-
+            return await context.Users.AnyAsync(u => u.PersonID == PersonID);
         }
 
-
-        public static bool IsUserExists(string Username, string password)
+        
+        public static async Task<bool> IsUserExists(string Username, string password)
         {
-            bool IsExists = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT 1 FROM Users WHERE Username=@Username AND Password=@Password";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@Password", password);
-            command.Parameters.AddWithValue("@Username", Username);
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                IsExists = reader.HasRows;
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            }
-            finally { connection.Close(); }
-            return IsExists;
-
-
+            return await context.Users.AnyAsync(u => u.Username == Username&&u.Password==password);
 
         }
-
-
-
-
-
-
 
     }
 }

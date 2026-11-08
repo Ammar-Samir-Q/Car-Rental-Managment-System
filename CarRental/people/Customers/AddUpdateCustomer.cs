@@ -42,13 +42,14 @@ namespace CarRental
 
 
         //--------------------------Load--------------------------
-        private void _SetDefaults()
+        private async void _SetDefaults()
         {
             _Customer = new Customer();
             lblCreationDate.Text = DateTime.Now.ToShortDateString();
             ctrlPersonInfoWithFilter1.ResetControl();
             //Change This After Login
-            lblCreatedBy.Text = User.GetUserByID(GlobalClass.CurrentUser.UserID).Username;
+            var user = await User.GetUserByID(GlobalClass.CurrentUser.UserID);
+            lblCreatedBy.Text = user == null?"N/A":user.Username;
             txtDriverLicnese.Text = "";
         }
       
@@ -62,7 +63,8 @@ namespace CarRental
             ctrlPersonInfoWithFilter1.FilterEnabled = false;
             lblTitle.Text=_Customer.CustomerID.ToString();
             lblCreationDate.Text = _Customer.CreationDate.ToShortDateString();
-            lblCreatedBy.Text=User.GetUserByID(_Customer.CreatedByUserID).Username;
+            var user = await User.GetUserByID(_Customer.CreatedByUserID);
+            lblCreatedBy.Text = user == null ? "N/A" : user.Username;
             txtDriverLicnese.Text=_Customer.DriverLicnsesNumber.ToString();
             lblCustomerID.Text = _Customer.CustomerID.ToString();
             if (Properties.Settings.Default.Language == "en")
@@ -166,7 +168,8 @@ namespace CarRental
                 return;
             }
 
-            if(! await ctrlPersonInfoWithFilter1.SelectedPersonInfo.IsExists())
+
+            if(! await Person.IsPersonExists(ctrlPersonInfoWithFilter1.SelectedPersonID))
             {
                 MessageBox.Show("This Person is Not Exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

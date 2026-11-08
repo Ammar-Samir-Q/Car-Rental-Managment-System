@@ -48,7 +48,7 @@ namespace CarRental
         {
             _SetDefaults();
         }
-        private void _LoadData()
+        private async void _LoadData()
         {
              _Booking= Booking.GetRentalByID(BookingID);
 
@@ -62,7 +62,8 @@ namespace CarRental
             lblDropOffLocation.Text=_Booking.DropOffLocation==""?"N/A":_Booking.DropOffLocation;
             lblCheackNotes.Text=_Booking.InitialCheckNotes==""?"N/A":_Booking.InitialCheckNotes;
             lblRentalPrice.Text = _Booking.RentalPricePerDay.ToString();
-            lblCreatedBy.Text = User.GetUserByID(_Booking.CreatedByUserID).Username;
+            var user= await User.GetUserByID(_Booking.CreatedByUserID);
+            lblCreatedBy.Text = user==null?"N/A":user.Username;
             lblTotalDays.Text = _Booking.TotalDays.ToString();
             lblTotalPaidAmount.Text = _Booking.InitialTotalDueAmount.ToString();
 

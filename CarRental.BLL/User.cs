@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using CarRental.DTO;
+using Data=CarRental.DAL.Entities;
 using Util;
 
 namespace CarRental.BLL
@@ -20,7 +21,7 @@ namespace CarRental.BLL
 
         public bool IsActive { get; set; }
 
-        public DateTime CreationDate { get; set; }
+        public DateOnly CreationDate { get; set; }
 
         private enMode _Mode = enMode.AddNew;
 
@@ -50,15 +51,15 @@ namespace CarRental.BLL
             this.Password = "";
             this.Role = enRole.Admin;
             this.IsActive = false;
-            this.CreationDate = DateTime.Now;
+            this.CreationDate = DateOnly.FromDateTime(DateTime.Now);
             this._Mode = enMode.AddNew;
         }
 
-        public User(int UserID, int PersonID, string Username, string Password, byte Role, bool IsActive, DateTime CreationDate)
+        public User(int UserID, int PersonID, string Username, string Password, byte Role, bool IsActive, DateOnly CreationDate,Person personInfo)
         {
             this.UserID = UserID;
             this.PersonID = PersonID;
-           // this.PersonInfo = Person.GetPerson(PersonID);
+            this.PersonInfo = personInfo;
             this.Username = Username;
             this.Password = Password;
             this.Role = (enRole)Role;
@@ -67,101 +68,118 @@ namespace CarRental.BLL
             this._Mode = enMode.Update;
         }
 
-        private bool _AddUser()
+        private async Task<bool> _AddUser()
         {
+            Data.User user = new Data.User()
+            {
+                PersonID = this.PersonID,
+                Username = this.Username,
+                Password = Util.Security.SecurityHelper.HashData(this.Password),
+                Role =(byte) this.Role,
+                IsActive=this.IsActive
+            };
 
-            this.UserID = DAL.UserRepository.AddUser(PersonID, Username, Util.Security.SecurityHelper.HashData(Password), (byte)Role, IsActive);
+            this.UserID = await DAL.UserRepository.AddUser(user);
             return this.UserID > 0;
         }
 
-        private bool _UpdateUser()
+        private async Task<bool> _UpdateUser()
         {
-            return DAL.UserRepository.UpdateUser(UserID, PersonID, Username, Util.Security.SecurityHelper.HashData(Password), (byte)Role, IsActive, CreationDate);
+            Data.User user = new Data.User()
+            {
+                UserID=this.UserID,
+                PersonID = this.PersonID,
+                Username = this.Username,
+                Password = Util.Security.SecurityHelper.HashData(this.Password),
+                Role = (byte)this.Role,
+                IsActive = this.IsActive
+            };
+            return await DAL.UserRepository.UpdateUser(user);
         }
 
-        public bool Save()
+        public async Task<bool> Save()
         {
             switch (_Mode)
             {
                 case enMode.AddNew:
                     _Mode = enMode.Update;
-                    return _AddUser();
+                    return await _AddUser();
                 case enMode.Update:
-                    return _UpdateUser();
+                    return await _UpdateUser();
             }
             return false;
         }
 
-        public static User GetUserByID(int UserID)
+        public static async Task<User?> GetUserByID(int UserID)
         {
-            int PersonID = -1;
-            string Username = "", Password = "";
-            byte Role = 0;
-            bool IsActive = false;
-            DateTime CreationDate = DateTime.Now;
-            if (DAL.UserRepository.GetUserByID(UserID, ref PersonID, ref Username, ref Password, ref Role, ref IsActive, ref CreationDate))
+            var User = await DAL.UserRepository.GetUserByID(UserID);
+
+            if (User!=null)
             {
-                return new User(UserID, PersonID, Username, Password, Role, IsActive, CreationDate);
+                BLL.Person? personInfo = await BLL.Person.GetPerson(User.PersonID);
+                return new User(UserID, User.PersonID, User.Username, User.Password, User.Role, User.IsActive, User.CreationDate,personInfo);
             }
             else
                 return null;
         }
-        public async static Task<User> GetUserByIDAsync(int UserID)
+        public async static Task<User?> GetUserByIDAsync(int UserID)
         {
-            UserDTO usersDTO;
-            usersDTO = await DAL.UserRepository.GetUserByIDAsync(UserID);
-            if (!string.IsNullOrEmpty(usersDTO.Username))
+            var User = await DAL.UserRepository.GetUserByID(UserID);
+
+            if (User != null)
             {
-                return new User(usersDTO.UserID, usersDTO.PersonID, usersDTO.Username, usersDTO.Password, usersDTO.Role, usersDTO.IsActive, usersDTO.CreationDate);
+                BLL.Person? personInfo = await BLL.Person.GetPerson(User.PersonID);
+                return new User(UserID, User.PersonID, User.Username, User.Password, User.Role, User.IsActive, User.CreationDate, personInfo);
             }
             else
                 return null;
         }
 
-        public async static Task<User> GetUserByUsernameAndPasswordAsync(string Username, string Password)
+        public async static Task<User?> GetUserByUsernameAndPasswordAsync(string Username, string Password)
         {
-            UserDTO usersDTO;
-            usersDTO = await DAL.UserRepository.GetUserByUsernameAndPasswordAsync(Username, Util.Security.SecurityHelper.HashData(Password));
-            if (!string.IsNullOrEmpty(usersDTO.Username))
+            var User = await DAL.UserRepository.GetUserByUsernameAndPasswordAsync(Username,Util.Security.SecurityHelper.HashData(Password));
+
+            if (User != null)
             {
-                return new User(usersDTO.UserID, usersDTO.PersonID, usersDTO.Username, usersDTO.Password, usersDTO.Role, usersDTO.IsActive, usersDTO.CreationDate);
+                BLL.Person? personInfo = await BLL.Person.GetPerson(User.PersonID);
+                return new User(User.UserID, User.PersonID, User.Username, User.Password, User.Role, User.IsActive, User.CreationDate, personInfo);
             }
             else
                 return null;
         }
-        public static bool DeleteUser(int UserID)
+        public static async Task<bool> DeleteUser(int UserID)
         {
-            return DAL.UserRepository.DeleteUser(UserID);
+            return await DAL.UserRepository.DeleteUser(UserID);
         }
-        public bool Delete()
+        public async Task<bool> Delete()
         {
-            return DAL.UserRepository.DeleteUser(this.UserID);
-        }
-
-        public static DataTable GetAllUsers()
-        {
-            return DAL.UserRepository.GetAllUsers();
+            return await DAL.UserRepository.DeleteUser(this.UserID);
         }
 
-        public static bool IsUserExists(int UserID)
+        public static async Task<DataTable> GetAllUsers()
         {
-            return DAL.UserRepository.IsUserExists(UserID);
+            return await DAL.UserRepository.GetAllUsers();
         }
 
-        public static bool IsUserExists(string UserName, string Password)
+        public static async Task<bool> IsUserExists(int UserID)
         {
-            return DAL.UserRepository.IsUserExists(UserName, Util.Security.SecurityHelper.HashData(Password));
+            return await DAL.UserRepository.IsUserExists(UserID);
         }
 
-        public bool IsExists()
+        public static async Task<bool> IsUserExists(string UserName, string Password)
         {
-            return DAL.UserRepository.IsUserExists(this.UserID);
+            return await DAL.UserRepository.IsUserExists(UserName, Util.Security.SecurityHelper.HashData(Password));
+        }
+
+        public async Task<bool> IsExists()
+        {
+            return await DAL.UserRepository.IsUserExists(this.UserID);
         }
 
 
-        public static bool IsUserExistsByPersonID(int PersonID)
+        public static async Task<bool> IsUserExistsByPersonID(int PersonID)
         {
-            return DAL.UserRepository.IsUserExistsByPersonID(PersonID);
+            return await DAL.UserRepository.IsUserExistsByPersonID(PersonID);
         }
     }
 }

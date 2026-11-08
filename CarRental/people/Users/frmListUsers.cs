@@ -20,9 +20,9 @@ namespace CarRental
 
         public DataTable _dtUsers;
 
-        private void _LoadDataGridView()
+        private async Task _LoadDataGridView()
         {
-            _dtUsers=User.GetAllUsers();
+            _dtUsers=await User.GetAllUsers();
             dgvUsers.DataSource= _dtUsers;
             if(dgvUsers.Rows.Count >0 )
             {
@@ -52,9 +52,9 @@ namespace CarRental
             }
         }
 
-        private void _RefreashDataGridView()
+        private async void _RefreashDataGridView()
         {
-            _dtUsers = User.GetAllUsers();
+            _dtUsers =await User.GetAllUsers();
             dgvUsers.DataSource = _dtUsers;
             _CountRecords();
         }
@@ -164,9 +164,9 @@ namespace CarRental
             }
         }
 
-        private void frmListUsers_Load(object sender, EventArgs e)
+        private async void frmListUsers_Load(object sender, EventArgs e)
         {
-            _LoadDataGridView();
+             await _LoadDataGridView();
             _CountRecords();
             cbFilter.SelectedIndex= 0;
             cbActive.SelectedIndex= 0;
@@ -209,7 +209,7 @@ namespace CarRental
             this.Close();
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (GlobalClass.CurrentUser.Role == User.enRole.Admin)
             {
@@ -218,7 +218,7 @@ namespace CarRental
                     return;
                 }
 
-                if (User.DeleteUser((int)dgvUsers.SelectedRows[0].Cells[0].Value))
+                if (await User.DeleteUser((int)dgvUsers.SelectedRows[0].Cells[0].Value))
                 {
                     MessageBox.Show("User Deleted Successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _RefreashDataGridView();

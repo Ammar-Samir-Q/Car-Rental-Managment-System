@@ -21,7 +21,7 @@ namespace CarRental
         private DataTable _dtCustomers;
 
 
-        private async void _LoadDataGridView()
+        private async Task _LoadDataGridView()
         {
             _dtCustomers=await Customer.GetAllCustomers();
             dgvCustomers.DataSource=_dtCustomers;
@@ -66,9 +66,9 @@ namespace CarRental
             lblRecordsNumber.Text=dgvCustomers.Rows.Count.ToString();
         }
         
-        private void frmListCustomers_Load(object sender, EventArgs e)
+        private async void frmListCustomers_Load(object sender, EventArgs e)
         {
-            _LoadDataGridView();
+            await _LoadDataGridView();
             _CountRecnords();
             cbFilter.SelectedIndex = 0;
             cbGender.SelectedIndex = 0;

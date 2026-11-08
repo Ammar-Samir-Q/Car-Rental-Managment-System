@@ -58,7 +58,7 @@ namespace CarRental
             }
         }
 
-        private async void _LoadDataGridView()
+        private async Task _LoadDataGridView()
         {
             _dtPeople =await Person.GetAllPeople();
             dgvPeople.DataSource= _dtPeople;
@@ -102,7 +102,7 @@ namespace CarRental
 
         private async void frmListPeople_Load(object sender, EventArgs e)
         {
-             _LoadDataGridView();
+             await _LoadDataGridView();
             _FillComboBox();
             _CountRecords();
         }

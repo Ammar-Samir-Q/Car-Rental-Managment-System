@@ -161,7 +161,7 @@ namespace CarRental.DAL
         {
             using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            return await context.RentalBookings.Where(b => b.CustomerID == CustomerID).Select(b => b.RentalStartDate).OrderDescending().FirstAsync();
+            return await context.RentalBookings.Where(b => b.CustomerID == CustomerID).Select(b => b.RentalStartDate).OrderDescending().FirstOrDefaultAsync();
         }
 
         public static async Task<int> GetTotalCustomers()

@@ -20,13 +20,13 @@ namespace CarRental
         private int _UserID=-1;
         public int UserID { get { return _UserID; } }
 
-        public void LoadUser(int UserID)
+        public async void LoadUser(int UserID)
         {
             _UserID = UserID;
             if (UserID <= 0)
                 return;
 
-                User User = User.GetUserByID(UserID);
+                User? User = await User.GetUserByID(UserID);
                 if( User == null )
             {
                 MessageBox.Show("Error : Faild To Load User Info", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
