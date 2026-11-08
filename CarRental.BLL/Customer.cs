@@ -33,11 +33,11 @@ namespace CarRental.BLL
             this._Mode = enMode.AddNew;
         }
 
-        public Customer(int CustomerID, int PersonID, DateTime CreationDate, string DriverLicenseNumber, int CreatedByUserID)
+        public Customer(int CustomerID, int PersonID, DateTime CreationDate, string DriverLicenseNumber, int CreatedByUserID,Person personInfo)
         {
             this.CustomerID = CustomerID;
             this.PersonID = PersonID;
-            this.PersonInfo = Person.GetPerson(PersonID);
+            this.PersonInfo = personInfo;
             this.CreationDate = CreationDate;
             this.DriverLicnsesNumber = DriverLicenseNumber;
             this.CreatedByUserID = CreatedByUserID;
@@ -70,28 +70,31 @@ namespace CarRental.BLL
             return false;
         }
 
-        public static Customer GetCustomerByID(int CustomerID)
+        public static async Task<Customer?> GetCustomerByID(int CustomerID)
         {
             int PersonID = -1, CreatedByUserID = -1;
             string DriverLicenseNumber = "";
             DateTime CreationDate = DateTime.Now;
             if (DAL.CustomerRepository.GetByID(CustomerID, ref PersonID, ref CreationDate, ref CreatedByUserID, ref DriverLicenseNumber))
             {
-                return new Customer(CustomerID, PersonID, CreationDate, DriverLicenseNumber, CreatedByUserID);
+                    Person? personInfo = await BLL.Person.GetPerson(PersonID);
+                return new Customer(CustomerID, PersonID, CreationDate, DriverLicenseNumber, CreatedByUserID, personInfo);
             }
             else
                 return null;
 
         }
 
-        public static Customer GetCustomerByPersonID(int PersonID)
+        public async static Task<Customer?> GetCustomerByPersonID(int PersonID)
         {
             int CustomerID = -1, CreatedByUserID = -1;
             string DriverLicenseNumber = "";
             DateTime CreationDate = DateTime.Now;
             if (DAL.CustomerRepository.GetByPersonID(PersonID, ref CustomerID, ref CreationDate, ref CreatedByUserID, ref DriverLicenseNumber))
             {
-                return new Customer(CustomerID, PersonID, CreationDate, DriverLicenseNumber, CreatedByUserID);
+                Person? personInfo = await BLL.Person.GetPerson(PersonID);
+
+                return new Customer(CustomerID, PersonID, CreationDate, DriverLicenseNumber, CreatedByUserID,personInfo);
             }
             else
                 return null;

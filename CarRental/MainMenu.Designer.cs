@@ -29,401 +29,380 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.ايجارToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addRentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.returnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageRentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.VehiclesToolMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.showVehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageVehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PeopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.allPeopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mainteanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.staticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.accountSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.currentUserInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblUsernameTitle = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTotalVehicles = new System.Windows.Forms.Label();
-            this.lblTitleTotalVehicles = new System.Windows.Forms.Label();
-            this.lblTitleTotalCustomers = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblTotalCustomers = new System.Windows.Forms.Label();
-            this.lblTitleTotalRents = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblTotalRents = new System.Windows.Forms.Label();
-            this.lblTitleTotalBookings = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lblTotalBookings = new System.Windows.Forms.Label();
-            this.lblRole = new System.Windows.Forms.Label();
-            this.pbUserImage = new System.Windows.Forms.PictureBox();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUserImage)).BeginInit();
-            this.SuspendLayout();
+            menuStrip1 = new MenuStrip();
+            ايجارToolStripMenuItem = new ToolStripMenuItem();
+            addRentToolStripMenuItem = new ToolStripMenuItem();
+            returnToolStripMenuItem = new ToolStripMenuItem();
+            manageRentsToolStripMenuItem = new ToolStripMenuItem();
+            transactionsToolStripMenuItem = new ToolStripMenuItem();
+            VehiclesToolMenuStrip = new ToolStripMenuItem();
+            showVehiclesToolStripMenuItem = new ToolStripMenuItem();
+            manageVehiclesToolStripMenuItem = new ToolStripMenuItem();
+            PeopleToolStripMenuItem = new ToolStripMenuItem();
+            customersToolStripMenuItem = new ToolStripMenuItem();
+            usersToolStripMenuItem1 = new ToolStripMenuItem();
+            allPeopleToolStripMenuItem = new ToolStripMenuItem();
+            mainteanceToolStripMenuItem = new ToolStripMenuItem();
+            staticsToolStripMenuItem = new ToolStripMenuItem();
+            settingsToolStripMenuItem = new ToolStripMenuItem();
+            accountSettingsToolStripMenuItem = new ToolStripMenuItem();
+            currentUserInfoToolStripMenuItem = new ToolStripMenuItem();
+            changePasswordToolStripMenuItem = new ToolStripMenuItem();
+            systemToolStripMenuItem = new ToolStripMenuItem();
+            signOutToolStripMenuItem = new ToolStripMenuItem();
+            exitApplicationToolStripMenuItem = new ToolStripMenuItem();
+            lblUsernameTitle = new Label();
+            lblUsername = new Label();
+            lblTitle = new Label();
+            pictureBox1 = new PictureBox();
+            panel1 = new Panel();
+            lblTotalVehicles = new Label();
+            lblTitleTotalVehicles = new Label();
+            lblTitleTotalCustomers = new Label();
+            panel2 = new Panel();
+            lblTotalCustomers = new Label();
+            lblTitleTotalRents = new Label();
+            panel3 = new Panel();
+            lblTotalRents = new Label();
+            lblTitleTotalBookings = new Label();
+            panel4 = new Panel();
+            lblTotalBookings = new Label();
+            lblRole = new Label();
+            pbUserImage = new PictureBox();
+            menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            panel3.SuspendLayout();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbUserImage).BeginInit();
+            SuspendLayout();
             // 
             // menuStrip1
             // 
-            resources.ApplyResources(this.menuStrip1, "menuStrip1");
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ايجارToolStripMenuItem,
-            this.transactionsToolStripMenuItem,
-            this.VehiclesToolMenuStrip,
-            this.PeopleToolStripMenuItem,
-            this.mainteanceToolStripMenuItem,
-            this.staticsToolStripMenuItem,
-            this.settingsToolStripMenuItem,
-            this.exitApplicationToolStripMenuItem});
-            this.menuStrip1.Name = "menuStrip1";
+            resources.ApplyResources(menuStrip1, "menuStrip1");
+            menuStrip1.BackColor = SystemColors.ButtonHighlight;
+            menuStrip1.Items.AddRange(new ToolStripItem[] { ايجارToolStripMenuItem, transactionsToolStripMenuItem, VehiclesToolMenuStrip, PeopleToolStripMenuItem, mainteanceToolStripMenuItem, staticsToolStripMenuItem, settingsToolStripMenuItem, exitApplicationToolStripMenuItem });
+            menuStrip1.Name = "menuStrip1";
             // 
             // ايجارToolStripMenuItem
             // 
-            resources.ApplyResources(this.ايجارToolStripMenuItem, "ايجارToolStripMenuItem");
-            this.ايجارToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addRentToolStripMenuItem,
-            this.returnToolStripMenuItem,
-            this.manageRentsToolStripMenuItem});
-            this.ايجارToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_Booking;
-            this.ايجارToolStripMenuItem.Name = "ايجارToolStripMenuItem";
+            resources.ApplyResources(ايجارToolStripMenuItem, "ايجارToolStripMenuItem");
+            ايجارToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addRentToolStripMenuItem, returnToolStripMenuItem, manageRentsToolStripMenuItem });
+            ايجارToolStripMenuItem.Image = Properties.Resources.icon_Booking;
+            ايجارToolStripMenuItem.Name = "ايجارToolStripMenuItem";
             // 
             // addRentToolStripMenuItem
             // 
-            resources.ApplyResources(this.addRentToolStripMenuItem, "addRentToolStripMenuItem");
-            this.addRentToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_AddRent;
-            this.addRentToolStripMenuItem.Name = "addRentToolStripMenuItem";
-            this.addRentToolStripMenuItem.Click += new System.EventHandler(this.addRentToolStripMenuItem_Click);
+            resources.ApplyResources(addRentToolStripMenuItem, "addRentToolStripMenuItem");
+            addRentToolStripMenuItem.Image = Properties.Resources.icon_AddRent;
+            addRentToolStripMenuItem.Name = "addRentToolStripMenuItem";
+            addRentToolStripMenuItem.Click += addRentToolStripMenuItem_Click;
             // 
             // returnToolStripMenuItem
             // 
-            resources.ApplyResources(this.returnToolStripMenuItem, "returnToolStripMenuItem");
-            this.returnToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_Rent;
-            this.returnToolStripMenuItem.Name = "returnToolStripMenuItem";
-            this.returnToolStripMenuItem.Click += new System.EventHandler(this.returnToolStripMenuItem_Click);
+            resources.ApplyResources(returnToolStripMenuItem, "returnToolStripMenuItem");
+            returnToolStripMenuItem.Image = Properties.Resources.icon_Rent;
+            returnToolStripMenuItem.Name = "returnToolStripMenuItem";
+            returnToolStripMenuItem.Click += returnToolStripMenuItem_Click;
             // 
             // manageRentsToolStripMenuItem
             // 
-            resources.ApplyResources(this.manageRentsToolStripMenuItem, "manageRentsToolStripMenuItem");
-            this.manageRentsToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_ManageRents;
-            this.manageRentsToolStripMenuItem.Name = "manageRentsToolStripMenuItem";
-            this.manageRentsToolStripMenuItem.Click += new System.EventHandler(this.manageRentsToolStripMenuItem_Click);
+            resources.ApplyResources(manageRentsToolStripMenuItem, "manageRentsToolStripMenuItem");
+            manageRentsToolStripMenuItem.Image = Properties.Resources.icon_ManageRents;
+            manageRentsToolStripMenuItem.Name = "manageRentsToolStripMenuItem";
+            manageRentsToolStripMenuItem.Click += manageRentsToolStripMenuItem_Click;
             // 
             // transactionsToolStripMenuItem
             // 
-            resources.ApplyResources(this.transactionsToolStripMenuItem, "transactionsToolStripMenuItem");
-            this.transactionsToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_Transactions;
-            this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
-            this.transactionsToolStripMenuItem.Click += new System.EventHandler(this.transactionsToolStripMenuItem_Click);
+            resources.ApplyResources(transactionsToolStripMenuItem, "transactionsToolStripMenuItem");
+            transactionsToolStripMenuItem.Image = Properties.Resources.icon_Transactions;
+            transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
+            transactionsToolStripMenuItem.Click += transactionsToolStripMenuItem_Click;
             // 
             // VehiclesToolMenuStrip
             // 
-            resources.ApplyResources(this.VehiclesToolMenuStrip, "VehiclesToolMenuStrip");
-            this.VehiclesToolMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showVehiclesToolStripMenuItem,
-            this.manageVehiclesToolStripMenuItem});
-            this.VehiclesToolMenuStrip.Image = global::CarRental.Properties.Resources.icons8_vehicle_50;
-            this.VehiclesToolMenuStrip.Name = "VehiclesToolMenuStrip";
+            resources.ApplyResources(VehiclesToolMenuStrip, "VehiclesToolMenuStrip");
+            VehiclesToolMenuStrip.DropDownItems.AddRange(new ToolStripItem[] { showVehiclesToolStripMenuItem, manageVehiclesToolStripMenuItem });
+            VehiclesToolMenuStrip.Image = Properties.Resources.icons8_vehicle_50;
+            VehiclesToolMenuStrip.Name = "VehiclesToolMenuStrip";
             // 
             // showVehiclesToolStripMenuItem
             // 
-            resources.ApplyResources(this.showVehiclesToolStripMenuItem, "showVehiclesToolStripMenuItem");
-            this.showVehiclesToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_Description;
-            this.showVehiclesToolStripMenuItem.Name = "showVehiclesToolStripMenuItem";
-            this.showVehiclesToolStripMenuItem.Click += new System.EventHandler(this.showVehiclesToolStripMenuItem_Click);
+            resources.ApplyResources(showVehiclesToolStripMenuItem, "showVehiclesToolStripMenuItem");
+            showVehiclesToolStripMenuItem.Image = Properties.Resources.icon_Description;
+            showVehiclesToolStripMenuItem.Name = "showVehiclesToolStripMenuItem";
+            showVehiclesToolStripMenuItem.Click += showVehiclesToolStripMenuItem_Click;
             // 
             // manageVehiclesToolStripMenuItem
             // 
-            resources.ApplyResources(this.manageVehiclesToolStripMenuItem, "manageVehiclesToolStripMenuItem");
-            this.manageVehiclesToolStripMenuItem.Image = global::CarRental.Properties.Resources.icons8_vehicle_50;
-            this.manageVehiclesToolStripMenuItem.Name = "manageVehiclesToolStripMenuItem";
-            this.manageVehiclesToolStripMenuItem.Click += new System.EventHandler(this.manageVehiiclesToolStripMenuItem_Click);
+            resources.ApplyResources(manageVehiclesToolStripMenuItem, "manageVehiclesToolStripMenuItem");
+            manageVehiclesToolStripMenuItem.Image = Properties.Resources.icons8_vehicle_50;
+            manageVehiclesToolStripMenuItem.Name = "manageVehiclesToolStripMenuItem";
+            manageVehiclesToolStripMenuItem.Click += manageVehiiclesToolStripMenuItem_Click;
             // 
             // PeopleToolStripMenuItem
             // 
-            resources.ApplyResources(this.PeopleToolStripMenuItem, "PeopleToolStripMenuItem");
-            this.PeopleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.customersToolStripMenuItem,
-            this.usersToolStripMenuItem1,
-            this.allPeopleToolStripMenuItem});
-            this.PeopleToolStripMenuItem.Image = global::CarRental.Properties.Resources.Users;
-            this.PeopleToolStripMenuItem.Name = "PeopleToolStripMenuItem";
+            resources.ApplyResources(PeopleToolStripMenuItem, "PeopleToolStripMenuItem");
+            PeopleToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { customersToolStripMenuItem, usersToolStripMenuItem1, allPeopleToolStripMenuItem });
+            PeopleToolStripMenuItem.Image = Properties.Resources.Users;
+            PeopleToolStripMenuItem.Name = "PeopleToolStripMenuItem";
             // 
             // customersToolStripMenuItem
             // 
-            resources.ApplyResources(this.customersToolStripMenuItem, "customersToolStripMenuItem");
-            this.customersToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_Customer;
-            this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            this.customersToolStripMenuItem.Click += new System.EventHandler(this.customersToolStripMenuItem_Click);
+            resources.ApplyResources(customersToolStripMenuItem, "customersToolStripMenuItem");
+            customersToolStripMenuItem.Image = Properties.Resources.icon_Customer;
+            customersToolStripMenuItem.Name = "customersToolStripMenuItem";
+            customersToolStripMenuItem.Click += customersToolStripMenuItem_Click;
             // 
             // usersToolStripMenuItem1
             // 
-            resources.ApplyResources(this.usersToolStripMenuItem1, "usersToolStripMenuItem1");
-            this.usersToolStripMenuItem1.Image = global::CarRental.Properties.Resources.icon_User;
-            this.usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
-            this.usersToolStripMenuItem1.Click += new System.EventHandler(this.usersToolStripMenuItem1_Click);
+            resources.ApplyResources(usersToolStripMenuItem1, "usersToolStripMenuItem1");
+            usersToolStripMenuItem1.Image = Properties.Resources.icon_User;
+            usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
+            usersToolStripMenuItem1.Click += usersToolStripMenuItem1_Click;
             // 
             // allPeopleToolStripMenuItem
             // 
-            resources.ApplyResources(this.allPeopleToolStripMenuItem, "allPeopleToolStripMenuItem");
-            this.allPeopleToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_Arrow;
-            this.allPeopleToolStripMenuItem.Name = "allPeopleToolStripMenuItem";
-            this.allPeopleToolStripMenuItem.Click += new System.EventHandler(this.allPeopleToolStripMenuItem_Click);
+            resources.ApplyResources(allPeopleToolStripMenuItem, "allPeopleToolStripMenuItem");
+            allPeopleToolStripMenuItem.Image = Properties.Resources.icon_Arrow;
+            allPeopleToolStripMenuItem.Name = "allPeopleToolStripMenuItem";
+            allPeopleToolStripMenuItem.Click += allPeopleToolStripMenuItem_Click;
             // 
             // mainteanceToolStripMenuItem
             // 
-            resources.ApplyResources(this.mainteanceToolStripMenuItem, "mainteanceToolStripMenuItem");
-            this.mainteanceToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_Maintenance;
-            this.mainteanceToolStripMenuItem.Name = "mainteanceToolStripMenuItem";
-            this.mainteanceToolStripMenuItem.Click += new System.EventHandler(this.mainteanceToolStripMenuItem_Click);
+            resources.ApplyResources(mainteanceToolStripMenuItem, "mainteanceToolStripMenuItem");
+            mainteanceToolStripMenuItem.Image = Properties.Resources.icon_Maintenance;
+            mainteanceToolStripMenuItem.Name = "mainteanceToolStripMenuItem";
+            mainteanceToolStripMenuItem.Click += mainteanceToolStripMenuItem_Click;
             // 
             // staticsToolStripMenuItem
             // 
-            resources.ApplyResources(this.staticsToolStripMenuItem, "staticsToolStripMenuItem");
-            this.staticsToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_FuelLevel;
-            this.staticsToolStripMenuItem.Name = "staticsToolStripMenuItem";
-            this.staticsToolStripMenuItem.Click += new System.EventHandler(this.staticsToolStripMenuItem_Click);
+            resources.ApplyResources(staticsToolStripMenuItem, "staticsToolStripMenuItem");
+            staticsToolStripMenuItem.Image = Properties.Resources.icon_FuelLevel;
+            staticsToolStripMenuItem.Name = "staticsToolStripMenuItem";
+            staticsToolStripMenuItem.Click += staticsToolStripMenuItem_Click;
             // 
             // settingsToolStripMenuItem
             // 
-            resources.ApplyResources(this.settingsToolStripMenuItem, "settingsToolStripMenuItem");
-            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.accountSettingsToolStripMenuItem,
-            this.systemToolStripMenuItem,
-            this.signOutToolStripMenuItem});
-            this.settingsToolStripMenuItem.Image = global::CarRental.Properties.Resources.Icon_Manage2;
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            resources.ApplyResources(settingsToolStripMenuItem, "settingsToolStripMenuItem");
+            settingsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { accountSettingsToolStripMenuItem, systemToolStripMenuItem, signOutToolStripMenuItem });
+            settingsToolStripMenuItem.Image = Properties.Resources.Icon_Manage2;
+            settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             // 
             // accountSettingsToolStripMenuItem
             // 
-            resources.ApplyResources(this.accountSettingsToolStripMenuItem, "accountSettingsToolStripMenuItem");
-            this.accountSettingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.currentUserInfoToolStripMenuItem,
-            this.changePasswordToolStripMenuItem});
-            this.accountSettingsToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_accountsettings;
-            this.accountSettingsToolStripMenuItem.Name = "accountSettingsToolStripMenuItem";
+            resources.ApplyResources(accountSettingsToolStripMenuItem, "accountSettingsToolStripMenuItem");
+            accountSettingsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { currentUserInfoToolStripMenuItem, changePasswordToolStripMenuItem });
+            accountSettingsToolStripMenuItem.Image = Properties.Resources.icon_accountsettings;
+            accountSettingsToolStripMenuItem.Name = "accountSettingsToolStripMenuItem";
             // 
             // currentUserInfoToolStripMenuItem
             // 
-            resources.ApplyResources(this.currentUserInfoToolStripMenuItem, "currentUserInfoToolStripMenuItem");
-            this.currentUserInfoToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_Name;
-            this.currentUserInfoToolStripMenuItem.Name = "currentUserInfoToolStripMenuItem";
-            this.currentUserInfoToolStripMenuItem.Click += new System.EventHandler(this.currentUserInfoToolStripMenuItem_Click);
+            resources.ApplyResources(currentUserInfoToolStripMenuItem, "currentUserInfoToolStripMenuItem");
+            currentUserInfoToolStripMenuItem.Image = Properties.Resources.icon_Name;
+            currentUserInfoToolStripMenuItem.Name = "currentUserInfoToolStripMenuItem";
+            currentUserInfoToolStripMenuItem.Click += currentUserInfoToolStripMenuItem_Click;
             // 
             // changePasswordToolStripMenuItem
             // 
-            resources.ApplyResources(this.changePasswordToolStripMenuItem, "changePasswordToolStripMenuItem");
-            this.changePasswordToolStripMenuItem.Image = global::CarRental.Properties.Resources.iconPassword;
-            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
+            resources.ApplyResources(changePasswordToolStripMenuItem, "changePasswordToolStripMenuItem");
+            changePasswordToolStripMenuItem.Image = Properties.Resources.iconPassword;
+            changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            changePasswordToolStripMenuItem.Click += changePasswordToolStripMenuItem_Click;
             // 
             // systemToolStripMenuItem
             // 
-            resources.ApplyResources(this.systemToolStripMenuItem, "systemToolStripMenuItem");
-            this.systemToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_Settings;
-            this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
-            this.systemToolStripMenuItem.Click += new System.EventHandler(this.systemToolStripMenuItem_Click);
+            resources.ApplyResources(systemToolStripMenuItem, "systemToolStripMenuItem");
+            systemToolStripMenuItem.Image = Properties.Resources.icon_Settings;
+            systemToolStripMenuItem.Name = "systemToolStripMenuItem";
+            systemToolStripMenuItem.Click += systemToolStripMenuItem_Click;
             // 
             // signOutToolStripMenuItem
             // 
-            resources.ApplyResources(this.signOutToolStripMenuItem, "signOutToolStripMenuItem");
-            this.signOutToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_SignOut;
-            this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
+            resources.ApplyResources(signOutToolStripMenuItem, "signOutToolStripMenuItem");
+            signOutToolStripMenuItem.Image = Properties.Resources.icon_SignOut;
+            signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
+            signOutToolStripMenuItem.Click += signOutToolStripMenuItem_Click;
             // 
             // exitApplicationToolStripMenuItem
             // 
-            resources.ApplyResources(this.exitApplicationToolStripMenuItem, "exitApplicationToolStripMenuItem");
-            this.exitApplicationToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_Shutdown2;
-            this.exitApplicationToolStripMenuItem.Name = "exitApplicationToolStripMenuItem";
-            this.exitApplicationToolStripMenuItem.Click += new System.EventHandler(this.exitApplicationToolStripMenuItem_Click);
+            resources.ApplyResources(exitApplicationToolStripMenuItem, "exitApplicationToolStripMenuItem");
+            exitApplicationToolStripMenuItem.Image = Properties.Resources.icon_Shutdown2;
+            exitApplicationToolStripMenuItem.Name = "exitApplicationToolStripMenuItem";
+            exitApplicationToolStripMenuItem.Click += exitApplicationToolStripMenuItem_Click;
             // 
             // lblUsernameTitle
             // 
-            resources.ApplyResources(this.lblUsernameTitle, "lblUsernameTitle");
-            this.lblUsernameTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblUsernameTitle.ForeColor = System.Drawing.Color.White;
-            this.lblUsernameTitle.Name = "lblUsernameTitle";
+            resources.ApplyResources(lblUsernameTitle, "lblUsernameTitle");
+            lblUsernameTitle.BackColor = Color.Transparent;
+            lblUsernameTitle.ForeColor = Color.White;
+            lblUsernameTitle.Name = "lblUsernameTitle";
             // 
             // lblUsername
             // 
-            resources.ApplyResources(this.lblUsername, "lblUsername");
-            this.lblUsername.BackColor = System.Drawing.Color.Transparent;
-            this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Name = "lblUsername";
+            resources.ApplyResources(lblUsername, "lblUsername");
+            lblUsername.BackColor = Color.Transparent;
+            lblUsername.ForeColor = Color.White;
+            lblUsername.Name = "lblUsername";
             // 
             // lblTitle
             // 
-            resources.ApplyResources(this.lblTitle, "lblTitle");
-            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTitle.Name = "lblTitle";
+            resources.ApplyResources(lblTitle, "lblTitle");
+            lblTitle.BackColor = Color.Transparent;
+            lblTitle.ForeColor = SystemColors.ButtonHighlight;
+            lblTitle.Name = "lblTitle";
             // 
             // pictureBox1
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::CarRental.Properties.Resources.MainLogo;
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
+            resources.ApplyResources(pictureBox1, "pictureBox1");
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.MainLogo;
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.TabStop = false;
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.lblTotalVehicles);
-            this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Name = "panel1";
+            resources.ApplyResources(panel1, "panel1");
+            panel1.BackColor = Color.Transparent;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(lblTotalVehicles);
+            panel1.ForeColor = Color.White;
+            panel1.Name = "panel1";
             // 
             // lblTotalVehicles
             // 
-            resources.ApplyResources(this.lblTotalVehicles, "lblTotalVehicles");
-            this.lblTotalVehicles.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalVehicles.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTotalVehicles.Name = "lblTotalVehicles";
+            resources.ApplyResources(lblTotalVehicles, "lblTotalVehicles");
+            lblTotalVehicles.BackColor = Color.Transparent;
+            lblTotalVehicles.ForeColor = SystemColors.ButtonHighlight;
+            lblTotalVehicles.Name = "lblTotalVehicles";
             // 
             // lblTitleTotalVehicles
             // 
-            resources.ApplyResources(this.lblTitleTotalVehicles, "lblTitleTotalVehicles");
-            this.lblTitleTotalVehicles.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitleTotalVehicles.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTitleTotalVehicles.Name = "lblTitleTotalVehicles";
+            resources.ApplyResources(lblTitleTotalVehicles, "lblTitleTotalVehicles");
+            lblTitleTotalVehicles.BackColor = Color.Transparent;
+            lblTitleTotalVehicles.ForeColor = SystemColors.ButtonHighlight;
+            lblTitleTotalVehicles.Name = "lblTitleTotalVehicles";
             // 
             // lblTitleTotalCustomers
             // 
-            resources.ApplyResources(this.lblTitleTotalCustomers, "lblTitleTotalCustomers");
-            this.lblTitleTotalCustomers.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitleTotalCustomers.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTitleTotalCustomers.Name = "lblTitleTotalCustomers";
+            resources.ApplyResources(lblTitleTotalCustomers, "lblTitleTotalCustomers");
+            lblTitleTotalCustomers.BackColor = Color.Transparent;
+            lblTitleTotalCustomers.ForeColor = SystemColors.ButtonHighlight;
+            lblTitleTotalCustomers.Name = "lblTitleTotalCustomers";
             // 
             // panel2
             // 
-            resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.lblTotalCustomers);
-            this.panel2.ForeColor = System.Drawing.Color.White;
-            this.panel2.Name = "panel2";
+            resources.ApplyResources(panel2, "panel2");
+            panel2.BackColor = Color.Transparent;
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(lblTotalCustomers);
+            panel2.ForeColor = Color.White;
+            panel2.Name = "panel2";
             // 
             // lblTotalCustomers
             // 
-            resources.ApplyResources(this.lblTotalCustomers, "lblTotalCustomers");
-            this.lblTotalCustomers.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalCustomers.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTotalCustomers.Name = "lblTotalCustomers";
+            resources.ApplyResources(lblTotalCustomers, "lblTotalCustomers");
+            lblTotalCustomers.BackColor = Color.Transparent;
+            lblTotalCustomers.ForeColor = SystemColors.ButtonHighlight;
+            lblTotalCustomers.Name = "lblTotalCustomers";
             // 
             // lblTitleTotalRents
             // 
-            resources.ApplyResources(this.lblTitleTotalRents, "lblTitleTotalRents");
-            this.lblTitleTotalRents.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitleTotalRents.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTitleTotalRents.Name = "lblTitleTotalRents";
+            resources.ApplyResources(lblTitleTotalRents, "lblTitleTotalRents");
+            lblTitleTotalRents.BackColor = Color.Transparent;
+            lblTitleTotalRents.ForeColor = SystemColors.ButtonHighlight;
+            lblTitleTotalRents.Name = "lblTitleTotalRents";
             // 
             // panel3
             // 
-            resources.ApplyResources(this.panel3, "panel3");
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.lblTotalRents);
-            this.panel3.ForeColor = System.Drawing.Color.White;
-            this.panel3.Name = "panel3";
+            resources.ApplyResources(panel3, "panel3");
+            panel3.BackColor = Color.Transparent;
+            panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(lblTotalRents);
+            panel3.ForeColor = Color.White;
+            panel3.Name = "panel3";
             // 
             // lblTotalRents
             // 
-            resources.ApplyResources(this.lblTotalRents, "lblTotalRents");
-            this.lblTotalRents.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalRents.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTotalRents.Name = "lblTotalRents";
+            resources.ApplyResources(lblTotalRents, "lblTotalRents");
+            lblTotalRents.BackColor = Color.Transparent;
+            lblTotalRents.ForeColor = SystemColors.ButtonHighlight;
+            lblTotalRents.Name = "lblTotalRents";
             // 
             // lblTitleTotalBookings
             // 
-            resources.ApplyResources(this.lblTitleTotalBookings, "lblTitleTotalBookings");
-            this.lblTitleTotalBookings.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitleTotalBookings.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTitleTotalBookings.Name = "lblTitleTotalBookings";
+            resources.ApplyResources(lblTitleTotalBookings, "lblTitleTotalBookings");
+            lblTitleTotalBookings.BackColor = Color.Transparent;
+            lblTitleTotalBookings.ForeColor = SystemColors.ButtonHighlight;
+            lblTitleTotalBookings.Name = "lblTitleTotalBookings";
             // 
             // panel4
             // 
-            resources.ApplyResources(this.panel4, "panel4");
-            this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.lblTotalBookings);
-            this.panel4.ForeColor = System.Drawing.Color.White;
-            this.panel4.Name = "panel4";
+            resources.ApplyResources(panel4, "panel4");
+            panel4.BackColor = Color.Transparent;
+            panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(lblTotalBookings);
+            panel4.ForeColor = Color.White;
+            panel4.Name = "panel4";
             // 
             // lblTotalBookings
             // 
-            resources.ApplyResources(this.lblTotalBookings, "lblTotalBookings");
-            this.lblTotalBookings.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalBookings.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTotalBookings.Name = "lblTotalBookings";
+            resources.ApplyResources(lblTotalBookings, "lblTotalBookings");
+            lblTotalBookings.BackColor = Color.Transparent;
+            lblTotalBookings.ForeColor = SystemColors.ButtonHighlight;
+            lblTotalBookings.Name = "lblTotalBookings";
             // 
             // lblRole
             // 
-            resources.ApplyResources(this.lblRole, "lblRole");
-            this.lblRole.BackColor = System.Drawing.Color.Transparent;
-            this.lblRole.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblRole.Name = "lblRole";
+            resources.ApplyResources(lblRole, "lblRole");
+            lblRole.BackColor = Color.Transparent;
+            lblRole.ForeColor = Color.WhiteSmoke;
+            lblRole.Name = "lblRole";
             // 
             // pbUserImage
             // 
-            resources.ApplyResources(this.pbUserImage, "pbUserImage");
-            this.pbUserImage.BackColor = System.Drawing.Color.Transparent;
-            this.pbUserImage.Image = global::CarRental.Properties.Resources.icon_User;
-            this.pbUserImage.Name = "pbUserImage";
-            this.pbUserImage.TabStop = false;
+            resources.ApplyResources(pbUserImage, "pbUserImage");
+            pbUserImage.BackColor = Color.Transparent;
+            pbUserImage.Image = Properties.Resources.icon_User;
+            pbUserImage.Name = "pbUserImage";
+            pbUserImage.TabStop = false;
             // 
             // MainMenu
             // 
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SteelBlue;
-            this.Controls.Add(this.pbUserImage);
-            this.Controls.Add(this.lblRole);
-            this.Controls.Add(this.lblTitleTotalBookings);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.lblTitleTotalRents);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.lblTitleTotalCustomers);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.lblTitleTotalVehicles);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.lblUsernameTitle);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.MaximizeBox = false;
-            this.Name = "MainMenu";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.MainMenu_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbUserImage)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.SteelBlue;
+            Controls.Add(pbUserImage);
+            Controls.Add(lblRole);
+            Controls.Add(lblTitleTotalBookings);
+            Controls.Add(panel4);
+            Controls.Add(lblTitleTotalRents);
+            Controls.Add(panel3);
+            Controls.Add(lblTitleTotalCustomers);
+            Controls.Add(panel2);
+            Controls.Add(lblTitleTotalVehicles);
+            Controls.Add(panel1);
+            Controls.Add(pictureBox1);
+            Controls.Add(lblTitle);
+            Controls.Add(lblUsername);
+            Controls.Add(lblUsernameTitle);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
+            MaximizeBox = false;
+            Name = "MainMenu";
+            WindowState = FormWindowState.Maximized;
+            Load += MainMenu_Load;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pbUserImage).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

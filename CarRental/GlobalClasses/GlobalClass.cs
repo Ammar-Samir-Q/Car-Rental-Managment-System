@@ -9,14 +9,14 @@ using System.Windows.Forms;
 using System.Diagnostics;
 namespace CarRental
 {
-    public class clsGlobalSettings
+    public class GlobalClass
     {
         //UserID Saved Here After Login
         static string Keyname = "HKEY_LOCAL_MACHINE\\SOFTWARE\\CarRentalSystem";
 
-        public static User CurrentUser;
+        public static User? CurrentUser;
 
-        public clsGlobalSettings()
+        public GlobalClass()
         {
             CurrentUser = new User();
         }

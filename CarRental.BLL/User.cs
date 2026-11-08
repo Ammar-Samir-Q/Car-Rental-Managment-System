@@ -58,7 +58,7 @@ namespace CarRental.BLL
         {
             this.UserID = UserID;
             this.PersonID = PersonID;
-            this.PersonInfo = Person.GetPerson(PersonID);
+           // this.PersonInfo = Person.GetPerson(PersonID);
             this.Username = Username;
             this.Password = Password;
             this.Role = (enRole)Role;

@@ -58,9 +58,9 @@ namespace CarRental
             }
         }
 
-        private void _LoadDataGridView()
+        private async void _LoadDataGridView()
         {
-            _dtPeople =  Person.GetAllPeople();
+            _dtPeople =await Person.GetAllPeople();
             dgvPeople.DataSource= _dtPeople;
             if(dgvPeople.Rows.Count > 0 )
             {
@@ -93,9 +93,9 @@ namespace CarRental
 
             }
         }
-        private async Task _RefreashDataGridView()
+        private async void _RefreashDataGridView()
         {
-            _dtPeople =  Person.GetAllPeople();
+            _dtPeople = await Person.GetAllPeople();
             dgvPeople.DataSource= _dtPeople;
             _CountRecords();
         }
@@ -111,14 +111,14 @@ namespace CarRental
         {
             Form frm=new frmAddUpdatePerson();
             frm.ShowDialog();
-            await _RefreashDataGridView();
+            _RefreashDataGridView();
         }
 
         private async void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form frm=new frmAddUpdatePerson((int)dgvPeople.SelectedRows[0].Cells[0].Value);
             frm.ShowDialog();
-            await _RefreashDataGridView();
+             _RefreashDataGridView();
         }
 
         private  void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
@@ -181,7 +181,7 @@ namespace CarRental
         {
             Form frm = new frmPersonInfo((int)dgvPeople.SelectedRows[0].Cells[0].Value);
             frm.ShowDialog();
-            await _RefreashDataGridView();
+             _RefreashDataGridView();
         }
 
         private async void deleteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -199,21 +199,21 @@ namespace CarRental
                     MessageBox.Show("Faild To Delete This Person (Cheack If There is Data Connected To it..)", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            await _RefreashDataGridView();
+             _RefreashDataGridView();
         }
 
         private async void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form frm = new frmAddCustomer((int)dgvPeople.SelectedRows[0].Cells[0].Value,frmAddCustomer.enMode.Convert);
             frm.ShowDialog();
-            await _RefreashDataGridView();
+             _RefreashDataGridView();
         }
 
         private async void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form frm = new frmAddUpdateUser((int)dgvPeople.SelectedRows[0].Cells[0].Value, frmAddUpdateUser.enMode.Convert);
             frm.ShowDialog();
-            await _RefreashDataGridView();
+             _RefreashDataGridView();
         }
 
      

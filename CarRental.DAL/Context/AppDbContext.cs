@@ -1,4 +1,5 @@
 ﻿using CarRental.DAL.Entities;
+using CarRental.DTO.Views;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.ClientModel.Primitives;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace CarRental.DAL.Context
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -31,6 +32,7 @@ namespace CarRental.DAL.Context
 
         public DbSet<Return> VehicleReturns { get; set; }
 
+        public DbSet<PersonView> PeopleView { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -39,10 +41,19 @@ namespace CarRental.DAL.Context
 
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+
+
+            //    //People View Config
+            //    modelBuilder.Entity<PersonView>(entity =>
+            //    {
+            //        entity.HasNoKey();
+            //        entity.ToView("People_View");
+            //    });
+            //}
+
+
+
+
         }
-
-
-
-
     }
 }

@@ -27,28 +27,28 @@ namespace CarRental
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frm=new frmListUsers();
+            Form frm = new frmListUsers();
             frm.ShowDialog();
         }
 
         private void mainteanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frm=new frmListMaintenance();
+            Form frm = new frmListMaintenance();
             frm.ShowDialog();
         }
 
         private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (clsGlobalSettings.CurrentUser.UserID > 0)
+            if (GlobalClass.CurrentUser.UserID > 0)
             {
-                Form frm = new frmUserInfo(clsGlobalSettings.CurrentUser.UserID);
+                Form frm = new frmUserInfo(GlobalClass.CurrentUser.UserID);
                 frm.ShowDialog();
             }
         }
 
         private void customersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frm=new frmListCustomers();
+            Form frm = new frmListCustomers();
             frm.ShowDialog();
         }
 
@@ -60,7 +60,7 @@ namespace CarRental
 
         private void usersToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Form frm=new frmListUsers();
+            Form frm = new frmListUsers();
             frm.ShowDialog();
         }
 
@@ -72,7 +72,7 @@ namespace CarRental
 
         private void manageRentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frm=new frmListRents();
+            Form frm = new frmListRents();
             frm.ShowDialog();
         }
 
@@ -84,7 +84,7 @@ namespace CarRental
 
         private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frm=new frmListTransactions();
+            Form frm = new frmListTransactions();
             frm.ShowDialog();
         }
 
@@ -97,7 +97,7 @@ namespace CarRental
 
         }
 
-      
+
 
         private void _HandelBackColor()
         {
@@ -127,17 +127,22 @@ namespace CarRental
         }
         private void _HandelRoleMenu()
         {
-            if (clsGlobalSettings.CurrentUser.Role != User.enRole.Customer)
+            if (GlobalClass.CurrentUser == null)
             {
-                User User = User.GetUserByID(clsGlobalSettings.CurrentUser.UserID);
-                lblUsername.Text = User.Username;
-                if (User.PersonInfo.ImagePath != "")
-                {
-                    pbUserImage.ImageLocation = User.PersonInfo.ImagePath;
-                }
-                    
+                MessageBox.Show("Error While Loading UserData", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
             }
-            switch (clsGlobalSettings.CurrentUser.Role)
+             if(GlobalClass.CurrentUser.Role != User.enRole.Customer)
+            {
+                lblUsername.Text = GlobalClass.CurrentUser.Username;
+                if (GlobalClass.CurrentUser.PersonInfo.ImagePath != "")
+                {
+                    pbUserImage.ImageLocation = GlobalClass.CurrentUser.PersonInfo.ImagePath;
+                }
+
+            }
+            switch (GlobalClass.CurrentUser.Role)
             {
                 case User.enRole.User:
                     staticsToolStripMenuItem.Enabled = false;
@@ -147,7 +152,7 @@ namespace CarRental
                     lblRole.Text = "User";
                     break;
                 case User.enRole.Customer:
-                    ايجارToolStripMenuItem.Visible = false; 
+                    ايجارToolStripMenuItem.Visible = false;
                     transactionsToolStripMenuItem.Visible = false;
                     VehiclesToolMenuStrip.Enabled = true;
                     manageVehiclesToolStripMenuItem.Visible = false;
@@ -186,13 +191,13 @@ namespace CarRental
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frm = new frmChangePassword(clsGlobalSettings.CurrentUser.UserID);
+            Form frm = new frmChangePassword(GlobalClass.CurrentUser.UserID);
             frm.ShowDialog();
         }
 
         private void systemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frm=new frmSettings();
+            Form frm = new frmSettings();
             frm.ShowDialog();
         }
 
@@ -204,7 +209,7 @@ namespace CarRental
 
         private void showVehiclesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frm=new frmShowVehicles();
+            Form frm = new frmShowVehicles();
             frm.ShowDialog();
         }
 

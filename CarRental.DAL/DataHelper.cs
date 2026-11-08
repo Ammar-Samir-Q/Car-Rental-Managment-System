@@ -13,7 +13,7 @@ namespace CarRental.DAL
     public class DataHelper
     {
 
-        static public string ConnectionString = "Server=.;Database=CarRental;User=sa;Password=sa123456";
+        static public string ConnectionString = "Server=.;Database=CarRental;Trusted_Connection=true;TrustServerCertificate=true;";
         static public string MasterConnection = "Server=.;Database=master;Trusted_Connection=true";
 
 

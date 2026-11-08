@@ -59,7 +59,7 @@ namespace CarRental
             cbRememberMe.Checked = false;
             _HandelNullLogin();
             string Username="", Password = "";
-            if(clsGlobalSettings.ReadUserInfoFromReg(ref Username,ref Password))
+            if(GlobalClass.ReadUserInfoFromReg(ref Username,ref Password))
             {
                 txtUserName.Text = Username;
                 txtPassword.Text=Password;
@@ -114,14 +114,14 @@ namespace CarRental
         {
             if (cbRememberMe.Checked)
             {
-                if (!clsGlobalSettings.SaveUserInfoToReg(txtUserName.Text, txtPassword.Text))
+                if (!GlobalClass.SaveUserInfoToReg(txtUserName.Text, txtPassword.Text))
                 {
                     MessageBox.Show("Faild To Save Login Data", "Reg Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                clsGlobalSettings.SaveUserInfoToReg("", "");
+                GlobalClass.SaveUserInfoToReg("", "");
             }
 
         }
@@ -136,7 +136,7 @@ namespace CarRental
             }
 
             _HandelSavingData();
-            clsGlobalSettings.CurrentUser = User;
+            GlobalClass.CurrentUser = User;
             Form frm = new MainMenu(this);
             this.Hide();
             frm.ShowDialog();
@@ -212,7 +212,7 @@ namespace CarRental
 
         private async void btnEnterAsCustomer_Click(object sender, EventArgs e)
         {
-            clsGlobalSettings.CurrentUser =await User.GetUserByIDAsync(13);
+            GlobalClass.CurrentUser =await User.GetUserByIDAsync(13);
             Form frm = new MainMenu();
             this.Hide();
             frm.ShowDialog();

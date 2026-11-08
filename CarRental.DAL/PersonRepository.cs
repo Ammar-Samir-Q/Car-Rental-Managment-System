@@ -1,5 +1,6 @@
 ﻿using CarRental.DAL.Context;
 using CarRental.DAL.Entities;
+using CarRental.DTO.Views;
 using CarRental.DAL.Factories;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -15,56 +16,39 @@ namespace CarRental.DAL
 {
     public class PersonRepository
     {
-        public async static Task<int> AddPerson(string firstName, string secondName, string thirdName, string lastName
-         , byte gendor, string nationalNo, string phone, string email, string address, DateTime dateOfBirth, string imagePath)
+        public async static Task<int> AddPerson(Person person)
         {
             using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            var Person = new Person()
-            {
-                FirstName = firstName,
-                SecondName = secondName,
-                ThirdName = thirdName,
-                LastName = lastName,
-                Gender = gendor,
-                NationalNo = nationalNo,
-                Phone = phone,
-                Email = email,
-                Address = address,
-                DateOfBirth = dateOfBirth,
-                ImagePath = imagePath
-            };
-
-            await context.People.AddAsync(Person);
+            await context.People.AddAsync(person);
 
             await context.SaveChangesAsync();
 
-            return Person.PersonID;
+            return person.PersonID;
 
 
         }
 
-        public static async Task<bool> UpdatePerson(int PersonID, string firstName, string secondName, string thirdName, string lastName
-         , byte gendor, string nationalNo, string phone, string email, string address, DateTime dateOfBirth, string imagePath)
+        public static async Task<bool> UpdatePerson(Person person)
         {
             using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            var Person = await context.People.FindAsync(PersonID);
+            var Person = await context.People.FindAsync(person.PersonID);
 
             if (Person == null)
                 return false;
 
-            Person.FirstName = firstName;
-            Person.SecondName = secondName;
-            Person.ThirdName = thirdName;
-            Person.LastName = lastName;
-            Person.Gender = gendor;
-            Person.NationalNo = nationalNo;
-            Person.Phone = phone;
-            Person.Email = email;
-            Person.Address = address;
-            Person.DateOfBirth = dateOfBirth;
-            Person.ImagePath = imagePath;
+            Person.FirstName = person.FirstName;
+            Person.SecondName = person.SecondName;
+            Person.ThirdName = person.ThirdName;
+            Person.LastName = person.LastName;
+            Person.Gender = person.Gender;
+            Person.NationalNo = person.NationalNo;
+            Person.Phone = person.Phone;
+            Person.Email = person.Email;
+            Person.Address = person.Address;
+            Person.DateOfBirth = person.DateOfBirth;
+            Person.ImagePath = person.ImagePath;
 
 
             await context.SaveChangesAsync();
@@ -73,58 +57,19 @@ namespace CarRental.DAL
 
         }
 
-        public static bool GetPersonByID(int PersonID, ref string firstName, ref string secondName, ref string thirdName, ref string lastName
-            , ref byte gendor, ref string nationalNo, ref string phone, ref string? email, ref string address, ref DateTime dateOfBirth, ref string? imagePath)
+        public async static Task<Person?> GetPersonByID(int PersonID)
         {
             using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            var Person = context.People.Find(PersonID);
-
-            if (Person == null) return false;
-
-            firstName = Person.FirstName;
-            secondName = Person.SecondName;
-            thirdName = Person.ThirdName;
-            lastName = Person.LastName;
-            gendor = Person.Gender;
-            nationalNo = Person.NationalNo;
-            phone = Person.Phone;
-            email = Person.Email;
-            address = Person.Address;
-            dateOfBirth = Person.DateOfBirth;
-            imagePath = Person.ImagePath;
-
-
-            return true;
-
-
+            return await context.People.FindAsync(PersonID);
 
         }
 
-        public static bool GetPersonByNationalNo(string nationalNo,ref int personID, ref string firstName, ref string secondName, ref string thirdName, ref string lastName
-            , ref byte gendor, ref string phone, ref string? email, ref string address, ref DateTime dateOfBirth, ref string? imagePath)
+        public static async Task<Person?> GetPersonByNationalNo(string nationalNo)
         {
             using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            var Person = context.People.FirstOrDefault(p=>p.NationalNo==nationalNo);
-
-            if (Person == null) return false;
-
-            firstName = Person.FirstName;
-            secondName = Person.SecondName;
-            thirdName = Person.ThirdName;
-            lastName = Person.LastName;
-            gendor = Person.Gender;
-            personID = Person.PersonID;
-            phone = Person.Phone;
-            email = Person.Email;
-            address = Person.Address;
-            dateOfBirth = Person.DateOfBirth;
-            imagePath = Person.ImagePath;
-
-
-            return true;
-
+            return await context.People.FirstOrDefaultAsync(p=>p.NationalNo==nationalNo);
 
         }
 
@@ -145,29 +90,31 @@ namespace CarRental.DAL
 
         }
 
-        public static DataTable GetAllPeople()
+        //ADO.NET
+        
+        public static async Task<DataTable> GetAllPeople()
         {
             DataTable dataTable = new DataTable();
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT * FROM People_View";
-            SqlCommand command = new SqlCommand(Query, connection);
             try
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)
+                using (SqlConnection connection = new SqlConnection(DataHelper.ConnectionString))
                 {
-                    dataTable.Load(reader);
+                    await connection.OpenAsync();
+                    string Query = @"SELECT * FROM People_View";
+                    using (SqlCommand command = new SqlCommand(Query, connection))
+                        using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                            if (reader.HasRows)
+                                dataTable.Load(reader);
+                            
+   
                 }
-                reader.Close();
-
             }
             catch (Exception ex)
-            { }
-            finally { connection.Close(); }
-            return dataTable;
             {
+                throw ex;
             }
+            return dataTable;
+
         }
 
         public static async Task<bool> IsPersonExists(int PersonID)

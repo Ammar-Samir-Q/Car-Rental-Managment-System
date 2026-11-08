@@ -319,7 +319,7 @@ namespace CarRental
             _Booking.PickupLocation = txtPickupLocation.Text;
             _Booking.DropOffLocation = txtDropOffLocation.Text;
             _Booking.RentalPricePerDay = _Vehicle.RentalPricePerDay;
-            _Booking.CreatedByUserID = clsGlobalSettings.CurrentUser.UserID;
+            _Booking.CreatedByUserID = GlobalClass.CurrentUser.UserID;
             _Booking.InitialCheckNotes = txtInitialNotes.Text;
 
 

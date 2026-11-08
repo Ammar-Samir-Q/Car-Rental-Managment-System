@@ -59,7 +59,7 @@ namespace CarRental.BLL
         {
             this.BookingID = BookingID;
             this.CustomerID = CustomerID;
-            this.CustomerInfo = Customer.GetCustomerByID(CustomerID);
+           // this.CustomerInfo = Customer.GetCustomerByID(CustomerID);
             this.VehicleID = VehicleID;
             this.VehicleInfo = Vehicle.GetVehicleByID(VehicleID);
             this.RentalStartDate = RentalStartDate;

@@ -1,8 +1,9 @@
-﻿using System;
+﻿using CarRental.DTO.Views;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
-
+using Entity=CarRental.DAL.Entities;
 namespace CarRental.BLL
 {
     public class Person
@@ -34,13 +35,13 @@ namespace CarRental.BLL
 
         public string Phone { get; set; }
 
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         public string Address { get; set; }
 
         public DateTime DateOfBirth { get; set; }
 
-        public string ImagePath { get; set; }
+        public string? ImagePath { get; set; }
 
         private enMode _Mode = enMode.AddNew;
 
@@ -63,7 +64,7 @@ namespace CarRental.BLL
             this._Mode = enMode.AddNew;
         }
         public Person(int PersonID, string FirstName, string SecondName, string ThirdName,
-            string LastName, byte Gender, string NationalNo, string Phone, string Email, string Address, DateTime DateOfBirth, string ImagePath)
+            string LastName, byte Gender, string NationalNo, string Phone, string? Email, string Address, DateTime DateOfBirth, string? ImagePath)
         {
             this.PersonID = PersonID;
             this.FirstName = FirstName;
@@ -85,12 +86,42 @@ namespace CarRental.BLL
 
         private async Task<bool> _AddPerson()
         {
-            this.PersonID = await DAL.PersonRepository.AddPerson(FirstName, SecondName, ThirdName, LastName, Gender, NationalNo, Phone, Email, Address, DateOfBirth, ImagePath);
+            Entity.Person Newperson = new Entity.Person()
+            {
+                FirstName = this.FirstName,
+                SecondName=this.SecondName,
+                ThirdName=this.ThirdName,
+                LastName=this.LastName,
+                Gender=this.Gender,
+                NationalNo=this.NationalNo,
+                Phone=this.Phone,
+                Email=this.Email,
+                Address=this.Address,
+                DateOfBirth=this.DateOfBirth,
+                ImagePath=this.ImagePath
+            };
+
+            this.PersonID = await DAL.PersonRepository.AddPerson(Newperson);
             return this.PersonID > 0;
         }
         private async Task<bool> _UpdatePerosn()
         {
-            return await DAL.PersonRepository.UpdatePerson(PersonID, FirstName, SecondName, ThirdName, LastName, Gender, NationalNo, Phone, Email, Address, DateOfBirth, ImagePath);
+            Entity.Person person = new Entity.Person()
+            {
+                PersonID = this.PersonID,
+                FirstName = this.FirstName,
+                SecondName = this.SecondName,
+                ThirdName = this.ThirdName,
+                LastName = this.LastName,
+                Gender = this.Gender,
+                NationalNo = this.NationalNo,
+                Phone = this.Phone,
+                Email = this.Email,
+                Address = this.Address,
+                DateOfBirth = this.DateOfBirth,
+                ImagePath = this.ImagePath
+            };
+            return await DAL.PersonRepository.UpdatePerson(person);
         }
 
         public async Task<bool> Save()
@@ -108,32 +139,24 @@ namespace CarRental.BLL
             return false;
         }
 
-        public static Person GetPerson(int PersonID)
+        public static async Task<Person?> GetPerson(int PersonID)
         {
-            string FirstName = "", SecondName = "", ThirdName = "", Lastname = "";
-            byte Gender = 0;
-            string NationalNo = "", Phone = "", Email = "", Address = "", ImagePath = "";
-            DateTime DateOfBirth = DateTime.Now;
 
-            if (DAL.PersonRepository.GetPersonByID(PersonID, ref FirstName, ref SecondName, ref ThirdName, ref Lastname, ref Gender, ref NationalNo, ref Phone, ref Email, ref Address, ref DateOfBirth, ref ImagePath))
+            Entity.Person? person = await DAL.PersonRepository.GetPersonByID(PersonID);
+            if (person!=null)
             {
-                return new Person(PersonID, FirstName, SecondName, ThirdName, Lastname, Gender, NationalNo, Phone, Email, Address, DateOfBirth, ImagePath);
+                return new Person(PersonID, person.FirstName, person.SecondName, person.ThirdName, person.LastName, person.Gender, person.NationalNo, person.Phone, person.Email, person.Address, person.DateOfBirth, person.ImagePath);
             }
             else
                 return null;
         }
 
-        public static Person GetPerson(string NationalNo)
+        public static async Task<Person?> GetPerson(string NationalNo)
         {
-            int PersonID = -1;
-            string FirstName = "", SecondName = "", ThirdName = "", Lastname = "";
-            byte Gender = 0;
-            string Phone = "", Email = "", Address = "", ImagePath = "";
-            DateTime DateOfBirth = DateTime.Now;
-
-            if (DAL.PersonRepository.GetPersonByNationalNo(NationalNo, ref PersonID, ref FirstName, ref SecondName, ref ThirdName, ref Lastname, ref Gender, ref Phone, ref Email, ref Address, ref DateOfBirth, ref ImagePath))
+            Entity.Person? person = await DAL.PersonRepository.GetPersonByNationalNo(NationalNo);
+            if (person != null)
             {
-                return new Person(PersonID, FirstName, SecondName, ThirdName, Lastname, Gender, NationalNo, Phone, Email, Address, DateOfBirth, ImagePath);
+                return new Person(person.PersonID, person.FirstName, person.SecondName, person.ThirdName, person.LastName, person.Gender, person.NationalNo, person.Phone, person.Email, person.Address, person.DateOfBirth, person.ImagePath);
             }
             else
                 return null;
@@ -164,9 +187,9 @@ namespace CarRental.BLL
             return await DAL.PersonRepository.IsPersonExists(this.PersonID);
         }
 
-        public static DataTable GetAllPeople()
+        public static async Task<DataTable> GetAllPeople()
         {
-            return DAL.PersonRepository.GetAllPeople();
+            return await DAL.PersonRepository.GetAllPeople();
         }
     }
 }

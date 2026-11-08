@@ -13,7 +13,7 @@ namespace CarRental.DAL.Factories
 
         static DbContextFactory()
         {
-            string ConnectionString = "Server=.;Database=CarRental;User=sa;Password=sa123456";
+            string ConnectionString = "Server=.;Database=CarRental;Trusted_Connection=true;TrustServerCertificate=true;";
             _Options = new DbContextOptionsBuilder<AppDbContext>().UseSqlServer(ConnectionString).Options;
         }
 
