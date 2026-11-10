@@ -1,162 +1,78 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using CarRental.DAL.Context;
+using CarRental.DAL.Entities;
+using CarRental.DAL.Factories;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace CarRental.DAL
 {
     public class VehicleRepository
     {
-        public static int AddVehicle(string Make, string Model, int Year, int CurrentMilage, int FuleType, int VehicleCategory, string PlateNumber, float RentalPricePerDay, bool IsAvailableForRent, string ImagePath)
+        public static async Task<int> AddVehicle(Vehicle vehicle)
         {
-            int VehicleID = -1;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"Insert Into Vehicles
-(Make,Model,Year,CurrentMilage,FuleTypeID,VehicleCategoryID,PlateNumber,RentalPricePerDay,IsAvailableForRent,ImagePath)
-VALUES
-(@Make,@Model,@Year,@CurrentMilage,@FuleTypeID,@VehicleCategoryID,@PlateNumber,@RentalPricePerDay,@IsAvailableForRent,@ImagePath);
-SELECT SCOPE_IDENTITY();
-";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@Make", Make);
-            command.Parameters.AddWithValue("@Model", Model);
-            command.Parameters.AddWithValue("@Year", Year);
-            command.Parameters.AddWithValue("@CurrentMilage", CurrentMilage);
-            command.Parameters.AddWithValue("@FuleTypeID", FuleType);
-            command.Parameters.AddWithValue("@VehicleCategoryID", VehicleCategory);
-            command.Parameters.AddWithValue("@PlateNumber", PlateNumber);
-            command.Parameters.AddWithValue("@RentalPricePerDay", RentalPricePerDay);
-            command.Parameters.AddWithValue("@IsAvailableForRent", IsAvailableForRent);
-            if (string.IsNullOrEmpty(ImagePath))
-                command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
-            else
-                command.Parameters.AddWithValue("@ImagePath", ImagePath);
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            try
-            {
-                connection.Open();
-                object result = command.ExecuteScalar();
-                if (result != null && int.TryParse(result.ToString(), out int ID))
-                    VehicleID = ID;
+            await context.AddAsync(vehicle);
 
+            await context.SaveChangesAsync();
 
-
-            }
-            catch (Exception ex)
-            { }
-            finally { connection.Close(); }
-
-            return VehicleID;
-        }
-
-        public static bool UpdateVehicle(int VehicleID, string Make, string Model, int Year, int CurrentMilage, int FuleTypeID, int VehicleCategoryID, string PlateNumber, float RentalPricePerDay, bool IsAvailableForRent, string ImagePath)
-        {
-            bool IsUpdated = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"UPDATE Vehicles
-Set Make=@Make,
-Model=@Model,
-Year=@Year,
-CurrentMilage=@CurrentMilage,
-FuleTypeID=@FuleTypeID,
-VehicleCategoryID=@VehicleCategoryID,
-PlateNumber=@PlateNumber,
-RentalPricePerDay=@RentalPricePerDay,
-IsAvailableForRent=@IsAvailableForRent,
-ImagePath=@ImagePath
-WHERE VehicleID=@VehicleID;";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@VehicleID", VehicleID);
-            command.Parameters.AddWithValue("@Make", Make);
-            command.Parameters.AddWithValue("@Model", Model);
-            command.Parameters.AddWithValue("@Year", Year);
-            command.Parameters.AddWithValue("@CurrentMilage", CurrentMilage);
-            command.Parameters.AddWithValue("@FuleTypeID", FuleTypeID);
-            command.Parameters.AddWithValue("@VehicleCategoryID", VehicleCategoryID);
-            command.Parameters.AddWithValue("@PlateNumber", PlateNumber);
-            command.Parameters.AddWithValue("@RentalPricePerDay", RentalPricePerDay);
-            command.Parameters.AddWithValue("@IsAvailableForRent", IsAvailableForRent);
-            if (string.IsNullOrEmpty(ImagePath))
-                command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
-            else
-                command.Parameters.AddWithValue("@ImagePath", ImagePath);
-
-
-
-            try
-            {
-                connection.Open();
-                IsUpdated = command.ExecuteNonQuery() > 0;
-            }
-            catch (System.Exception ex)
-            { }
-            finally { connection.Close(); }
-            return IsUpdated;
+            return vehicle.VehicleID;
 
         }
 
-        public static bool GetVehicleByID(int VehicleID, ref string Make, ref string Model, ref int Year, ref int CurrentMilage, ref int FuleTypeID, ref int VehicleCategoryID, ref string PlateNumber, ref float RentalPricePerDay, ref bool IsAvailableForRent, ref string ImagePath)
+        public static async Task<bool> UpdateVehicle(int VehicleID, string Make, string Model, int Year, int CurrentMilage, int FuleTypeID, int VehicleCategoryID, string PlateNumber, decimal RentalPricePerDay, bool IsAvailableForRent, string ImagePath)
         {
-            bool IsFound = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT TOP 1 Vehicles.* FROM Vehicles WHERE VehicleID=@VehicleID";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@VehicleID", VehicleID);
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    Make = (string)reader["Make"];
-                    Model = (string)reader["Model"];
-                    Year = (int)reader["Year"];
-                    CurrentMilage = (int)reader["CurrentMilage"];
-                    FuleTypeID = (int)reader["FuleTypeID"];
-                    VehicleCategoryID = (int)reader["VehicleCategoryID"];
-                    PlateNumber = (string)reader["PlateNumber"];
-                    RentalPricePerDay = (float)((decimal)reader["RentalPricePerDay"]);
-                    IsAvailableForRent = (bool)reader["IsAvailableForRent"];
-                    if (reader["ImagePath"] == DBNull.Value)
-                        ImagePath = "";
-                    else
-                        ImagePath = (string)reader["ImagePath"];
+            var vehicle = await context.Vehicles.FindAsync(VehicleID);
 
-                    IsFound = true;
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            { return IsFound; }
-            finally { connection.Close(); }
-            return IsFound;
+            if(vehicle==null) return false;
 
+            vehicle.Make= Make;
+            vehicle.Model= Model;
+            vehicle.Year= Year;
+            vehicle.CurrentMileage= CurrentMilage;
+            vehicle.FuelTypeID  = FuleTypeID;
+            vehicle.VehicleCategoryID= VehicleCategoryID;
+            vehicle.PlateNumber= PlateNumber;
+            vehicle.RentalPricePerDay = RentalPricePerDay;
+            vehicle.IsAvailableForRent = IsAvailableForRent;
+            vehicle.ImagePath= ImagePath;
+
+            await context.SaveChangesAsync();
+
+            return true;
+        }
+
+        public static async Task<Vehicle?> GetVehicleByID(int VehicleID)
+        {
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+
+            return await context.Vehicles.FindAsync(VehicleID);
+        }
+      
+
+        
+
+        public static async Task<bool> DeleteVehicle(int VehicleID)
+        {
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+            var vehicle = await context.Vehicles.FindAsync(VehicleID);
+
+            if (vehicle == null) return false;
+
+            context.Vehicles.Remove(vehicle);
+           await context.SaveChangesAsync();
+            return true;
 
         }
 
-        public static bool DeleteVehicle(int VehicleID)
-        {
-            bool IsDeleted = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"DELETE FROM Vehicles WHERE VehicleID=@VehicleID;";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@VehicleID", VehicleID);
-            try
-            {
-                connection.Open();
-                IsDeleted = command.ExecuteNonQuery() > 0;
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally { connection.Close(); }
-            return IsDeleted;
-        }
-
-        public static DataTable GetAllVehicles()
+        public async static Task<DataTable> GetAllVehicles()
         {
             DataTable dataTable = new DataTable();
             SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
@@ -164,8 +80,8 @@ WHERE VehicleID=@VehicleID;";
             SqlCommand command = new SqlCommand(Query, connection);
             try
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+               await connection.OpenAsync();
+                SqlDataReader reader =await command.ExecuteReaderAsync();
                 if (reader.HasRows)
                 {
                     dataTable.Load(reader);
@@ -181,7 +97,7 @@ WHERE VehicleID=@VehicleID;";
             }
         }
 
-        public static DataTable GetVehicleRentHistory(int VehicleID)
+        public static async Task<DataTable> GetVehicleRentHistory(int VehicleID)
         {
             DataTable dataTable = new DataTable();
             SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
@@ -191,8 +107,8 @@ WHERE VehicleID=@VehicleID;";
             command.Parameters.AddWithValue("@VehicleID", VehicleID);
             try
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+               await connection.OpenAsync();
+                SqlDataReader reader =await command.ExecuteReaderAsync();
                 if (reader.HasRows)
                 {
                     dataTable.Load(reader);
@@ -208,7 +124,7 @@ WHERE VehicleID=@VehicleID;";
             }
         }
 
-        public static DataTable GetAllAvailableVehicles()
+        public static async  Task<DataTable> GetAllAvailableVehicles()
         {
             DataTable dataTable = new DataTable();
             SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
@@ -216,8 +132,8 @@ WHERE VehicleID=@VehicleID;";
             SqlCommand command = new SqlCommand(Query, connection);
             try
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+               await connection.OpenAsync();
+                SqlDataReader reader =await command.ExecuteReaderAsync();
                 if (reader.HasRows)
                 {
                     dataTable.Load(reader);
@@ -234,170 +150,83 @@ WHERE VehicleID=@VehicleID;";
         }
 
 
-        public static bool IsVehicleExists(int VehicleID)
+        public static async Task<bool> IsVehicleExists(int VehicleID)
         {
-            bool IsExists = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT 1 FROM Vehicles WHERE VehicleID=@VehicleID";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@VehcileID", VehicleID);
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                IsExists = reader.HasRows;
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            }
-            finally { connection.Close(); }
-            return IsExists;
+            return await context.Vehicles.AnyAsync(v=>v.VehicleID==VehicleID);
 
+        }
+
+        public static async Task<bool> IsVehicleExists(string PlateNumber)
+        {
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+
+            return await context.Vehicles.AnyAsync(v => v.PlateNumber == PlateNumber);
 
 
         }
 
-        public static bool IsVehicleExists(string PlateNumber)
+        public static async Task<bool> SetVehicleAvilable(int VehicleID, bool IsAvailable)
         {
-            bool IsExists = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT 1 FROM Vehicles WHERE PlateNumber=@PlateNumber";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@PlateNumber", PlateNumber);
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                IsExists = reader.HasRows;
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            }
-            finally { connection.Close(); }
-            return IsExists;
+            var vehicle = await context.Vehicles.FindAsync(VehicleID);
 
+            if (vehicle == null) return false;
+
+            vehicle.IsAvailableForRent = IsAvailable;
+
+            await context.SaveChangesAsync();
+
+            return true;
 
 
         }
 
-        public static bool SetVehicleAvilable(int VehicleID, bool IsAvailable)
+        public static async Task<bool> UpdateMilage(int VehicleID, int Milage)
         {
-            bool IsSaved = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"Update Vehicles
-            Set IsAvailableForRent=@IsAvailableForRent
-            WHERE VehicleID=@VehicleID;";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@IsAvailableForRent", IsAvailable);
-            command.Parameters.AddWithValue("@VehicleID", VehicleID);
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            try
-            {
-                connection.Open();
-                IsSaved = command.ExecuteNonQuery() > 0;
-            }
-            catch (Exception ex)
-            {
+            var vehicle = await context.Vehicles.FindAsync(VehicleID);
 
-            }
-            finally { connection.Close(); }
-            return IsSaved;
+            if (vehicle == null) return false;
+
+            vehicle.CurrentMileage = Milage;
+
+            await context.SaveChangesAsync();
+
+            return true;
 
 
 
         }
-
-        public static bool UpdateMilage(int VehicleID, int Milage)
+        public static async Task<int> GetTotalRentTimes(int VehicleID)
         {
-            bool IsSaved = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"Update Vehicles
-            Set CurrentMilage=@CurrentMilage
-            WHERE VehicleID=@VehicleID;";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@CurrentMilage", Milage);
-            command.Parameters.AddWithValue("@VehicleID", VehicleID);
-
-            try
-            {
-                connection.Open();
-                IsSaved = command.ExecuteNonQuery() > 0;
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally { connection.Close(); }
-            return IsSaved;
-
-
-
-        }
-        public static int GetTotalRentTimes(int VehicleID)
-        {
-            int TotalRentTimes = 0;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT Count(RentalBooking.BookingID) As TotalRentTimes FROM RentalBooking
-WHERE VehicleID=@VehicleID;
-";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@VehicleID", VehicleID);
-            try
-            {
-                connection.Open();
-                object result = command.ExecuteScalar();
-                if (result != null && int.TryParse(result.ToString(), out int Count))
-                    TotalRentTimes = Count;
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally { connection.Close(); }
-            return TotalRentTimes;
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+            return await context.RentalBookings.Where(b=>b.VehicleID == VehicleID).CountAsync();
         }
 
-        public static int GetTotalVehicles()
+        public static async Task<int> GetTotalVehicles()
         {
-            int Total = 0;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT Count(VehicleID) As TotalVehicles FROM Vehicles;";
-            SqlCommand command = new SqlCommand(Query, connection);
-
-            try
-            {
-                connection.Open();
-                object result = command.ExecuteScalar();
-                if (result != null && int.TryParse(result.ToString(), out int Count))
-                    Total = Count;
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally { connection.Close(); }
-            return Total;
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+            return await context.Vehicles.CountAsync();
         }
 
-        public static int GetTopRentedVehicle()
+        //ADO.NET
+        public static async Task<int> GetTopRentedVehicle()
         {
             int TopVehicleID = 0;
             SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
             string Query = @"SELECT TOP 1 VehicleID,Count(BookingID) as TotalRents From RentalBooking
-Group By VehicleID 
-Order by TotalRents DESC ;";
+                        Group By VehicleID 
+                        Order by TotalRents DESC ;";
             SqlCommand command = new SqlCommand(Query, connection);
 
             try
             {
-                connection.Open();
-                object result = command.ExecuteScalar();
+               await connection.OpenAsync();
+                object? result =await command.ExecuteScalarAsync();
                 if (result != null && int.TryParse(result.ToString(), out int Count))
                     TopVehicleID = Count;
 
@@ -410,50 +239,16 @@ Order by TotalRents DESC ;";
             return TopVehicleID;
         }
 
-        public static int GetTotalAvailableVehicles()
+        public static async Task<int> GetTotalAvailableVehicles()
         {
-            int Total = 0;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT COUNT(VehicleID) As AvailableVehicles FROM Vehicles WHERE IsAvailableForRent=1;";
-            SqlCommand command = new SqlCommand(Query, connection);
-
-            try
-            {
-                connection.Open();
-                object result = command.ExecuteScalar();
-                if (result != null && int.TryParse(result.ToString(), out int Count))
-                    Total = Count;
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally { connection.Close(); }
-            return Total;
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+            return await context.Vehicles.Where(v => v.IsAvailableForRent).CountAsync();
         }
 
-        public static int GetTotalUnavilableVehicles()
+        public static async Task<int> GetTotalUnavilableVehicles()
         {
-            int Total = 0;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT COUNT(VehicleID) As AvailableVehicles FROM Vehicles WHERE IsAvailableForRent=0;";
-            SqlCommand command = new SqlCommand(Query, connection);
-
-            try
-            {
-                connection.Open();
-                object result = command.ExecuteScalar();
-                if (result != null && int.TryParse(result.ToString(), out int Count))
-                    Total = Count;
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally { connection.Close(); }
-            return Total;
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+            return await context.Vehicles.Where(v => !v.IsAvailableForRent).CountAsync();
         }
     }
 }

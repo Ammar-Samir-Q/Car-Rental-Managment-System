@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using Data = CarRental.DAL.Entities;
 
 namespace CarRental.BLL
 {
@@ -16,21 +17,21 @@ namespace CarRental.BLL
 
             public Booking BookingInfo { get; set; }
 
-            public int ReturnID { get; set; }
+            public int? ReturnID { get; set; }
 
             public Return ReturnInfo { get; }
 
-            public string PaymentsDetails { get; set; }
+            public string? PaymentsDetails { get; set; }
 
-            public float PaidInitialTotalDueAmount { get; set; }
+            public decimal PaidInitialTotalDueAmount { get; set; }
 
-            public float ActualTotalDueAmount { get; set; }
+            public decimal? ActualTotalDueAmount { get; set; }
 
-            public float TotalRefundedAmount { get; set; }
+            public decimal? TotalRefundedAmount { get; set; }
 
             public DateTime TransactionDate { get; set; }
 
-            public DateTime UpdatedTransactionDate { get; set; }
+            public DateOnly? UpdatedTransactionDate { get; set; }
 
             private enMode _Mode = enMode.Addnew;
 
@@ -47,18 +48,18 @@ namespace CarRental.BLL
                 this.ActualTotalDueAmount = 0;
                 this.TotalRefundedAmount = 0;
                 this.TransactionDate = DateTime.Now;
-                this.UpdatedTransactionDate = TransactionDate;
+                this.UpdatedTransactionDate = DateOnly.FromDateTime(TransactionDate);
                 this._Mode = enMode.Addnew;
             }
 
-            public Transaction(int TransactionID, int BookingID, int ReturnID, string PaymentDetails, float PaidInitialTotalDueAmount, float ActualTotalDueAmount, float TotalRefundedAmount, DateTime TransactionDate, DateTime UpdatedTransactionDate)
+            public Transaction(int TransactionID, int BookingID, int? ReturnID, string? PaymentDetails, decimal PaidInitialTotalDueAmount, decimal? ActualTotalDueAmount, decimal? TotalRefundedAmount, DateTime TransactionDate, DateOnly? UpdatedTransactionDate,Booking bookingInfo,Return returnInfo)
             {
                 this.TransactionID = TransactionID;
                 this.BookingID = BookingID;
-                this.BookingInfo = Booking.GetRentalByID(BookingID);
+            this.BookingInfo = bookingInfo;
                 this.ReturnID = ReturnID;
-                if (ReturnID > 0)
-                    this.ReturnInfo = Return.GetReturnByID(ReturnID);
+            if (ReturnID > 0)
+                this.ReturnInfo = returnInfo;
                 this.PaymentsDetails = PaymentDetails;
                 this.PaidInitialTotalDueAmount = PaidInitialTotalDueAmount;
                 this.ActualTotalDueAmount = ActualTotalDueAmount;
@@ -71,110 +72,123 @@ namespace CarRental.BLL
 
             //-----------------------------------
 
-            private bool _AddTransaction()
+            private async Task<bool> _AddTransaction()
             {
-                this.TransactionID = DAL.TransactionRepository.AddTransaction(BookingID, ReturnID, PaymentsDetails, PaidInitialTotalDueAmount, ActualTotalDueAmount, TotalRefundedAmount, TransactionDate, UpdatedTransactionDate);
+            Data.Transaction transaction = new Data.Transaction()
+            {
+                BookingID = this.BookingID,
+                ReturnID = this.ReturnID,
+                PaymentDetails = this.PaymentsDetails,
+                PaidInitialTotalDueAmount=this.PaidInitialTotalDueAmount,
+                ActualTotalDueAmount=this.ActualTotalDueAmount,
+                TotalRefundedAmount=this.TotalRefundedAmount,
+                TransactionDate = this.TransactionDate,
+                UpdatedTransactionDate=this.UpdatedTransactionDate
+
+            };
+
+
+
+                this.TransactionID = await DAL.TransactionRepository.AddTransaction(transaction);
                 return this.TransactionID > 0;
             }
 
-            private bool _UpdateTransaction()
+            private async Task<bool> _UpdateTransaction()
             {
-                return DAL.TransactionRepository.UpdateTransaction(TransactionID, BookingID, ReturnID, PaymentsDetails, PaidInitialTotalDueAmount, ActualTotalDueAmount, TotalRefundedAmount, TransactionDate, UpdatedTransactionDate);
+                return await DAL.TransactionRepository.UpdateTransaction(TransactionID, BookingID, ReturnID, PaymentsDetails, PaidInitialTotalDueAmount, ActualTotalDueAmount, TotalRefundedAmount, TransactionDate, UpdatedTransactionDate);
             }
 
-            public bool Save()
+            public async Task<bool> Save()
             {
                 switch (this._Mode)
                 {
                     case enMode.Addnew:
                         _Mode = enMode.Update;
-                        return _AddTransaction();
+                        return await _AddTransaction();
                     case enMode.Update:
-                        return _UpdateTransaction();
+                        return await _UpdateTransaction();
 
                 }
                 return false;
 
             }
 
-            public static Transaction GetTransactionByID(int TransactionID)
+            public static async Task<Transaction?> GetTransactionByID(int TransactionID)
             {
-                int BookingID = -1, ReturnID = -1;
-                string PaymentDetails = "";
-                float PaidInitialTotalDueAmount = 0, ActualTotalDueAmount = 0, TotalRefundedAmount = 0;
-                DateTime TransactionDate = DateTime.Now;
-                DateTime UpdatedTransactionDate = DateTime.Now;
-                if (DAL.TransactionRepository.GetTransactionByID(TransactionID, ref BookingID, ref ReturnID, ref PaymentDetails, ref PaidInitialTotalDueAmount, ref ActualTotalDueAmount, ref TotalRefundedAmount, ref TransactionDate, ref UpdatedTransactionDate))
+                var transaction = await DAL.TransactionRepository.GetTransactionByID(TransactionID);
+                if (transaction!=null)
                 {
-                    return new Transaction(TransactionID, BookingID, ReturnID, PaymentDetails, PaidInitialTotalDueAmount, ActualTotalDueAmount, TotalRefundedAmount, TransactionDate, UpdatedTransactionDate);
+                var booking = await BLL.Booking.GetRentalByID(transaction.BookingID);
+                var returnInfo = await  BLL.Return.GetReturnByID(transaction.ReturnID??-1);
+
+                    return new Transaction(TransactionID, transaction.BookingID, transaction.ReturnID, transaction.PaymentDetails, transaction.PaidInitialTotalDueAmount, transaction.ActualTotalDueAmount, transaction.TotalRefundedAmount, transaction.TransactionDate, transaction.UpdatedTransactionDate,booking,returnInfo);
                 }
                 else
                     return null;
             }
 
-            public static Transaction GetTransactionByBookingID(int BookingID)
+            public static async Task<Transaction?> GetTransactionByBookingID(int BookingID)
             {
-                int TransactionID = -1, ReturnID = -1;
-                string PaymentDetails = "";
-                float PaidInitialTotalDueAmount = 0, ActualTotalDueAmount = 0, TotalRefundedAmount = 0;
-                DateTime TransactionDate = DateTime.Now;
-                DateTime UpdatedTransactionDate = DateTime.Now;
-                if (DAL.TransactionRepository.GetTransactionByBookingID(BookingID, ref TransactionID, ref ReturnID, ref PaymentDetails, ref PaidInitialTotalDueAmount, ref ActualTotalDueAmount, ref TotalRefundedAmount, ref TransactionDate, ref UpdatedTransactionDate))
-                {
-                    return new Transaction(TransactionID, BookingID, ReturnID, PaymentDetails, PaidInitialTotalDueAmount, ActualTotalDueAmount, TotalRefundedAmount, TransactionDate, UpdatedTransactionDate);
-                }
-                else
-                    return null;
+            var transaction = await DAL.TransactionRepository.GetTransactionByBookingID(BookingID);
+            if (transaction != null)
+            {
+                var booking = await BLL.Booking.GetRentalByID(transaction.BookingID);
+                var returnInfo = await BLL.Return.GetReturnByID(transaction.ReturnID??-1);
+
+                return new Transaction(transaction.TransactionID, transaction.BookingID, transaction.ReturnID, transaction.PaymentDetails, transaction.PaidInitialTotalDueAmount, transaction.ActualTotalDueAmount, transaction.TotalRefundedAmount, transaction.TransactionDate, transaction.UpdatedTransactionDate, booking, returnInfo);
+            }
+            else
+                return null;
+        }
+
+            public static async Task<Transaction> GetTransactionByReturnID(int ReturnID)
+            {
+            var transaction = await DAL.TransactionRepository.GetTransactionByReturnID(ReturnID);
+            if (transaction != null)
+            {
+                var booking = await BLL.Booking.GetRentalByID(transaction.BookingID);
+
+                var returnInfo = await BLL.Return.GetReturnByID(transaction.ReturnID??-1);
+
+                return new Transaction(transaction.TransactionID, transaction.BookingID, transaction.ReturnID, transaction.PaymentDetails, transaction.PaidInitialTotalDueAmount, transaction.ActualTotalDueAmount, transaction.TotalRefundedAmount, transaction.TransactionDate, transaction.UpdatedTransactionDate, booking, returnInfo);
+            }
+            else
+                return null;
+        }
+
+            public static async Task<DataTable> GetAllTransactions()
+            {
+                return await DAL.TransactionRepository.GetAllTransactions();
             }
 
-            public static Transaction GetTransactionByReturnID(int ReturnID)
+            public static async Task<bool> DeleteTransaction(int TransactionID)
             {
-                int TransactionID = -1, BookingID = -1;
-                string PaymentDetails = "";
-                float PaidInitialTotalDueAmount = 0, ActualTotalDueAmount = 0, TotalRefundedAmount = 0;
-                DateTime TransactionDate = DateTime.Now;
-                DateTime UpdatedTransactionDate = DateTime.Now;
-                if (DAL.TransactionRepository.GetTransactionByReturnID(ReturnID, ref TransactionID, ref BookingID, ref PaymentDetails, ref PaidInitialTotalDueAmount, ref ActualTotalDueAmount, ref TotalRefundedAmount, ref TransactionDate, ref UpdatedTransactionDate))
-                {
-                    return new Transaction(TransactionID, BookingID, ReturnID, PaymentDetails, PaidInitialTotalDueAmount, ActualTotalDueAmount, TotalRefundedAmount, TransactionDate, UpdatedTransactionDate);
-                }
-                else
-                    return null;
+                return await DAL.TransactionRepository.DeleteTransaction(TransactionID);
             }
 
-            public static DataTable GetAllTransactions()
+            public async Task<bool> Delete()
             {
-                return DAL.TransactionRepository.GetAllTransactions();
+                return await DAL.TransactionRepository.DeleteTransaction(this.TransactionID);
             }
 
-            public static bool DeleteTransaction(int TransactionID)
+            public static async Task<bool> IsTransactionExists(int TransactionID)
             {
-                return DAL.TransactionRepository.DeleteTransaction(TransactionID);
+                return await DAL.TransactionRepository.IsTransactionExists(TransactionID);
             }
 
-            public bool Delete()
+            public async Task<bool> IsExists()
             {
-                return DAL.TransactionRepository.DeleteTransaction(this.TransactionID);
+                return await DAL.TransactionRepository.IsTransactionExists(this.TransactionID);
             }
 
-            public static bool IsTransactionExists(int TransactionID)
+            public static async Task<DataTable> GetDailyReportData()
             {
-                return DAL.TransactionRepository.IsTransactionExists(TransactionID);
+                return await DAL.TransactionRepository.GetDailyReport();
             }
 
-            public bool IsExists()
+            public static async Task<DataTable> GetRentReportData()
             {
-                return DAL.TransactionRepository.IsTransactionExists(this.TransactionID);
-            }
-
-            public static DataTable GetDailyReportData()
-            {
-                return DAL.TransactionRepository.GetDailyReport();
-            }
-
-            public static DataTable GetRentReportData()
-            {
-                return DAL.TransactionRepository.GetRentReport();
+                return await DAL.TransactionRepository.GetRentReport();
             }
         }
 }

@@ -18,7 +18,7 @@ namespace CarRental
             InitializeComponent();
         }
         private int _BookingID = -1;
-        private Booking _Booking;
+        private Booking? _Booking;
 
         public int BookingID {  get { return _BookingID; }} 
 
@@ -33,12 +33,14 @@ namespace CarRental
             _LoadData();
            
         }
-        public void LoadBookingByTransactionID(int TransactionID)
+        public async void LoadBookingByTransactionID(int TransactionID)
         {
             if (TransactionID < 0)
                 return;
-            
-            _BookingID = Transaction.GetTransactionByID(TransactionID).BookingID;
+
+            var transaction = await Transaction.GetTransactionByID(TransactionID);
+            if (transaction == null) return;
+            _BookingID =  transaction.BookingID;
             _LoadData();
 
         }
@@ -50,7 +52,7 @@ namespace CarRental
         }
         private async void _LoadData()
         {
-             _Booking= Booking.GetRentalByID(BookingID);
+             _Booking= await Booking.GetRentalByID(BookingID);
 
             if (_Booking == null)
                 return;

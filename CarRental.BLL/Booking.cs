@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using Data = CarRental.DAL.Entities;
 
 namespace CarRental.BLL
 {
@@ -27,7 +28,7 @@ namespace CarRental.BLL
 
         public string DropOffLocation { get; set; }
 
-        public float RentalPricePerDay { get; set; }
+        public decimal RentalPricePerDay { get; set; }
 
         public string InitialCheckNotes { get; set; }
 
@@ -35,7 +36,7 @@ namespace CarRental.BLL
 
         public int TotalDays { get { return (RentalEndDate.Date - RentalStartDate.Date).Days; } }
 
-        public float InitialTotalDueAmount { get { return RentalPricePerDay * TotalDays; } }
+        public decimal InitialTotalDueAmount { get { return RentalPricePerDay * TotalDays; } }
 
         private enMode _Mode = enMode.AddNew;
 
@@ -55,13 +56,13 @@ namespace CarRental.BLL
             this._Mode = enMode.AddNew;
         }
 
-        public Booking(int BookingID, int CustomerID, int VehicleID, DateTime RentalStartDate, DateTime RentalEndDate, string PickupLocation, string DropOffLocation, float RentalPricePerDay, string InitialCheckNotes, int CreatedByUserID)
+        public Booking(int BookingID, int CustomerID, int VehicleID, DateTime RentalStartDate, DateTime RentalEndDate, string PickupLocation, string DropOffLocation, decimal RentalPricePerDay, string InitialCheckNotes, int CreatedByUserID,Customer customerInfo,Vehicle vehicleInfo)
         {
             this.BookingID = BookingID;
             this.CustomerID = CustomerID;
-           // this.CustomerInfo = Customer.GetCustomerByID(CustomerID);
+            this.CustomerInfo = customerInfo;
             this.VehicleID = VehicleID;
-            this.VehicleInfo = Vehicle.GetVehicleByID(VehicleID);
+            this.VehicleInfo = vehicleInfo;
             this.RentalStartDate = RentalStartDate;
             this.RentalEndDate = RentalEndDate;
             this.PickupLocation = PickupLocation;
@@ -76,42 +77,59 @@ namespace CarRental.BLL
 
         //------------------------------------------------
 
-        private bool _AddRent()
+        private async Task<bool> _AddRent()
         {
-            this.BookingID = DAL.BookingRepository.AddRent(CustomerID, VehicleID, RentalStartDate, RentalEndDate, PickupLocation, DropOffLocation, RentalPricePerDay, InitialCheckNotes, CreatedByUserID);
+            var rent = new Data.Booking()
+            {
+                CustomerID = this.CustomerID,
+                VehicleID = this.VehicleID,
+                RentalStartDate = this.RentalStartDate,
+                RentalEndDate = this.RentalEndDate,
+                PickupLocation = this.PickupLocation,
+                DropOffLocation = this.DropOffLocation,
+                RentalPricePerDay = this.RentalPricePerDay,
+                InitialCheckNotes = this.InitialCheckNotes,
+                CreatedByUserID = this.CreatedByUserID
+
+
+            };
+
+
+            this.BookingID = await DAL.BookingRepository.AddRent(rent);
             return this.BookingID > 0;
         }
 
-        private bool _UpdateRent()
+        private async Task<bool> _UpdateRent()
         {
-            return DAL.BookingRepository.Update(BookingID, CustomerID, VehicleID, RentalStartDate, RentalEndDate, PickupLocation, DropOffLocation, RentalPricePerDay, InitialCheckNotes, CreatedByUserID);
+            return await DAL.BookingRepository.Update(BookingID, CustomerID, VehicleID, RentalStartDate, RentalEndDate, PickupLocation, DropOffLocation, RentalPricePerDay, InitialCheckNotes, CreatedByUserID);
         }
 
-        public bool Save()
+        public  async Task<bool> Save()
         {
             switch (_Mode)
             {
                 case enMode.AddNew:
                     _Mode = enMode.Update;
-                    return _AddRent();
+                    return await _AddRent();
                 case enMode.Update:
-                    return _UpdateRent();
+                    return await _UpdateRent();
 
             }
             return false;
 
         }
 
-        public static Booking GetRentalByID(int BookingID)
+        public static async Task<Booking?> GetRentalByID(int BookingID)
         {
-            int CustomerID = -1, VehicleID = -1, CreatedByUserID = -1;
-            string PickupLocation = "", DropOffLocation = "", InitialCheckNotes = "";
-            DateTime RentalStartDate = DateTime.Now, RentalEndDate = DateTime.Now;
-            float RentalPricePerDay = 0;
+            var Booking = await DAL.BookingRepository.GetByID(BookingID);
 
-            if (DAL.BookingRepository.GetByID(BookingID, ref CustomerID, ref VehicleID, ref RentalStartDate, ref RentalEndDate, ref PickupLocation, ref DropOffLocation, ref RentalPricePerDay, ref InitialCheckNotes, ref CreatedByUserID))
+            if (Booking!=null)
             {
-                return new Booking(BookingID, CustomerID, VehicleID, RentalStartDate, RentalEndDate, PickupLocation, DropOffLocation, RentalPricePerDay, InitialCheckNotes, CreatedByUserID);
+                var vehicle = await BLL.Vehicle.GetVehicleByID(Booking.VehicleID);
+                var customer = await BLL.Customer.GetCustomerByID(Booking.CustomerID);
+
+
+                return new Booking(BookingID, Booking.CustomerID, Booking.VehicleID, Booking.RentalStartDate, Booking.RentalEndDate, Booking.PickupLocation, Booking.DropOffLocation, Booking.RentalPricePerDay, Booking.InitialCheckNotes, Booking.CreatedByUserID,customer,vehicle);
             }
             else
                 return null;
@@ -121,57 +139,57 @@ namespace CarRental.BLL
 
         }
 
-        public static bool DeleteRent(int BookingID)
+        public static async Task<bool> DeleteRent(int BookingID)
         {
-            return DAL.BookingRepository.Delete(BookingID);
+            return await DAL.BookingRepository.Delete(BookingID);
         }
-        public bool Delete()
+        public async Task<bool> Delete()
         {
-            return DAL.BookingRepository.Delete(this.BookingID);
-        }
-
-        public static DataTable GetAllRents()
-        {
-            return DAL.BookingRepository.GetAll();
+            return await DAL.BookingRepository.Delete(this.BookingID);
         }
 
-        public static bool IsRentExists(int BookingID)
+        public static async Task<DataTable> GetAllRents()
         {
-            return DAL.BookingRepository.IsExists(BookingID);
+            return await DAL.BookingRepository.GetAll();
         }
 
-        public bool IsExists()
+        public static async Task<bool> IsRentExists(int BookingID)
         {
-            return DAL.BookingRepository.IsExists(this.BookingID);
+            return await DAL.BookingRepository.IsExists(BookingID);
         }
 
-        public bool IsReturned()
+        public async Task<bool> IsExists()
         {
-            return DAL.ReturnRepository.GetByBookingID(this.BookingID);
+            return await DAL.BookingRepository.IsExists(this.BookingID);
         }
 
-        public static bool IsBookingReturned(int BookingID)
+        public async Task<bool> IsReturned()
         {
-            return DAL.ReturnRepository.GetByBookingID(BookingID);
+            return await DAL.ReturnRepository.GetByBookingID(this.BookingID);
         }
 
-        public static int GetTotalBookings()
+        public static async Task<bool> IsBookingReturned(int BookingID)
         {
-            return DAL.BookingRepository.GetTotalBookings();
+            return await DAL.ReturnRepository.GetByBookingID(BookingID);
         }
 
-        public static int GetTotalCompletedRents()
+        public static async Task<int> GetTotalBookings()
         {
-            return DAL.BookingRepository.GetTotalCompletedRents();
+            return await DAL.BookingRepository.GetTotalBookings();
         }
 
-        public static DataTable GetTotalRentTimesVehicleReport()
+        public static async Task<int> GetTotalCompletedRents()
         {
-            return DAL.BookingRepository.GetVehiclesRentTimesReport();
+            return await DAL.BookingRepository.GetTotalCompletedRents();
         }
-        public static DataTable GetVehiclesCountReport()
+
+        public static async Task<DataTable> GetTotalRentTimesVehicleReport()
         {
-            return DAL.BookingRepository.GetVehiclesCountReport();
+            return await DAL.BookingRepository.GetVehiclesRentTimesReport();
+        }
+        public static async Task<DataTable> GetVehiclesCountReport()
+        {
+            return await DAL.BookingRepository.GetVehiclesCountReport();
         }
     }
 }

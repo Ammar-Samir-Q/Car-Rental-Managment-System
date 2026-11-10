@@ -63,7 +63,7 @@ namespace CarRental
 
         //---------------------------------Next-------------------------------------
 
-        private void _Next()
+        private async void _Next()
         {
             if (ctrlRentInfoWithFilter1.BookingID <= 0)
             {
@@ -74,7 +74,7 @@ namespace CarRental
             if (ctrlRentInfoWithFilter1.Booking == null)
                 return;
 
-            if(ctrlRentInfoWithFilter1.Booking.IsReturned())
+            if(await ctrlRentInfoWithFilter1.Booking.IsReturned())
             {
                 MessageBox.Show("This Booking Is Already Returnd", "Returnd", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -105,7 +105,7 @@ namespace CarRental
 
         //---------------------------------Save-------------------------------------
 
-        private void _SaveReturn()
+        private async Task _SaveReturn()
         {
             if(dtpReturnDate.Value.Date==ctrlRentInfoWithFilter1.Booking.RentalStartDate)
             {
@@ -114,7 +114,7 @@ namespace CarRental
             }
 
 
-            Transaction transaction = Transaction.GetTransactionByBookingID(_BookingID);
+            Transaction? transaction = await Transaction.GetTransactionByBookingID(_BookingID);
             if (transaction == null)
                 return;
 
@@ -128,26 +128,26 @@ namespace CarRental
             }
 
 
-            _Return.ActualReturnDate=dtpReturnDate.Value;
+            _Return.ActualReturnDate=DateOnly.FromDateTime(dtpReturnDate.Value);
             _Return.Milage = int.Parse(txtMilage.Text);
-            if(!Vehicle.UpdateMilage(ctrlRentInfoWithFilter1.Booking.VehicleID,_Return.Milage))
+            if(!await Vehicle.UpdateMilage(ctrlRentInfoWithFilter1.Booking.VehicleID,_Return.Milage))
             {
                 MessageBox.Show("Error : Error While Updating Vehicle Milage", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!Vehicle.SetVehicleAvilable(ctrlRentInfoWithFilter1.Booking.VehicleID, true))
+            if (! await Vehicle.SetVehicleAvilable(ctrlRentInfoWithFilter1.Booking.VehicleID, true))
             {
                 MessageBox.Show("Error : Error While Updating Vehicle Availablity", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             _Return.FinalCheckNotes = txtNotes.Text;
-            _Return.AddtionalCharges = txtAddtionalCharges.Text==""?0:float.Parse(txtAddtionalCharges.Text);
-            _Return.ActualTotalDueAmount = TotalDueAmount;
+            _Return.AddtionalCharges = Convert.ToDecimal(txtAddtionalCharges.Text==""?0:float.Parse(txtAddtionalCharges.Text));
+            _Return.ActualTotalDueAmount = Convert.ToDecimal(TotalDueAmount);
             _Return.ReturnCondition = (Return.enReturnCondition)(cbReturnCondation.SelectedIndex + 1);
             _Return.FuelLevel = (Return.enFuelLevel)(cbFuelLevel.SelectedIndex + 1);
 
-            if(!_Return.Save())
+            if(!await _Return.Save())
             {
                 MessageBox.Show("Error : Error While Saving Return Data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -157,9 +157,9 @@ namespace CarRental
             transaction.ActualTotalDueAmount=_Return.ActualTotalDueAmount;
             transaction.TotalRefundedAmount = (transaction.PaidInitialTotalDueAmount - transaction.ActualTotalDueAmount) < 0 ? 0 : transaction.PaidInitialTotalDueAmount - transaction.ActualTotalDueAmount;
 
-            transaction.UpdatedTransactionDate = DateTime.Now;
+            transaction.UpdatedTransactionDate = DateOnly.FromDateTime(DateTime.Now);
 
-            if(!transaction.Save())
+            if(!await transaction.Save())
             {
                 MessageBox.Show("Error : Error While Updating Trasaction Data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _Return.DeleteReturn();

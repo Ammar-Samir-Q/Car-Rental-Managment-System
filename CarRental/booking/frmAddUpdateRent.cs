@@ -17,14 +17,14 @@ namespace CarRental
         enum enMode { AddNew=1,Update=2}
         private enMode _Mode;
         private int _BookingID = -1;
-        private Booking _Booking = new Booking();
+        private Booking? _Booking = new Booking();
 
 
         private int _CustomerID;
 
         private int _VehicleID;
         private Customer? _Customer;
-        private Vehicle _Vehicle;
+        private Vehicle? _Vehicle;
 
         public frmAddUpdateRent()
         {
@@ -39,11 +39,10 @@ namespace CarRental
             _BookingID = BookingID;
         }
 
-        public frmAddUpdateRent(int VehicleID, int CustomerID = -1)
+        public  frmAddUpdateRent(int VehicleID, int CustomerID = -1)
         {
             InitializeComponent();
-            if(VehicleID > 0)
-            _Vehicle=Vehicle.GetVehicleByID(VehicleID);
+                _VehicleID= VehicleID;
             _CustomerID = CustomerID;
             _Mode = enMode.AddNew;
         }
@@ -55,13 +54,13 @@ namespace CarRental
             if (_BookingID == -1)
                 return;
             
-             _Booking=Booking.GetRentalByID(_BookingID);
+             _Booking=await Booking.GetRentalByID(_BookingID);
             
             if (_Booking == null) 
                 return;
 
             
-            if(_Booking.IsReturned())
+            if(await _Booking.IsReturned())
             {
                 MessageBox.Show("This Book is Already Returned", "Returnd Rental", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
@@ -69,7 +68,7 @@ namespace CarRental
             }
 
             _Customer= await Customer.GetCustomerByID(_Booking.CustomerID);
-            _Vehicle=Vehicle.GetVehicleByID(_Booking.VehicleID);
+            _Vehicle=await Vehicle.GetVehicleByID(_Booking.VehicleID);
 
             _LoadUpdateForm();
             _LoadSummaryInfo();
@@ -119,14 +118,18 @@ namespace CarRental
 
         }
 
-        private void frmAddRent_Load(object sender, EventArgs e)
+        private async void frmAddRent_Load(object sender, EventArgs e)
         {
-                _SetDefaults();
+            if(_VehicleID>0)
+       _Vehicle = await BLL.Vehicle.GetVehicleByID(_VehicleID);
+
+
+            _SetDefaults();
             if(_Mode==enMode.Update)
                  _LoadData();
         }
 
-        void _LoadUpdateForm()
+        async void _LoadUpdateForm()
         {
             lblTitle.Text = "Update-Title";
             this.Text = lblTitle.Text;
@@ -142,7 +145,8 @@ namespace CarRental
             gbSummary.Enabled = true;
 
             lblRentID.Text =_Booking.BookingID.ToString();
-            lblTransactionID.Text = Transaction.GetTransactionByBookingID(_Booking.BookingID).TransactionID.ToString();
+            var transaction = await Transaction.GetTransactionByBookingID(_Booking.BookingID);
+            lblTransactionID.Text = transaction.TransactionID.ToString();
             ctrlPersonInfoWithFilter1.LoadPerson(_Booking.CustomerInfo.PersonID);
             ctrlVehicleInfo1.LoadVehicle(_Booking.VehicleID);
 
@@ -155,7 +159,7 @@ namespace CarRental
             txtPickupLocation.Text = _Booking.PickupLocation;
             txtDropOffLocation.Text = _Booking.DropOffLocation;
             txtInitialNotes.Text = _Booking.InitialCheckNotes;
-            txtPaymentDetails.Text = Transaction.GetTransactionByBookingID(_BookingID).PaymentsDetails;
+            txtPaymentDetails.Text = transaction.PaymentsDetails;
         }
 
 
@@ -196,7 +200,7 @@ namespace CarRental
 
     }
 
-        void _NextVehicle()
+        async void _NextVehicle()
         {
             if (ctrlVehicleInfo1.Vehicle == null)
             {
@@ -209,7 +213,7 @@ namespace CarRental
                 return;
             }
 
-            _Vehicle=Vehicle.GetVehicleByID(ctrlVehicleInfo1.VehicleID);
+            _Vehicle= await Vehicle.GetVehicleByID(ctrlVehicleInfo1.VehicleID);
             tcRent.SelectedTab = tpRentInfo;
             btnNextVehicle.Visible=false;
             gbSelectVehicle.Enabled=false;
@@ -261,12 +265,12 @@ namespace CarRental
 
         //-------------------------Misc---------------------------
          
-        void GetVehicleID(int VehicleID)
+        async void GetVehicleID(int VehicleID)
         {
             if (VehicleID > 0)
             {
                 ctrlVehicleInfo1.LoadVehicle(VehicleID);
-                _Vehicle=Vehicle.GetVehicleByID(VehicleID);
+                _Vehicle=await Vehicle.GetVehicleByID(VehicleID);
             }  
         }
 
@@ -317,7 +321,7 @@ namespace CarRental
 
         //-------------------------Save---------------------------
 
-        void _SaveData()
+        async Task _SaveData()
         {
 
             _Booking.CustomerID = _Customer.CustomerID;
@@ -331,16 +335,16 @@ namespace CarRental
             _Booking.InitialCheckNotes = txtInitialNotes.Text;
 
 
-            if (!_Booking.Save())
+            if ( !await _Booking.Save())
             {
                 MessageBox.Show("Error : Faild While Saving The Rent Data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            Transaction Transaction = new Transaction();
+            Transaction? Transaction = new Transaction();
 
             if (_Mode == enMode.Update)
-                Transaction = Transaction.GetTransactionByBookingID(_Booking.BookingID);
+                Transaction =await Transaction.GetTransactionByBookingID(_Booking.BookingID);
 
          
 
@@ -351,8 +355,8 @@ namespace CarRental
             if(_Mode==enMode.AddNew)
             Transaction.TransactionDate = DateTime.Now;
             
-            Transaction.UpdatedTransactionDate = DateTime.Now;
-            if(!Transaction.Save())
+            Transaction.UpdatedTransactionDate = DateOnly.FromDateTime(DateTime.Now);
+            if(!await Transaction.Save())
             {
                 MessageBox.Show("Faild While Saving Transaction", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _Booking.Delete();

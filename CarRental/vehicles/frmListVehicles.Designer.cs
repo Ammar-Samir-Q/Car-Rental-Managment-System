@@ -163,7 +163,6 @@
             this.editToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_Edit;
             resources.ApplyResources(this.editToolStripMenuItem, "editToolStripMenuItem");
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 

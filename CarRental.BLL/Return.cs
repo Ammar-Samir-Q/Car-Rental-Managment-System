@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using Data = CarRental.DAL.Entities;
 
 namespace CarRental.BLL
 {
@@ -14,15 +15,15 @@ namespace CarRental.BLL
         public int ReturnID { get; set; }
 
 
-        public DateTime ActualReturnDate { get; set; }
+        public DateOnly ActualReturnDate { get; set; }
 
         public int Milage { get; set; }
 
         public string FinalCheckNotes { get; set; }
 
-        public float AddtionalCharges { get; set; }
+        public decimal? AddtionalCharges { get; set; }
 
-        public float ActualTotalDueAmount { get; set; }
+        public decimal ActualTotalDueAmount { get; set; }
 
         public enReturnCondition ReturnCondition { get; set; }
 
@@ -82,7 +83,7 @@ namespace CarRental.BLL
         public Return()
         {
             this.ReturnID = -1;
-            this.ActualReturnDate = DateTime.Now;
+            this.ActualReturnDate = DateOnly.FromDateTime(DateTime.Now);
             this.Milage = 0;
             this.FinalCheckNotes = "";
             this.AddtionalCharges = 0;
@@ -93,7 +94,7 @@ namespace CarRental.BLL
 
         }
 
-        public Return(int ReturnID, DateTime ActualReturnDate, int Milage, string FinalCheckNotes, float AddtionalCharges, float ActualTotalDueAmount, byte ReturnCondition, byte FuelLevel)
+        public Return(int ReturnID, DateOnly ActualReturnDate, int Milage, string FinalCheckNotes, decimal? AddtionalCharges, decimal ActualTotalDueAmount, byte ReturnCondition, byte FuelLevel)
         {
             this.ReturnID = ReturnID;
             this.ActualReturnDate = ActualReturnDate;
@@ -108,41 +109,50 @@ namespace CarRental.BLL
 
         //--------------------------------------------
 
-        private bool _AddReturn()
+        private async Task<bool> _AddReturn()
         {
-            this.ReturnID = DAL.ReturnRepository.Create(ActualReturnDate, Milage, FinalCheckNotes, AddtionalCharges, ActualTotalDueAmount, (byte)ReturnCondition, (byte)FuelLevel);
+
+            Data.Return Return = new Data.Return()
+            {
+                ActualReturnDate=this.ActualReturnDate,
+                Mileage=this.Milage,
+                FinalCheckNotes=this.FinalCheckNotes,
+                AdditionalCharges=this.AddtionalCharges,
+                ActualTotalDueAmount=this.ActualTotalDueAmount,
+                ReturnCondition=(byte)this.ReturnCondition,
+                FuleLevel=(byte)this.FuelLevel
+
+            };
+
+            this.ReturnID = await DAL.ReturnRepository.Create(Return);
             return this.ReturnID > 0;
         }
 
-        private bool _UpdateReturn()
+        private async Task<bool> _UpdateReturn()
         {
-            return DAL.ReturnRepository.Update(ReturnID, ActualReturnDate, Milage, FinalCheckNotes, AddtionalCharges, ActualTotalDueAmount, (byte)ReturnCondition, (byte)FuelLevel);
+          return await DAL.ReturnRepository.Update(ReturnID, ActualReturnDate, Milage, FinalCheckNotes, AddtionalCharges, ActualTotalDueAmount, (byte)ReturnCondition, (byte)FuelLevel);
         }
 
-        public bool Save()
+        public async Task<bool> Save()
         {
             switch (this._Mode)
             {
                 case enMode.Addnew:
                     this._Mode = enMode.Update;
-                    return _AddReturn();
+                    return await _AddReturn();
                 case enMode.Update:
-                    return _UpdateReturn();
+                    return await _UpdateReturn();
             }
             return false;
         }
 
 
-        public static Return GetReturnByID(int ReturnID)
+        public static async Task<Return?> GetReturnByID(int ReturnID)
         {
-            DateTime ActualReturnDate = DateTime.Now;
-            float Mileage = 0;
-            byte ReturnCondition = 1, FuelLevel = 1;
-            string FinalCheckNotes = "";
-            float AdditionalCharges = 0, ActualTotalDueAmount = 0;
-            if (DAL.ReturnRepository.GetByID(ReturnID, ref ActualReturnDate, ref Mileage, ref FinalCheckNotes, ref AdditionalCharges, ref ActualTotalDueAmount, ref ReturnCondition, ref FuelLevel))
+            var Return = await DAL.ReturnRepository.GetByID(ReturnID);
+            if (Return!=null)
             {
-                return new Return(ReturnID, ActualReturnDate, (int)Mileage, FinalCheckNotes, AdditionalCharges, ActualTotalDueAmount, ReturnCondition, FuelLevel);
+                return new Return(ReturnID, Return.ActualReturnDate, (int)Return.Mileage, Return.FinalCheckNotes, Return.AdditionalCharges, Return.ActualTotalDueAmount, Return.ReturnCondition, Return.FuleLevel);
             }
             else
                 return null;
@@ -151,29 +161,29 @@ namespace CarRental.BLL
 
         }
 
-        public static DataTable GetAllReturns()
+        public static async Task<DataTable> GetAllReturns()
         {
-            return DAL.ReturnRepository.GetAll();
+            return await DAL.ReturnRepository.GetAll();
         }
 
-        public static bool DeleteReturn(int ReturnID)
+        public static async Task<bool> DeleteReturn(int ReturnID)
         {
-            return DAL.ReturnRepository.Delete(ReturnID);
+            return await DAL.ReturnRepository.Delete(ReturnID);
         }
-        public bool DeleteReturn()
+        public async Task<bool> DeleteReturn()
         {
-            return DAL.ReturnRepository.Delete(this.ReturnID);
-        }
-
-        public static bool IsReturnExists(int ReturnID)
-        {
-            return DAL.ReturnRepository.IsExists(ReturnID);
+            return await DAL.ReturnRepository.Delete(this.ReturnID);
         }
 
-
-        public bool IsExists()
+        public static async Task<bool> IsReturnExists(int ReturnID)
         {
-            return DAL.ReturnRepository.IsExists(this.ReturnID);
+            return await DAL.ReturnRepository.IsExists(ReturnID);
+        }
+
+
+        public async Task<bool> IsExists()
+        {
+            return await DAL.ReturnRepository.IsExists(this.ReturnID);
         }
     }
 }

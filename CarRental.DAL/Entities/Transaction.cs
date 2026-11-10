@@ -22,7 +22,7 @@ namespace CarRental.DAL.Entities
 
         public DateTime TransactionDate { get; set; }
 
-        public DateOnly? UpdatedTransactionDate { get; private set; }
+        public DateOnly? UpdatedTransactionDate { get; set; }
 
 
         // Navigation Properties

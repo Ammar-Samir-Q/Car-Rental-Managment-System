@@ -23,9 +23,9 @@ namespace CarRental
             this.Close();
         }
 
-        private void frmShowVehicles_Load(object sender, EventArgs e)
+        private async void frmShowVehicles_Load(object sender, EventArgs e)
         {
-            DataTable dtVehicles=Vehicle.GetAllVehicles();
+            DataTable dtVehicles=await Vehicle.GetAllVehicles();
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel1.WrapContents = true;

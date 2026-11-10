@@ -36,11 +36,11 @@ namespace CarRental.BLL
             this._Mode = enMode.AddNew;
         }
 
-        public Maintenance(int MainteanceID, int VehicleID, string? Description, DateOnly MaintenanceDate, decimal Cost)
+        public Maintenance(int MainteanceID, int VehicleID, string? Description, DateOnly MaintenanceDate, decimal Cost,Vehicle vehicle)
         {
             this.MaintenanceID = MainteanceID;
             this.VehicleID = VehicleID;
-            this.VehicleInfo = Vehicle.GetVehicleByID(VehicleID);
+            this.VehicleInfo = vehicle;
             this.Description = Description;
             this.MaintenanceDate = MaintenanceDate;
             this.Cost = Cost;
@@ -88,8 +88,8 @@ namespace CarRental.BLL
             var maintenace = await DAL.MaintenanceRepository.GetMaintenanceByID(MaintenanceID);
             if (maintenace!=null)
             {
-
-                return new Maintenance(MaintenanceID, maintenace.VehicleID, maintenace.Description, maintenace.MaintenanceDate, maintenace.Cost);
+                var Vehicle=await BLL.Vehicle.GetVehicleByID(maintenace.VehicleID);
+                return new Maintenance(MaintenanceID, maintenace.VehicleID, maintenace.Description, maintenace.MaintenanceDate, maintenace.Cost,Vehicle);
             }
             else
                 return null;

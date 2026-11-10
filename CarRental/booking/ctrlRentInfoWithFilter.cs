@@ -25,13 +25,13 @@ namespace CarRental
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool FilterEnabled { get { return gbFilter.Enabled; } set { gbFilter.Enabled = value; } }
         
-        public void LoadBooking(int BookingID)
+        public async void LoadBooking(int BookingID)
         {
             this.FilterEnabled = false;
             if (BookingID <= 0)
                 return;
 
-            if(!Booking.IsRentExists(BookingID))
+            if(!await Booking.IsRentExists(BookingID))
             {
                 MessageBox.Show("Booking With BookingID : " + BookingID + " Not Found", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -43,13 +43,13 @@ namespace CarRental
 
         }
 
-        public void LoadBookingByTransactionID(int TransactionID)
+        public async void LoadBookingByTransactionID(int TransactionID)
         {
             this.FilterEnabled = false;
             if (TransactionID <= 0)
                 return;
 
-            if (!Transaction.IsTransactionExists(TransactionID))
+            if ( !await Transaction.IsTransactionExists(TransactionID))
             {
                 MessageBox.Show("Booking With TransactionID : " + TransactionID + " Not Found", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -67,7 +67,7 @@ namespace CarRental
             cbFilter.SelectedIndex = 0;
         }
 
-        private void Find()
+        private async void Find()
         {
             if (string.IsNullOrEmpty(txtFilter.Text))
             {
@@ -78,7 +78,7 @@ namespace CarRental
             if(cbFilter.SelectedIndex==0)
             {
                 int BookingID = int.Parse(txtFilter.Text);
-                if (!Booking.IsRentExists(int.Parse(txtFilter.Text)))
+                if (!await Booking.IsRentExists(int.Parse(txtFilter.Text)))
                 {
                     txtFilter.Clear();
                     ctrlRentInfo1.ResetControl();
@@ -94,7 +94,7 @@ namespace CarRental
             if(cbFilter.SelectedIndex==1)
             {
                 int TransactionID=int.Parse(txtFilter.Text);
-                if(!Transaction.IsTransactionExists(TransactionID))
+                if(!await Transaction.IsTransactionExists(TransactionID))
                 {
                     txtFilter.Clear();
                     ctrlRentInfo1.ResetControl();

@@ -19,9 +19,9 @@ namespace CarRental
             InitializeComponent();
         }
 
-        private void _LoadDataGridView()
+        private async Task _LoadDataGridView()
         {
-            _dtVehicles = Vehicle.GetAllVehicles();
+            _dtVehicles = await Vehicle.GetAllVehicles();
             dgvVehicles.DataSource = _dtVehicles;
             if (dgvVehicles.Rows.Count > 0 )
             {
@@ -92,17 +92,17 @@ namespace CarRental
 
         }
 
-        private void _RefreashDataGridView()
+        private async Task _RefreashDataGridView()
         {
-            _dtVehicles = Vehicle.GetAllVehicles();
+            _dtVehicles =await Vehicle.GetAllVehicles();
             dgvVehicles.DataSource = _dtVehicles;
         }
 
 
-        private void frmListVehicles_Load(object sender, EventArgs e)
+        private async void frmListVehicles_Load(object sender, EventArgs e)
         {
          
-            _LoadDataGridView();
+           await _LoadDataGridView();
             _CountRecords();
             cbFilter.SelectedIndex = 0;
             cbIsAvailable.SelectedIndex = 0;
@@ -115,20 +115,20 @@ namespace CarRental
             this.Close();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private async Task btnAdd_Click(object sender, EventArgs e)
         {
             Form frm = new frmAddUpdateVehicle();
             frm.ShowDialog();
-            _RefreashDataGridView();
+           await _RefreashDataGridView();
         }
 
-        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        private async Task editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (GlobalClass.CurrentUser.Role == User.enRole.Admin)
             {
                 Form frm = new frmAddUpdateVehicle((int)dgvVehicles.SelectedRows[0].Cells[0].Value);
                 frm.ShowDialog();
-                _RefreashDataGridView();
+               await _RefreashDataGridView();
             }
             else
             {
@@ -138,7 +138,7 @@ namespace CarRental
          
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (GlobalClass.CurrentUser.Role == User.enRole.Admin)
             {
@@ -147,7 +147,10 @@ namespace CarRental
                 {
                     return;
                 }
-                if (Vehicle.GetVehicleByID((int)dgvVehicles.SelectedRows[0].Cells[0].Value).GetTotalRentTimes()>0)
+                var vehicle =await Vehicle.GetVehicleByID((int)dgvVehicles.SelectedRows[0].Cells[0].Value);
+                int TotalRents = await vehicle.GetTotalRentTimes();
+
+                if (TotalRents>0)
                 {
                     MessageBox.Show("Can't Delete This Vehicle Because it have rental history", "Delete Denied", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     return;
@@ -155,7 +158,7 @@ namespace CarRental
           
 
 
-                    if (Vehicle.DeleteVehicle((int)dgvVehicles.SelectedRows[0].Cells[0].Value))
+                    if (await Vehicle.DeleteVehicle((int)dgvVehicles.SelectedRows[0].Cells[0].Value))
                 {
                     MessageBox.Show("Vehicle Deleted Succesfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

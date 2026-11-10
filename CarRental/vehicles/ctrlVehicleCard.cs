@@ -19,12 +19,12 @@ namespace CarRental
             InitializeComponent();
         }
         int _VehicleID = -1;
-        public void LoadVehicle(int VehicleID)
+        public async void LoadVehicle(int VehicleID)
         {
             _VehicleID=VehicleID;
             if (VehicleID <= 0)
                 return;
-            Vehicle vehicle = Vehicle.GetVehicleByID(VehicleID);
+            Vehicle? vehicle = await Vehicle.GetVehicleByID(VehicleID);
             if (vehicle == null)
                 return;
 

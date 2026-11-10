@@ -20,9 +20,9 @@ namespace CarRental
 
         private DataTable _dtBookingRentals;
 
-        private void _LoadDataGridView()
+        private async Task _LoadDataGridView()
         {
-            _dtBookingRentals=Booking.GetAllRents();
+            _dtBookingRentals=await Booking.GetAllRents();
             dgvRents.DataSource = _dtBookingRentals;
             if(dgvRents.Rows.Count > 0 )
             {
@@ -75,9 +75,9 @@ namespace CarRental
 
         }
 
-        private void _RefreashDataGridView()
+        private async Task _RefreashDataGridView()
         {
-            _dtBookingRentals = Booking.GetAllRents();
+            _dtBookingRentals = await Booking.GetAllRents();
             dgvRents.DataSource = _dtBookingRentals;
             _CountRecords();
         }
@@ -87,18 +87,18 @@ namespace CarRental
             lblRecordsNumber.Text = dgvRents.Rows.Count.ToString();
         }
 
-        private void frmListRents_Load(object sender, EventArgs e)
+        private async void frmListRents_Load(object sender, EventArgs e)
         {
-            _LoadDataGridView();
+            await _LoadDataGridView();
             _CountRecords();
             cbFilter.SelectedIndex = 0;
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private async void btnAdd_Click(object sender, EventArgs e)
         {
             Form frm = new frmAddUpdateRent();
             frm.ShowDialog();
-            _RefreashDataGridView();
+           await _RefreashDataGridView();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -106,11 +106,11 @@ namespace CarRental
             this.Close();
         }
 
-        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form frm = new frmAddUpdateRent((int)dgvRents.SelectedRows[0].Cells[0].Value);
             frm.ShowDialog();
-            _RefreashDataGridView();
+           await _RefreashDataGridView();
         }
 
         private void infoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -119,11 +119,11 @@ namespace CarRental
             frm.ShowDialog();
         }
 
-        private void setReturnToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void setReturnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form frm = new frmReturn((int)dgvRents.SelectedRows[0].Cells[0].Value);
             frm.ShowDialog();
-            _RefreashDataGridView();
+            await _RefreashDataGridView();
         }
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
@@ -170,14 +170,14 @@ namespace CarRental
         }
 
         [Obsolete]
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Are You Sure To Delete This Booking ?","Confirm",MessageBoxButtons.YesNo,MessageBoxIcon.Information)==DialogResult.Yes)
             {
-                if (Booking.DeleteRent((int)dgvRents.SelectedRows[0].Cells[0].Value))
+                if (await Booking.DeleteRent((int)dgvRents.SelectedRows[0].Cells[0].Value))
                 {
                     MessageBox.Show("Booking Deleted Successfully", "Deletd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    _RefreashDataGridView();
+                   await _RefreashDataGridView();
                 }
                 else
                 {
@@ -189,9 +189,9 @@ namespace CarRental
             }
         }
 
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        private async void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
-            if (Booking.IsBookingReturned((int)dgvRents.SelectedRows[0].Cells[0].Value))
+            if (await Booking.IsBookingReturned((int)dgvRents.SelectedRows[0].Cells[0].Value))
             {
                 returnInfoToolStripMenuItem.Enabled = true;
                 setReturnToolStripMenuItem.Enabled=false;
@@ -203,9 +203,10 @@ namespace CarRental
             }
         }
 
-        private void returnInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void returnInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frm = new frmReturnInfo(Transaction.GetTransactionByBookingID((int)dgvRents.SelectedRows[0].Cells[0].Value).ReturnID);
+            var transaction = await Transaction.GetTransactionByBookingID((int)dgvRents.SelectedRows[0].Cells[0].Value);
+            Form frm = new frmReturnInfo(transaction.ReturnID??-1);
             frm.ShowDialog();
         }
     }

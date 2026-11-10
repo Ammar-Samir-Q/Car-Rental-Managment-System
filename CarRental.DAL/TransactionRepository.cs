@@ -1,4 +1,8 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using CarRental.DAL.Context;
+using CarRental.DAL.Entities;
+using CarRental.DAL.Factories;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,321 +12,77 @@ namespace CarRental.DAL
 {
     public class TransactionRepository
     {
-        public static int AddTransaction(int BookingID, int ReturnID, string PaymentDetails,
-          float PaidInitialTotalDueAmount, float ActualTotalDueAmount, float TotalRefundedAmount, DateTime TransactionDate, DateTime UpdatedTransactionDate)
+        public static async Task<int> AddTransaction(Transaction transaction)
         {
-            int TransactionID = -1;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"INSERT INTO RentalTransactions
-(BookingID,ReturnID,PaymentDetails,PaidInitialTotalDueAmount,ActualTotalDueAmount,TotalRefundedAmount,TransactionDate,UpdatedTransactionDate)
-VALUES
-(@BookingID,@ReturnID,@PaymentDetails,@PaidInitialTotalDueAmount,@ActualTotalDueAmount,@TotalRefundedAmount,@TransactionDate,@UpdatedTransactionDate)
-SELECT SCOPE_IDENTITY();";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@BookingID", BookingID);
-            if (ReturnID > 0)
-                command.Parameters.AddWithValue("@ReturnID", ReturnID);
-            else
-                command.Parameters.AddWithValue("@ReturnID", DBNull.Value);
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            if (string.IsNullOrEmpty(PaymentDetails))
-                command.Parameters.AddWithValue("@PaymentDetails", DBNull.Value);
-            else
-                command.Parameters.AddWithValue("@PaymentDetails", PaymentDetails);
+            await context.RentalTransactions.AddAsync(transaction);
 
-            command.Parameters.AddWithValue("@PaidInitialTotalDueAmount", PaidInitialTotalDueAmount);
+            await context.SaveChangesAsync();
 
-            if (ActualTotalDueAmount > 0)
-                command.Parameters.AddWithValue("@ActualTotalDueAmount", ActualTotalDueAmount);
-            else
-                command.Parameters.AddWithValue("@ActualTotalDueAmount", DBNull.Value);
-
-            if (TotalRefundedAmount > 0)
-                command.Parameters.AddWithValue("@TotalRefundedAmount", TotalRefundedAmount);
-            else
-                command.Parameters.AddWithValue("@TotalRefundedAmount", DBNull.Value);
-            command.Parameters.AddWithValue("@TransactionDate", TransactionDate);
-
-            if (UpdatedTransactionDate != null)
-                command.Parameters.AddWithValue("@UpdatedTransactionDate", UpdatedTransactionDate);
-            else
-                command.Parameters.AddWithValue("@UpdatedTransactionDate", DBNull.Value);
-
-
-            try
-            {
-                connection.Open();
-                object result = command.ExecuteScalar();
-                if (result != null && int.TryParse(result.ToString(), out int ID))
-                    TransactionID = ID;
-
-
-
-            }
-            catch (Exception ex)
-            { }
-            finally { connection.Close(); }
-
-            return TransactionID;
+            return transaction.TransactionID;
         }
 
-        public static bool UpdateTransaction(int TransactionID, int BookingID, int ReturnID, string PaymentDetails,
-            float PaidInitialTotalDueAmount, float ActualTotalDueAmount, float TotalRefundedAmount, DateTime TransactionDate, DateTime UpdatedTransactionDate)
+        public static async Task<bool> UpdateTransaction(int TransactionID, int BookingID, int? ReturnID, string PaymentDetails,
+            decimal PaidInitialTotalDueAmount, decimal? ActualTotalDueAmount, decimal? TotalRefundedAmount, DateTime TransactionDate, DateOnly? UpdatedTransactionDate)
         {
-            bool IsUpdated = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"Update RentalTransactions
-SET BookingID=@BookingID,
-ReturnID=@ReturnID,
-PaymentDetails=@PaymentDetails,
-PaidInitialTotalDueAmount=@PaidInitialTotalDueAmount,
-ActualTotalDueAmount=@ActualTotalDueAmount,
-TotalRefundedAmount=@TotalRefundedAmount,
-TransactionDate=@TransactionDate,
-UpdatedTransactionDate=@UpdatedTransactionDate
-WHERE TransactionID=@TransactionID;";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@TransactionID", TransactionID);
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            command.Parameters.AddWithValue("@BookingID", BookingID);
-            if (ReturnID > 0)
-                command.Parameters.AddWithValue("@ReturnID", ReturnID);
-            else
-                command.Parameters.AddWithValue("@ReturnID", DBNull.Value);
+            var transaction = await context.RentalTransactions.FindAsync(TransactionID);
 
-            if (string.IsNullOrEmpty(PaymentDetails))
-                command.Parameters.AddWithValue("@PaymentDetails", DBNull.Value);
-            else
-                command.Parameters.AddWithValue("@PaymentDetails", PaymentDetails);
+            if (transaction == null) return false;
 
-            command.Parameters.AddWithValue("@PaidInitialTotalDueAmount", PaidInitialTotalDueAmount);
+            transaction.BookingID= BookingID;
+            transaction.ReturnID= ReturnID;
+            transaction.PaymentDetails= PaymentDetails;
+            transaction.PaidInitialTotalDueAmount = PaidInitialTotalDueAmount;
+            transaction.ActualTotalDueAmount = ActualTotalDueAmount;
+            transaction.TotalRefundedAmount = TotalRefundedAmount;
+            transaction.TransactionDate= TransactionDate;
+            transaction.UpdatedTransactionDate= UpdatedTransactionDate;
 
-            if (ActualTotalDueAmount > 0)
-                command.Parameters.AddWithValue("@ActualTotalDueAmount", ActualTotalDueAmount);
-            else
-                command.Parameters.AddWithValue("@ActualTotalDueAmount", DBNull.Value);
+            await context.SaveChangesAsync();
 
-            if (TotalRefundedAmount > 0)
-                command.Parameters.AddWithValue("@TotalRefundedAmount", TotalRefundedAmount);
-            else
-                command.Parameters.AddWithValue("@TotalRefundedAmount", DBNull.Value);
-            command.Parameters.AddWithValue("@TransactionDate", TransactionDate);
-
-            if (UpdatedTransactionDate != null)
-                command.Parameters.AddWithValue("@UpdatedTransactionDate", UpdatedTransactionDate);
-            else
-                command.Parameters.AddWithValue("@UpdatedTransactionDate", DBNull.Value);
-
-            try
-            {
-                connection.Open();
-                IsUpdated = command.ExecuteNonQuery() > 0;
-            }
-            catch (System.Exception ex)
-            { }
-            finally { connection.Close(); }
-            return IsUpdated;
+            return true;
 
         }
 
-        public static bool GetTransactionByID(int TransactionID, ref int BookingID, ref int ReturnID, ref string PaymentDetails,
-            ref float PaidInitialTotalDueAmount, ref float ActualTotalDueAmount, ref float TotalRefundedAmount, ref DateTime TransactionDate, ref DateTime UpdatedTransactionDate)
+        public static async Task<Transaction?> GetTransactionByID(int TransactionID)
         {
-            bool IsFound = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT * FROM RentalTransactions Where TransactionID=@TransactionID";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@TransactionID", TransactionID);
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    BookingID = (int)reader["BookingID"];
-                    if (reader["ReturnID"] != DBNull.Value)
-                        ReturnID = (int)reader["ReturnID"];
-                    else
-                        ReturnID = -1;
-
-                    if (reader["PaymentDetails"] != DBNull.Value)
-                        PaymentDetails = (string)reader["PaymentDetails"];
-                    else
-                        PaymentDetails = "";
-
-
-                    PaidInitialTotalDueAmount = (float)((decimal)reader["PaidInitialTotalDueAmount"]);
-
-                    if (reader["ActualTotalDueAmount"] != DBNull.Value)
-                        ActualTotalDueAmount = (float)((decimal)reader["ActualTotalDueAmount"]);
-                    else
-                        ActualTotalDueAmount = -1;
-
-                    if (reader["TotalRefundedAmount"] != DBNull.Value)
-                        TotalRefundedAmount = (float)((decimal)reader["TotalRefundedAmount"]);
-                    else
-                        TotalRefundedAmount = -1;
-
-                    TransactionDate = (DateTime)reader["TransactionDate"];
-
-                    if (reader["UpdatedTransactionDate"] != DBNull.Value)
-                        UpdatedTransactionDate = (DateTime)reader["UpdatedTransactionDate"];
-                    else
-                        UpdatedTransactionDate = TransactionDate;
-
-
-                    IsFound = true;
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            { }
-            finally { connection.Close(); }
-            return IsFound;
-
-
+            return await context.RentalTransactions.FindAsync(TransactionID);
         }
 
-        public static bool GetTransactionByBookingID(int BookingID, ref int TransactionID, ref int ReturnID, ref string PaymentDetails,
-         ref float PaidInitialTotalDueAmount, ref float ActualTotalDueAmount, ref float TotalRefundedAmount, ref DateTime TransactionDate, ref DateTime UpdatedTransactionDate)
+        public static async Task<Transaction?> GetTransactionByBookingID(int BookingID)
         {
-            bool IsFound = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT top 1 RentalTransactions.* FROM RentalTransactions Where BookingID=@BookingID";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@BookingID", BookingID);
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    TransactionID = (int)reader["TransactionID"];
-                    if (reader["ReturnID"] != DBNull.Value)
-                        ReturnID = (int)reader["ReturnID"];
-                    else
-                        ReturnID = -1;
-
-                    if (reader["PaymentDetails"] != DBNull.Value)
-                        PaymentDetails = (string)reader["PaymentDetails"];
-                    else
-                        PaymentDetails = "";
-
-
-                    PaidInitialTotalDueAmount = (float)((decimal)reader["PaidInitialTotalDueAmount"]);
-
-                    if (reader["ActualTotalDueAmount"] != DBNull.Value)
-                        ActualTotalDueAmount = (float)((decimal)reader["ActualTotalDueAmount"]);
-                    else
-                        ActualTotalDueAmount = -1;
-
-                    if (reader["TotalRefundedAmount"] != DBNull.Value)
-                        TotalRefundedAmount = (float)((decimal)reader["TotalRefundedAmount"]);
-                    else
-                        TotalRefundedAmount = -1;
-
-                    TransactionDate = (DateTime)reader["TransactionDate"];
-
-                    if (reader["UpdatedTransactionDate"] != DBNull.Value)
-                        UpdatedTransactionDate = (DateTime)reader["UpdatedTransactionDate"];
-                    else
-                        UpdatedTransactionDate = TransactionDate;
-
-
-                    IsFound = true;
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            { }
-            finally { connection.Close(); }
-            return IsFound;
-
-
+            return await context.RentalTransactions.FirstOrDefaultAsync(t=>t.BookingID==BookingID);
         }
 
-        public static bool GetTransactionByReturnID(int ReturnID, ref int TransactionID, ref int BookingID, ref string PaymentDetails,
- ref float PaidInitialTotalDueAmount, ref float ActualTotalDueAmount, ref float TotalRefundedAmount, ref DateTime TransactionDate, ref DateTime UpdatedTransactionDate)
+        public static async Task<Transaction?> GetTransactionByReturnID(int ReturnID)
         {
-            bool IsFound = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT top 1 RentalTransactions.* FROM RentalTransactions Where ReturnID=@ReturnID";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@ReturnID", ReturnID);
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    TransactionID = (int)reader["TransactionID"];
-
-                    BookingID = (int)reader["BookingID"];
-
-
-                    if (reader["PaymentDetails"] != DBNull.Value)
-                        PaymentDetails = (string)reader["PaymentDetails"];
-                    else
-                        PaymentDetails = "";
-
-
-                    PaidInitialTotalDueAmount = (float)((decimal)reader["PaidInitialTotalDueAmount"]);
-
-                    if (reader["ActualTotalDueAmount"] != DBNull.Value)
-                        ActualTotalDueAmount = (float)((decimal)reader["ActualTotalDueAmount"]);
-                    else
-                        ActualTotalDueAmount = -1;
-
-                    if (reader["TotalRefundedAmount"] != DBNull.Value)
-                        TotalRefundedAmount = (float)((decimal)reader["TotalRefundedAmount"]);
-                    else
-                        TotalRefundedAmount = -1;
-
-                    TransactionDate = (DateTime)reader["TransactionDate"];
-
-                    if (reader["UpdatedTransactionDate"] != DBNull.Value)
-                        UpdatedTransactionDate = (DateTime)reader["UpdatedTransactionDate"];
-                    else
-                        UpdatedTransactionDate = TransactionDate;
-
-
-                    IsFound = true;
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            { }
-            finally { connection.Close(); }
-            return IsFound;
-
-
+            return await context.RentalTransactions.FirstOrDefaultAsync(t => t.BookingID == ReturnID);
         }
 
 
-        public static bool DeleteTransaction(int TransactionID)
+        public static async Task<bool> DeleteTransaction(int TransactionID)
         {
-            bool IsDeleted = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"DELETE FROM RentalTransaction WHERE TransactionID=@TransactionID";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@TransactionID", TransactionID);
-            try
-            {
-                connection.Open();
-                IsDeleted = command.ExecuteNonQuery() > 0;
-            }
-            catch (Exception ex)
-            {
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+            var transaction = await context.RentalTransactions.FindAsync(TransactionID);
+             
+            if (transaction == null) return false;
 
-            }
-            finally { connection.Close(); }
-            return IsDeleted;
+            context.RentalTransactions.Remove(transaction);
+            await context.SaveChangesAsync();
+            return true;
         }
 
-        public static DataTable GetAllTransactions()
+        //ADO.NET
+        public static async Task<DataTable> GetAllTransactions()
         {
             DataTable dataTable = new DataTable();
             SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
@@ -330,8 +90,8 @@ WHERE TransactionID=@TransactionID;";
             SqlCommand command = new SqlCommand(Query, connection);
             try
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                await connection.OpenAsync();
+                SqlDataReader reader =await command.ExecuteReaderAsync();
                 if (reader.HasRows)
                 {
                     dataTable.Load(reader);
@@ -347,32 +107,16 @@ WHERE TransactionID=@TransactionID;";
             }
         }
 
-        public static bool IsTransactionExists(int TransactionID)
+        public static async Task<bool> IsTransactionExists(int TransactionID)
         {
-            bool IsExists = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT 1 From RentalTransaction WHERE TransactionID=@TransactionID";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("", 1);
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                IsExists = reader.HasRows;
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            }
-            finally { connection.Close(); }
-            return IsExists;
-
-
+            return await context.RentalTransactions.AnyAsync(t=>t.TransactionID==TransactionID);
 
         }
+        //ADO.NET
 
-        public static DataTable GetDailyReport()
+        public static async Task<DataTable> GetDailyReport()
         {
             DataTable dataTable = new DataTable();
             try
@@ -380,19 +124,17 @@ WHERE TransactionID=@TransactionID;";
                 using (SqlConnection connection = new SqlConnection(DataHelper.ConnectionString))
                 {
                     string Query = @"SELECT Total=ISNULL(SUM(ActualTotalDueAmount),Sum(PaidInitialTotalDueAmount)),TransactionDate As Date FROM RentalTransactions
-Group by TransactionDate;";
+                                    Group by TransactionDate;";
 
                     using (SqlCommand command = new SqlCommand(Query, connection))
                     {
-                        connection.Open();
-                        using (SqlDataReader reader = command.ExecuteReader())
+                       await connection.OpenAsync();
+                        using (SqlDataReader reader =await command.ExecuteReaderAsync())
                         {
                             if (reader.HasRows)
                             {
                                 dataTable.Load(reader);
                             }
-                            else
-                                dataTable = null;
                         }
 
 
@@ -405,8 +147,8 @@ Group by TransactionDate;";
             { }
             return dataTable;
         }
-
-        public static DataTable GetRentReport()
+        //ADO.NET
+        public static async Task<DataTable> GetRentReport()
         {
             DataTable dataTable = new DataTable();
             try
@@ -414,12 +156,12 @@ Group by TransactionDate;";
                 using (SqlConnection connection = new SqlConnection(DataHelper.ConnectionString))
                 {
                     string Query = @"SELECT TotalRents=ISNULL(Count(RentalTransactions.BookingID),0),TransactionDate As Date FROM RentalTransactions
-Group by TransactionDate;";
+                                        Group by TransactionDate;";
 
                     using (SqlCommand command = new SqlCommand(Query, connection))
                     {
-                        connection.Open();
-                        using (SqlDataReader reader = command.ExecuteReader())
+                      await  connection.OpenAsync();
+                        using (SqlDataReader reader =await command.ExecuteReaderAsync())
                         {
                             if (reader.HasRows)
                             {
@@ -431,8 +173,6 @@ Group by TransactionDate;";
 
 
                     }
-
-
                 }
             }
             catch (Exception ex)

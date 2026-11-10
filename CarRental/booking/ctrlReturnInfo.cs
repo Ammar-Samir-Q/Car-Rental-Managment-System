@@ -24,6 +24,7 @@ namespace CarRental
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int ReturnID { get; set; }
 
+        private Transaction _transaction;
         public void LoadReturn(int ReturnID)
         {
             if (ReturnID <= 0)
@@ -34,33 +35,31 @@ namespace CarRental
 
         }
 
-        public void _LoadData()
+        public async void _LoadData()
         {
             if (ReturnID <= 0)
                 return;
 
-            Return Return = Return.GetReturnByID(ReturnID);
+            Return? Return = await Return.GetReturnByID(ReturnID);
             if(Return == null) 
                 return;
 
+            _transaction = await Transaction.GetTransactionByReturnID(ReturnID);
             lblReturnID.Text    = Return.ReturnID.ToString();
             lblReturnDate.Text = Return.ActualReturnDate.ToShortDateString();
             lblMilage.Text = Return.Milage.ToString();
             lblCheckNotes.Text = Return.FinalCheckNotes == "" ? "No Notes" : Return.FinalCheckNotes;
             lblFuelLevel.Text = Return.FuelLevelTitle;
             lblReturnCondition.Text=Return.ReturnConditionTitle;
-            lblRentalDays.Text=(Return.ActualReturnDate- Transaction.GetTransactionByReturnID(ReturnID).BookingInfo.RentalStartDate.Date).Days.ToString();
+            lblRentalDays.Text = ((Convert.ToDateTime(Return.ActualReturnDate)) - (_transaction.BookingInfo.RentalStartDate)).ToString();
         }
 
         private void lblLinkBookingInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form frm = new frmBookingInfo(Transaction.GetTransactionByReturnID(ReturnID).BookingID);
+            Form frm = new frmBookingInfo(_transaction.BookingID);
             frm.ShowDialog();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
 
-        }
     }
 }

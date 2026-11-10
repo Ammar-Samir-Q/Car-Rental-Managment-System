@@ -17,7 +17,7 @@ namespace CarRental
     {
         private enum enMode { AddNew=1,Update=2}
         private int _VehicleID;
-        private Vehicle _Vehicle;
+        private Vehicle? _Vehicle;
         private enMode _Mode;
 
         public frmAddUpdateVehicle()
@@ -83,9 +83,9 @@ namespace CarRental
 
         }
 
-        private void _LoadData()
+        private async void _LoadData()
         {
-            _Vehicle = Vehicle.GetVehicleByID(_VehicleID);
+            _Vehicle =await Vehicle.GetVehicleByID(_VehicleID);
             if(_Vehicle ==null)
             {
                 MessageBox.Show("Error While Loading Vehicle Data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -190,7 +190,7 @@ namespace CarRental
 
             return false;
         }
-        private void _Save()
+        private async void _Save()
         {
             _Vehicle.Make = txtMake.Text;
             _Vehicle.Model = txtModel.Text;
@@ -209,7 +209,7 @@ namespace CarRental
                 return;
             }
 
-            if (_Vehicle.Save())
+            if (await _Vehicle.Save())
             {
                 MessageBox.Show("Data Saved Successfully", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lblVehicleID.Text = _Vehicle.VehicleID.ToString();
@@ -371,9 +371,9 @@ namespace CarRental
             }
         }
 
-        private void txtPlateNumber_Validating(object sender, CancelEventArgs e)
+        private async void txtPlateNumber_Validating(object sender, CancelEventArgs e)
         {
-            if(Vehicle.IsVehicleExists(txtPlateNumber.Text))
+            if(await Vehicle.IsVehicleExists(txtPlateNumber.Text))
             {
                 e.Cancel = true;
                 ep.SetError(txtPlateNumber, "PlateNumber Already Exists");

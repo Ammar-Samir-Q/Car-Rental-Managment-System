@@ -14,7 +14,7 @@ namespace CarRental
     public partial class ctrlTransactionInfo : UserControl
     {
 
-        Transaction _Transaction;
+        Transaction? _Transaction;
         public ctrlTransactionInfo()
         {
             InitializeComponent();
@@ -24,9 +24,9 @@ namespace CarRental
         public int TransactionID {  get; set; }
 
 
-        private void _LoadData()
+        private async void _LoadData()
         {
-            _Transaction =Transaction.GetTransactionByID(TransactionID);
+            _Transaction =await Transaction.GetTransactionByID(TransactionID);
             if (_Transaction == null)
                 return;
             
@@ -38,7 +38,7 @@ namespace CarRental
             lblActualPaid.Text = _Transaction.ActualTotalDueAmount <= 0 ? "Not Paid Yet" : _Transaction.ActualTotalDueAmount.ToString();
             lblTotalRefunded.Text=_Transaction.TotalRefundedAmount<=0?"No Refund":_Transaction.TotalRefundedAmount.ToString();
             lblDate.Text=_Transaction.TransactionDate.ToShortDateString();
-            lblUpdatedDate.Text= _Transaction.UpdatedTransactionDate.ToShortDateString();
+            lblUpdatedDate.Text= Convert.ToDateTime(_Transaction.UpdatedTransactionDate).ToShortDateString();
             lblAdditionalCharges.Text=_Transaction.ReturnID==-1?"No Additional Charges":_Transaction.ReturnInfo.AddtionalCharges>0?_Transaction.ReturnInfo.AddtionalCharges.ToString(): "No Additional Charges";
 
             lblLinkBookingInfo.Enabled = true;
@@ -65,7 +65,8 @@ namespace CarRental
 
         private void linklblReturnInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form frm = new frmReturnInfo(_Transaction.ReturnID);
+            if(_Transaction==null||_Transaction.ReturnID==null) return;
+            Form frm = new frmReturnInfo(_Transaction.ReturnID??-1);
             frm.ShowDialog();
         }
 

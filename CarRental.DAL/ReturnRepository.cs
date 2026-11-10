@@ -1,6 +1,11 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using CarRental.DAL.Context;
+using CarRental.DAL.Entities;
+using CarRental.DAL.Factories;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Text;
 
@@ -8,171 +13,56 @@ namespace CarRental.DAL
 {
     public class ReturnRepository
     {
-        public static int Create(DateTime ActualReturnDate, float Milage, string FinalCheckNotes, float AdditonalCharges, float ActualTotalDueAmount, byte ReturnCondition, byte FuleLevel)
-
+        public static async Task<int> Create(Return VehicleReturn)
         {
-            int ReturnID = -1;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"
-INSERT INTO [dbo].[VehicleReturns]
-           ([ActualReturnDate]
-           ,[Mileage]
-           ,[FinalCheckNotes]
-           ,[AdditionalCharges]
-           ,[ActualTotalDueAmount]
-           ,[ReturnCondition]
-           ,[FuleLevel])
-     VALUES
-           (@ActualReturnDate
-           ,@Mileage
-           ,@FinalCheckNotes
-           ,@AdditonalCharges
-           ,@ActualTotalDueAmount
-           ,@ReturnCondition
-           ,@FuleLevel)
-        SELECT SCOPE_IDENTITY();";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@ActualReturnDate", ActualReturnDate);
-            command.Parameters.AddWithValue("@Mileage", Milage);
-            if (string.IsNullOrEmpty(FinalCheckNotes))
-                command.Parameters.AddWithValue("@FinalCheckNotes", DBNull.Value);
-            else
-                command.Parameters.AddWithValue("@FinalCheckNotes", FinalCheckNotes);
-
-            if (AdditonalCharges > 0)
-                command.Parameters.AddWithValue("@AdditonalCharges", AdditonalCharges);
-            else
-                command.Parameters.AddWithValue("@AdditonalCharges", DBNull.Value);
-
-            command.Parameters.AddWithValue("@ActualTotalDueAmount", ActualTotalDueAmount);
-            command.Parameters.AddWithValue("@ReturnCondition", ReturnCondition);
-            command.Parameters.AddWithValue("@FuleLevel", FuleLevel);
-
-
-
-            try
-            {
-                connection.Open();
-                object result = command.ExecuteScalar();
-                if (result != null && int.TryParse(result.ToString(), out int ID))
-                    ReturnID = ID;
-
-
-
-            }
-            catch (Exception ex)
-            { }
-            finally { connection.Close(); }
-
-            return ReturnID;
+           using AppDbContext context=DbContextFactory.CreateDbContext();
+            await  context.VehicleReturns.AddAsync(VehicleReturn);
+            await context.SaveChangesAsync();
+            return VehicleReturn.ReturnID;
         }
 
-        public static bool Update(int ReturnID, DateTime ActualReturnDate, float Milage, string FinalCheckNotes, float AdditonalCharges, float ActualTotalDueAmount, byte ReturnCondition, byte FuleLevel)
+        public static async Task<bool> Update(int ReturnID, DateOnly ActualReturnDate, float Milage, string FinalCheckNotes, decimal? AdditonalCharges, decimal ActualTotalDueAmount, byte ReturnCondition, byte FuleLevel)
         {
-            bool IsUpdated = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"UPDATE VehicleReturns
-   SET ActualReturnDate = @ActualReturnDate
-      ,Mileage = @Mileage
-      ,FinalCheckNotes = @FinalCheckNotes
-      ,AdditionalCharges = @AdditionalCharges
-      ,ActualTotalDueAmount = @ActualTotalDueAmount
-      ,ReturnCondition= @ReturnCondition
-      ,FuleLevel = @FuleLevel
- WHERE ReturnID=@ReturnID;";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("ReturnID", ReturnID);
-            command.Parameters.AddWithValue("@ActualReturnDate", ActualReturnDate);
-            command.Parameters.AddWithValue("@Milage", Milage);
-            if (string.IsNullOrEmpty(FinalCheckNotes))
-                command.Parameters.AddWithValue("@FinalCheckNotes", DBNull.Value);
-            else
-                command.Parameters.AddWithValue("@FinalCheckNotes", FinalCheckNotes);
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+            var Return = await context.VehicleReturns.FindAsync(ReturnID);
+            if (Return == null) return false;
 
-            if (AdditonalCharges > 0)
-                command.Parameters.AddWithValue("@AdditonalCharges", AdditonalCharges);
-            else
-                command.Parameters.AddWithValue("@AdditonalCharges", DBNull.Value);
+            Return.ActualReturnDate= ActualReturnDate;
+            Return.Mileage= Milage;
+            Return.FinalCheckNotes= FinalCheckNotes;
+            Return.AdditionalCharges= AdditonalCharges;
+            Return.ActualTotalDueAmount = ActualTotalDueAmount;
+            Return.FuleLevel=FuleLevel;
+            Return.ReturnCondition=ReturnCondition;
 
-            command.Parameters.AddWithValue("@ActualTotalDueAmount", ActualTotalDueAmount);
-            command.Parameters.AddWithValue("@ReturnCondition", ReturnCondition);
-            command.Parameters.AddWithValue("@FuleLevel", FuleLevel);
+            await context.SaveChangesAsync();
 
-            try
-            {
-                connection.Open();
-                IsUpdated = command.ExecuteNonQuery() > 0;
-            }
-            catch (System.Exception ex)
-            { }
-            finally { connection.Close(); }
-            return IsUpdated;
-
-        }
-
-        public static bool GetByID(int ReturnID, ref DateTime ActualReturnDate, ref float Milage, ref string FinalCheckNotes, ref float AdditonalCharges, ref float ActualTotalDueAmount, ref byte ReturnCondition, ref byte FuleLevel)
-        {
-            bool IsFound = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT * FROM VehicleReturns WHERE ReturnID=@ReturnID;";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@ReturnID", ReturnID);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    ActualReturnDate = (DateTime)reader["ActualReturnDate"];
-                    Milage = (float)Convert.ToSingle((reader["Mileage"]));
-                    if (reader["FinalCheckNotes"] != DBNull.Value)
-                        FinalCheckNotes = (string)reader["FinalCheckNotes"];
-                    else
-                        FinalCheckNotes = "";
-
-                    if (reader["AdditionalCharges"] != DBNull.Value)
-                        AdditonalCharges = (float)Convert.ToSingle(reader["AdditionalCharges"]);
-                    else
-                        AdditonalCharges = -1;
-
-                    ActualTotalDueAmount = (float)Convert.ToSingle(reader["ActualTotalDueAmount"]);
-                    ReturnCondition = (byte)reader["ReturnCondition"];
-                    FuleLevel = (byte)reader["FuleLevel"];
-
-                    IsFound = true;
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            { }
-            finally { connection.Close(); }
-            return IsFound;
+            return true;
 
 
         }
 
-        public static bool Delete(int ReturnID)
+        public static async Task<Return?> GetByID(int ReturnID)
         {
-            bool IsDeleted = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"DELETE FROM VehicleReturns WHERE ReturnID=@ReturnID";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@ReturnID", ReturnID);
-            try
-            {
-                connection.Open();
-                IsDeleted = command.ExecuteNonQuery() > 0;
-            }
-            catch (Exception ex)
-            {
+            using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            }
-            finally { connection.Close(); }
-            return IsDeleted;
+            return await context.VehicleReturns.FindAsync(ReturnID);
+
         }
 
-        public static DataTable GetAll()
+        public static async Task<bool> Delete(int ReturnID)
+        {
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+            var Return = await context.VehicleReturns.FindAsync(ReturnID);
+            if (Return == null) return false;
+
+            context.VehicleReturns.Remove(Return);
+            await context.SaveChangesAsync();
+            return true;
+
+        }
+
+        public static async Task<DataTable> GetAll()
         {
             DataTable dataTable = new DataTable();
             SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
@@ -180,8 +70,8 @@ INSERT INTO [dbo].[VehicleReturns]
             SqlCommand command = new SqlCommand(Query, connection);
             try
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+               await connection.OpenAsync();
+                SqlDataReader reader = await command.ExecuteReaderAsync();
                 if (reader.HasRows)
                 {
                     dataTable.Load(reader);
@@ -197,32 +87,16 @@ INSERT INTO [dbo].[VehicleReturns]
             }
         }
 
-        public static bool IsExists(int ReturnID)
+        public static async Task<bool> IsExists(int ReturnID)
         {
-            bool IsExists = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT 1 FROM VehicleReturns WHERE ReturnID=@ReturnID;";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@ReturnID", ReturnID);
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                IsExists = reader.HasRows;
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally { connection.Close(); }
-            return IsExists;
-
-
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+           return await context.VehicleReturns.AnyAsync(r=>r.ReturnID== ReturnID);
+                
 
         }
 
-        public static bool GetByBookingID(int BookingID)
+        //Replace With EF
+        public async static Task<bool> GetByBookingID(int BookingID)
         {
             bool IsExists = false;
             SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
@@ -233,8 +107,8 @@ INSERT INTO [dbo].[VehicleReturns]
             command.Parameters.AddWithValue("@BookingID", BookingID);
             try
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+               await connection.OpenAsync();
+                SqlDataReader reader =await command.ExecuteReaderAsync();
                 IsExists = reader.HasRows;
                 reader.Close();
             }

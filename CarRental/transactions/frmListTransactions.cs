@@ -19,9 +19,9 @@ namespace CarRental
         }
         DataTable _dtTransactions;
        
-        void _LoadDataGridView()
+        async Task _LoadDataGridView()
         {
-            _dtTransactions = Transaction.GetAllTransactions();
+            _dtTransactions =await Transaction.GetAllTransactions();
             dgvTransactions.DataSource= _dtTransactions;
             if(dgvTransactions.Rows.Count > 0 )
             {
@@ -70,9 +70,9 @@ namespace CarRental
             lblRecordsNumber.Text=dgvTransactions.Rows.Count.ToString();
         }
 
-        private void frmListTransactions_Load(object sender, EventArgs e)
+        private async void frmListTransactions_Load(object sender, EventArgs e)
         {
-            _LoadDataGridView();
+           await _LoadDataGridView();
             _CountRecords();
             cbFilter.SelectedIndex = 0;
 
