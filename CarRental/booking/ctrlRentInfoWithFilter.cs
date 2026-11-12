@@ -19,7 +19,7 @@ namespace CarRental
         }
 
         public int BookingID { get { return ctrlRentInfo1.BookingID; } }
-        public Booking Booking { get { return ctrlRentInfo1.Booking; } }
+        public Booking? Booking { get { return ctrlRentInfo1.Booking; } }
 
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -124,9 +124,5 @@ namespace CarRental
             txtFilter.Clear();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

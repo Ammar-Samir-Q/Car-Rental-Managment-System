@@ -22,7 +22,7 @@ namespace CarRental
 
         public int BookingID {  get { return _BookingID; }} 
 
-        public Booking Booking { get { return _Booking; }}
+        public Booking? Booking { get { return _Booking; }}
 
         public void LoadBooking(int BookingID)
         {
@@ -153,13 +153,15 @@ namespace CarRental
 
         private void linklblVehicleInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            if (_Booking == null) return;
             Form frm = new frmVehicleInfo(_Booking.VehicleID);
             frm.ShowDialog();
         }
 
         private void linklblCustomerInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form frm=new frmCustomerInfo(_Booking.CustomerID);
+            if (_Booking == null) return;
+            Form frm =new frmCustomerInfo(_Booking.CustomerID);
             frm.ShowDialog();
         }
     }

@@ -144,8 +144,12 @@ namespace CarRental
             gbRentInfo.Enabled = true;
             gbSummary.Enabled = true;
 
+            if(_Booking!=null)
             lblRentID.Text =_Booking.BookingID.ToString();
-            var transaction = await Transaction.GetTransactionByBookingID(_Booking.BookingID);
+
+            if (_Booking == null) return;
+           var transaction = await Transaction.GetTransactionByBookingID(_Booking.BookingID);
+            if( transaction != null )
             lblTransactionID.Text = transaction.TransactionID.ToString();
             ctrlPersonInfoWithFilter1.LoadPerson(_Booking.CustomerInfo.PersonID);
             ctrlVehicleInfo1.LoadVehicle(_Booking.VehicleID);
@@ -159,7 +163,9 @@ namespace CarRental
             txtPickupLocation.Text = _Booking.PickupLocation;
             txtDropOffLocation.Text = _Booking.DropOffLocation;
             txtInitialNotes.Text = _Booking.InitialCheckNotes;
-            txtPaymentDetails.Text = transaction.PaymentsDetails;
+
+            if (transaction != null)
+                txtPaymentDetails.Text = transaction.PaymentsDetails;
         }
 
 
@@ -283,20 +289,27 @@ namespace CarRental
 
        private void _LoadSummaryInfo()
         {
-            lblCustomerName.Text = _Customer.PersonInfo.FullName;
-            lblDriverLicenseNumber.Text = _Customer.DriverLicnsesNumber;
-            lblVehicleModel.Text = _Vehicle.Model;
-            lblRentalPricePerDay.Text=_Vehicle.RentalPricePerDay.ToString();
-            lblCurrentMilage.Text=_Vehicle.CurrentMilage.ToString();
+            if (_Customer != null)
+            {
+                lblCustomerName.Text = _Customer.PersonInfo.FullName;
+                lblDriverLicenseNumber.Text = _Customer.DriverLicnsesNumber;
+            }
 
-            lblStartDate.Text = dtpStartDate.Value.ToShortDateString();
-            lblEndDate.Text=dtpEndDate.Value.ToShortDateString();
+            if (_Vehicle != null)
+            {
+                lblVehicleModel.Text = _Vehicle.Model;
+                lblRentalPricePerDay.Text = _Vehicle.RentalPricePerDay.ToString();
 
-            int TotalDays=(dtpEndDate.Value.Date-dtpStartDate.Value.Date).Days;
+                lblCurrentMilage.Text = _Vehicle.CurrentMilage.ToString();
 
-            lblTotalDays.Text   = TotalDays.ToString();
-            lblTotalInitialAmount.Text = (_Vehicle.RentalPricePerDay * TotalDays).ToString();
+                lblStartDate.Text = dtpStartDate.Value.ToShortDateString();
+                lblEndDate.Text = dtpEndDate.Value.ToShortDateString();
 
+                int TotalDays = (dtpEndDate.Value.Date - dtpStartDate.Value.Date).Days;
+
+                lblTotalDays.Text = TotalDays.ToString();
+                lblTotalInitialAmount.Text = (_Vehicle.RentalPricePerDay * TotalDays).ToString();
+            }
 
 
 

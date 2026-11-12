@@ -20,13 +20,13 @@ namespace CarRental
             InitializeComponent();
         }
 
-        private void frmVehicleRentHistory_Load(object sender, EventArgs e)
+        private async void frmVehicleRentHistory_Load(object sender, EventArgs e)
         {
             if (_VehicleID == -1)
                 return;
 
             ctrlVehicleInfo1.LoadVehicle(_VehicleID);
-            dgvRentHistory.DataSource = Vehicle.GetRentHistory(_VehicleID);
+            dgvRentHistory.DataSource =await Vehicle.GetRentHistory(_VehicleID);
             if(dgvRentHistory.Rows.Count > 0 )
             {
                 dgvRentHistory.Columns[0].HeaderText = "Booking ID";

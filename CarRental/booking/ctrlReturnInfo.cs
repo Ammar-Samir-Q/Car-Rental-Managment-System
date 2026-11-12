@@ -24,7 +24,7 @@ namespace CarRental
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int ReturnID { get; set; }
 
-        private Transaction _transaction;
+        private Transaction? _transaction;
         public void LoadReturn(int ReturnID)
         {
             if (ReturnID <= 0)
@@ -51,11 +51,12 @@ namespace CarRental
             lblCheckNotes.Text = Return.FinalCheckNotes == "" ? "No Notes" : Return.FinalCheckNotes;
             lblFuelLevel.Text = Return.FuelLevelTitle;
             lblReturnCondition.Text=Return.ReturnConditionTitle;
-            lblRentalDays.Text = ((Convert.ToDateTime(Return.ActualReturnDate)) - (_transaction.BookingInfo.RentalStartDate)).ToString();
+            //lblRentalDays.Text = ((Return.ActualReturnDate) - DateOnly.FromDateTime(_transaction.BookingInfo.RentalStartDate)).ToString();
         }
 
         private void lblLinkBookingInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            if (_transaction == null) return;
             Form frm = new frmBookingInfo(_transaction.BookingID);
             frm.ShowDialog();
         }

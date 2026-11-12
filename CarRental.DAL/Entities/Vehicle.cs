@@ -14,9 +14,9 @@ namespace CarRental.DAL.Entities
 
         public int Year { get; set; }
 
-        public int CurrentMileage { get; set; }
+        public int CurrentMilage { get; set; }
 
-        public int FuelTypeID { get; set; }
+        public int FuleTypeID { get; set; }
 
         public int VehicleCategoryID { get; set; }
 

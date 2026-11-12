@@ -34,7 +34,7 @@ namespace CarRental
         }
 
 
-        private void _LoadData()
+        private async void _LoadData()
         {
             lblVehicleID.Text=_Vehicle.VehicleID.ToString();
             lblMake.Text = _Vehicle.Make;
@@ -44,7 +44,8 @@ namespace CarRental
             lblFuelType.Text= _Vehicle.GetFuelTypeTitle();
             lblVehicleCategory.Text = _Vehicle.GetVehicleCategoryTitle();
             lblIsAvailable.Text = _Vehicle.IsAvailableForRent ? "Yes" : "No";
-            lblTotalRentTimes.Text=_Vehicle.GetTotalRentTimes().ToString();
+            int TotalRentTimes = await _Vehicle.GetTotalRentTimes();
+            lblTotalRentTimes.Text=TotalRentTimes.ToString();
             lblPricePerDay.Text=_Vehicle.RentalPricePerDay.ToString();
             if(!string.IsNullOrEmpty(_Vehicle.ImagePath))
                 pbImage.ImageLocation = _Vehicle.ImagePath;

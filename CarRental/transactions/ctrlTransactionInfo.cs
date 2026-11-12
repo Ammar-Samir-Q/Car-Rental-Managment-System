@@ -38,7 +38,7 @@ namespace CarRental
             lblActualPaid.Text = _Transaction.ActualTotalDueAmount <= 0 ? "Not Paid Yet" : _Transaction.ActualTotalDueAmount.ToString();
             lblTotalRefunded.Text=_Transaction.TotalRefundedAmount<=0?"No Refund":_Transaction.TotalRefundedAmount.ToString();
             lblDate.Text=_Transaction.TransactionDate.ToShortDateString();
-            lblUpdatedDate.Text= Convert.ToDateTime(_Transaction.UpdatedTransactionDate).ToShortDateString();
+            lblUpdatedDate.Text = _Transaction.UpdatedTransactionDate.ToString();
             lblAdditionalCharges.Text=_Transaction.ReturnID==-1?"No Additional Charges":_Transaction.ReturnInfo.AddtionalCharges>0?_Transaction.ReturnInfo.AddtionalCharges.ToString(): "No Additional Charges";
 
             lblLinkBookingInfo.Enabled = true;

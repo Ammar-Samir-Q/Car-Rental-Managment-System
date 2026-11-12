@@ -78,8 +78,8 @@ namespace CarRental.BLL
             {
                 Make = this.Make,
                 Model = this.Model,
-                CurrentMileage = this.CurrentMilage,
-                FuelTypeID =(byte)this.FuelType,
+                CurrentMilage = this.CurrentMilage,
+                FuleTypeID =(byte)this.FuelType,
                 VehicleCategoryID = (byte)this.VehicleCategory,
                 PlateNumber = this.PlateNumber,
                 RentalPricePerDay = this.RentalPricePerDay,
@@ -115,7 +115,7 @@ namespace CarRental.BLL
         {
             var vehicle = await DAL.VehicleRepository.GetVehicleByID(VehicleID);
             if (vehicle!=null)
-                return new Vehicle(VehicleID, vehicle.Make, vehicle.Model, vehicle.Year, vehicle.CurrentMileage, vehicle.FuelTypeID, vehicle.VehicleCategoryID, vehicle.PlateNumber, vehicle.RentalPricePerDay, vehicle.IsAvailableForRent, vehicle.ImagePath);
+                return new Vehicle(VehicleID, vehicle.Make, vehicle.Model, vehicle.Year, vehicle.CurrentMilage, vehicle.FuleTypeID, vehicle.VehicleCategoryID, vehicle.PlateNumber, vehicle.RentalPricePerDay, vehicle.IsAvailableForRent, vehicle.ImagePath);
             else
                 return null;
         }

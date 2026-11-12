@@ -22,9 +22,9 @@ namespace CarRental
         private int _VehicleID = -1;
 
       
-        private void _LoadDataGridView()
+        private async Task _LoadDataGridView()
         {
-            dgvAvailableVehicles.DataSource = Vehicle.GetAllAvailableVehicles();
+            dgvAvailableVehicles.DataSource = await Vehicle.GetAllAvailableVehicles();
             if (dgvAvailableVehicles.Rows.Count > 0)
             {
                 dgvAvailableVehicles.Columns[9].HeaderText="Is Available";
@@ -62,9 +62,9 @@ namespace CarRental
             this.Close();
         }
 
-        private void frmSelectVehicle_Load(object sender, EventArgs e)
+        private async void frmSelectVehicle_Load(object sender, EventArgs e)
         {
-            _LoadDataGridView();
+            await _LoadDataGridView();
             if (dgvAvailableVehicles.Rows.Count > 0)
             {
                 _VehicleID = (int)dgvAvailableVehicles.SelectedRows[0].Cells[0].Value;

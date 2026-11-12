@@ -259,7 +259,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblUsernameTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1537, 94</value>
+    <value>1651, 101</value>
   </data>
   <data name="lblUsernameTitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -277,7 +277,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblUsername.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1557, 143</value>
+    <value>1527, 105</value>
   </data>
   <data name="lblUsername.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -293,7 +293,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>710, 739</value>
+    <value>869, 722</value>
   </data>
   <data name="lblTitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -308,7 +308,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>721, 448</value>
+    <value>880, 431</value>
   </data>
   <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -326,7 +326,7 @@
     <value>144, 67</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1410, 738</value>
+    <value>1569, 721</value>
   </data>
   <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -335,7 +335,7 @@
     <value>252, 162</value>
   </data>
   <data name="lblTitleTotalVehicles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1424, 668</value>
+    <value>1583, 651</value>
   </data>
   <data name="lblTitleTotalVehicles.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -347,7 +347,7 @@
     <value>عدد المركبات</value>
   </data>
   <data name="lblTitleTotalCustomers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 653</value>
+    <value>264, 636</value>
   </data>
   <data name="lblTitleTotalCustomers.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -368,7 +368,7 @@
     <value>136, 67</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 723</value>
+    <value>239, 706</value>
   </data>
   <data name="panel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -377,7 +377,7 @@
     <value>252, 162</value>
   </data>
   <data name="lblTitleTotalRents.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1410, 360</value>
+    <value>1569, 343</value>
   </data>
   <data name="lblTitleTotalRents.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -398,7 +398,7 @@
     <value>135, 67</value>
   </data>
   <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1410, 432</value>
+    <value>1569, 415</value>
   </data>
   <data name="panel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -407,7 +407,7 @@
     <value>252, 162</value>
   </data>
   <data name="lblTitleTotalBookings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>72, 353</value>
+    <value>231, 336</value>
   </data>
   <data name="lblTitleTotalBookings.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -428,7 +428,7 @@
     <value>150, 67</value>
   </data>
   <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 425</value>
+    <value>239, 408</value>
   </data>
   <data name="panel4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -443,7 +443,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblRole.Location" type="System.Drawing.Point, System.Drawing">
-    <value>873, 416</value>
+    <value>1032, 399</value>
   </data>
   <data name="lblRole.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -455,7 +455,7 @@
     <value>NoControl</value>
   </data>
   <data name="pbUserImage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1634, 94</value>
+    <value>1748, 101</value>
   </data>
   <data name="pbUserImage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -468,9 +468,6 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1756, 1109</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
   </data>
   <data name="$this.RightToLeftLayout" type="System.Boolean, mscorlib">
     <value>True</value>

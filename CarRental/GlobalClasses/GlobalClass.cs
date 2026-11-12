@@ -12,7 +12,7 @@ namespace CarRental
     public class GlobalClass
     {
         //UserID Saved Here After Login
-        static string Keyname = "HKEY_LOCAL_MACHINE\\SOFTWARE\\CarRentalSystem";
+        static string Keyname = "HKEY_CURRENT_USER\\Software\\CarRentalSystem";
 
         public static User? CurrentUser;
 

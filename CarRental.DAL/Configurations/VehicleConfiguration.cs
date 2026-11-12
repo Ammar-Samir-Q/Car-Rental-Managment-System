@@ -30,10 +30,10 @@ namespace CarRental.DAL.Configurations
             builder.Property(v => v.Year)
                    .IsRequired();
 
-            builder.Property(v => v.CurrentMileage)
+            builder.Property(v => v.CurrentMilage)
                    .IsRequired();
 
-            builder.Property(v => v.FuelTypeID)
+            builder.Property(v => v.FuleTypeID)
                    .IsRequired();
 
             builder.Property(v => v.VehicleCategoryID)

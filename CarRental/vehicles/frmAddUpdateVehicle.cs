@@ -142,6 +142,9 @@ namespace CarRental
             if (pbVehicleImage.ImageLocation == _Vehicle.ImagePath)
                 return true;
 
+            if(string.IsNullOrEmpty(_Vehicle.ImagePath)&&string.IsNullOrEmpty(pbVehicleImage.ImageLocation))
+                return true;
+
 
             //Case 1 If Picture Is Removed And The Path On The Database Exists = Delete Image And Change ImagePath In DB To Null
             if (string.IsNullOrEmpty(pbVehicleImage.ImageLocation) && !string.IsNullOrEmpty(_Vehicle.ImagePath))
@@ -199,7 +202,7 @@ namespace CarRental
             _Vehicle.FuelType=(Vehicle.enFuelType)(1+cbFuel.SelectedIndex);
             _Vehicle.VehicleCategory = (Vehicle.enVehicleCategory)(1+cbCategory.SelectedIndex);
             _Vehicle.PlateNumber= txtPlateNumber.Text;
-            _Vehicle.RentalPricePerDay=int.Parse(txtRentalPrice.Text);
+            _Vehicle.RentalPricePerDay=decimal.Parse(txtRentalPrice.Text);
             _Vehicle.IsAvailableForRent = cbIsAvailable.Checked;
             
 

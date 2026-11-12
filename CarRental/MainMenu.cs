@@ -13,7 +13,7 @@ namespace CarRental
 {
     public partial class MainMenu : Form
     {
-        private Form _frmLogin;
+        private Form? _frmLogin;
         public MainMenu()
         {
             InitializeComponent();
@@ -39,7 +39,7 @@ namespace CarRental
 
         private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (GlobalClass.CurrentUser.UserID > 0)
+            if (GlobalClass.CurrentUser!=null&&GlobalClass.CurrentUser.UserID > 0)
             {
                 Form frm = new frmUserInfo(GlobalClass.CurrentUser.UserID);
                 frm.ShowDialog();
@@ -90,9 +90,7 @@ namespace CarRental
 
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //_frmLogin.ShowDialog();
-            //this.Close();
+   
             Application.Restart();
 
         }
@@ -118,12 +116,18 @@ namespace CarRental
 
             }
         }
-        private void _LoadDashBoard()
+        private async void _LoadDashBoard()
         {
-            lblTotalVehicles.Text = Vehicle.GetTotalVehicles().ToString();
-            lblTotalCustomers.Text = Customer.GetTotalCustomers().ToString();
-            lblTotalRents.Text = Booking.GetTotalCompletedRents().ToString();
-            lblTotalBookings.Text = Booking.GetTotalBookings().ToString();
+            int TotalVehicles= await Vehicle.GetTotalVehicles();
+            int TotalCustomers = await Customer.GetTotalCustomers();
+            int TotalCompletedRents = await Booking.GetTotalCompletedRents();
+            int TotalBookings = await Booking.GetTotalBookings();
+
+
+            lblTotalVehicles.Text = TotalVehicles.ToString();
+            lblTotalCustomers.Text = TotalCustomers.ToString();
+            lblTotalRents.Text = TotalCompletedRents.ToString();
+            lblTotalBookings.Text = TotalBookings.ToString();
         }
         private void _HandelRoleMenu()
         {
@@ -191,6 +195,7 @@ namespace CarRental
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (GlobalClass.CurrentUser == null) return;
             Form frm = new frmChangePassword(GlobalClass.CurrentUser.UserID);
             frm.ShowDialog();
         }

@@ -36,8 +36,8 @@ namespace CarRental.DAL
             vehicle.Make= Make;
             vehicle.Model= Model;
             vehicle.Year= Year;
-            vehicle.CurrentMileage= CurrentMilage;
-            vehicle.FuelTypeID  = FuleTypeID;
+            vehicle.CurrentMilage= CurrentMilage;
+            vehicle.FuleTypeID  = FuleTypeID;
             vehicle.VehicleCategoryID= VehicleCategoryID;
             vehicle.PlateNumber= PlateNumber;
             vehicle.RentalPricePerDay = RentalPricePerDay;
@@ -192,7 +192,7 @@ namespace CarRental.DAL
 
             if (vehicle == null) return false;
 
-            vehicle.CurrentMileage = Milage;
+            vehicle.CurrentMilage = Milage;
 
             await context.SaveChangesAsync();
 
