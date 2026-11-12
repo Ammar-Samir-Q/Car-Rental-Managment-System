@@ -122,7 +122,7 @@ namespace CarRental
            await _RefreashDataGridView();
         }
 
-        private async Task editToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (GlobalClass.CurrentUser.Role == User.enRole.Admin)
             {
