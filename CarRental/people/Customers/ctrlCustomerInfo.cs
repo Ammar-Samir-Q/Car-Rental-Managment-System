@@ -43,7 +43,8 @@ namespace CarRental
             var user = await User.GetUserByID(Customer.CreatedByUserID);
             lblCreatedBy.Text = user == null ? "N/A" : user.Username; lblCreationDate.Text=Customer.CreationDate.ToShortDateString();
             lblDriverLidnese.Text=Customer.DriverLicnsesNumber.ToString();
-            lblTotalRentTimes.Text = Customer.GetTotalRentTimes().ToString();
+            int TotalRentTimes = await Customer.GetTotalRentTimes();
+            lblTotalRentTimes.Text =TotalRentTimes.ToString();
             lblLastRent.Text=LastDate==DateTime.MinValue?"No Rents": LastDate.ToShortDateString();
 
 

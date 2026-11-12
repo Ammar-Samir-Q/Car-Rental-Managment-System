@@ -117,869 +117,926 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblTotalCustomers.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 27.75pt, style=Bold</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1611, 541</value>
-  </data>
-  <data name="&gt;&gt;lblTotalBookings.Parent" xml:space="preserve">
-    <value>panel4</value>
-  </data>
-  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 141</value>
-  </data>
-  <data name="&gt;&gt;settingsToolStripMenuItem.Name" xml:space="preserve">
-    <value>settingsToolStripMenuItem</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblTitle.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;lblUsernameTitle.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblTotalBookings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="systemToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+  <data name="settingsToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
-  </data>
-  <data name="lblTitleTotalBookings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;lblTotalRents.Parent" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="PeopleToolStripMenuItem.Text" xml:space="preserve">
-    <value>People</value>
-  </data>
-  <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="lblUsernameTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>51, 87</value>
-  </data>
-  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblTitleTotalBookings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>262, 59</value>
-  </data>
-  <data name="lblUsername.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PeopleToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;signOutToolStripMenuItem.Name" xml:space="preserve">
-    <value>signOutToolStripMenuItem</value>
-  </data>
-  <data name="lblTitle.Text" xml:space="preserve">
-    <value>Car Rental System</value>
-  </data>
-  <data name="lblTotalBookings.Text" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 141</value>
-  </data>
-  <data name="&gt;&gt;lblTitle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;currentUserInfoToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblTitleTotalCustomers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 480</value>
-  </data>
-  <data name="accountSettingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>389, 70</value>
-  </data>
-  <data name="&gt;&gt;lblTotalVehicles.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;pbUserImage.Name" xml:space="preserve">
-    <value>pbUserImage</value>
-  </data>
-  <data name="&gt;&gt;lblRole.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="addRentToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="lblTitle.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 36pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;lblTitleTotalBookings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblTotalCustomers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 58</value>
-  </data>
-  <data name="signOutToolStripMenuItem.Text" xml:space="preserve">
-    <value>Sign Out</value>
-  </data>
-  <data name="&gt;&gt;lblTitle.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="usersToolStripMenuItem1.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;panel4.Name" xml:space="preserve">
-    <value>panel4</value>
-  </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1903, 72</value>
-  </data>
-  <data name="lblUsernameTitle.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lblTitleTotalVehicles.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblTitleTotalRents.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 24pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;lblTotalVehicles.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="lblTotalCustomers.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="returnToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>389, 56</value>
-  </data>
-  <data name="lblTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>450, 58</value>
-  </data>
-  <data name="&gt;&gt;accountSettingsToolStripMenuItem.Name" xml:space="preserve">
-    <value>accountSettingsToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;mainteanceToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="systemToolStripMenuItem.Text" xml:space="preserve">
-    <value>System</value>
-  </data>
-  <data name="VehiclesToolMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 68</value>
-  </data>
-  <data name="currentUserInfoToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;lblTitleTotalVehicles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>MainMenu</value>
-  </data>
-  <data name="ايجارToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 68</value>
-  </data>
-  <data name="lblUsername.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;accountSettingsToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblUsernameTitle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblTotalVehicles.Text" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="pbUserImage.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>525, 67</value>
   </data>
-  <data name="&gt;&gt;lblTotalRents.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mainteanceToolStripMenuItem.Name" xml:space="preserve">
-    <value>mainteanceToolStripMenuItem</value>
-  </data>
-  <data name="lblTotalVehicles.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="allPeopleToolStripMenuItem.Text" xml:space="preserve">
-    <value>All-People</value>
-  </data>
-  <data name="&gt;&gt;usersToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblTitleTotalVehicles.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 24pt, style=Bold</value>
-  </data>
-  <data name="customersToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>268, 50</value>
-  </data>
-  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;showVehiclesToolStripMenuItem.Name" xml:space="preserve">
-    <value>showVehiclesToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;PeopleToolStripMenuItem.Name" xml:space="preserve">
-    <value>PeopleToolStripMenuItem</value>
-  </data>
-  <data name="lblTitleTotalRents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 59</value>
-  </data>
-  <data name="&gt;&gt;lblTitle.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="pbUserImage.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="&gt;&gt;lblTitleTotalBookings.Name" xml:space="preserve">
-    <value>lblTitleTotalBookings</value>
-  </data>
-  <data name="&gt;&gt;lblTotalCustomers.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;exitApplicationToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblTotalRents.Location" type="System.Drawing.Point, System.Drawing">
-    <value>59, 45</value>
-  </data>
-  <data name="lblTitleTotalVehicles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;pbUserImage.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblUsername.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="lblTitleTotalRents.Text" xml:space="preserve">
-    <value>Total Rents</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>MainMenu</value>
-  </data>
-  <data name="&gt;&gt;allPeopleToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;staticsToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblUsernameTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 24</value>
-  </data>
-  <data name="returnToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="exitApplicationToolStripMenuItem.Text" xml:space="preserve">
-    <value>Exit Application</value>
-  </data>
-  <data name="lblTotalCustomers.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;lblTitleTotalCustomers.Name" xml:space="preserve">
-    <value>lblTitleTotalCustomers</value>
-  </data>
-  <data name="&gt;&gt;lblTotalCustomers.Name" xml:space="preserve">
-    <value>lblTotalCustomers</value>
-  </data>
-  <data name="VehiclesToolMenuStrip.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="showVehiclesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>373, 56</value>
-  </data>
-  <data name="lblTotalRents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 58</value>
-  </data>
-  <data name="returnToolStripMenuItem.Text" xml:space="preserve">
-    <value>Return</value>
-  </data>
-  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="lblTotalRents.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="lblTitleTotalRents.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;pbUserImage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;transactionsToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblTitleTotalRents.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 141</value>
-  </data>
-  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="menuStrip1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 24pt</value>
-  </data>
-  <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="changePasswordToolStripMenuItem.Text" xml:space="preserve">
-    <value>Change Password</value>
-  </data>
-  <data name="&gt;&gt;systemToolStripMenuItem.Name" xml:space="preserve">
-    <value>systemToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;lblTitleTotalCustomers.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="staticsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reports</value>
-  </data>
-  <data name="&gt;&gt;usersToolStripMenuItem1.Name" xml:space="preserve">
-    <value>usersToolStripMenuItem1</value>
-  </data>
-  <data name="&gt;&gt;lblTotalVehicles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="manageVehiclesToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
-  </data>
-  <data name="transactionsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Transactions</value>
-  </data>
-  <data name="lblRole.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt, style=Bold</value>
-  </data>
-  <data name="lblTitleTotalVehicles.Text" xml:space="preserve">
-    <value>Total Vehicles </value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblTitleTotalCustomers.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 24pt, style=Bold</value>
-  </data>
-  <data name="allPeopleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>268, 50</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="lblUsername.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 24</value>
-  </data>
-  <data name="transactionsToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="lblTotalRents.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>818, 311</value>
-  </data>
-  <data name="lblTotalRents.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 27.75pt, style=Bold</value>
-  </data>
-  <data name="changePasswordToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>384, 56</value>
-  </data>
-  <data name="&gt;&gt;lblTitleTotalVehicles.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="lblUsernameTitle.Text" xml:space="preserve">
-    <value>Username :</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>2220, 1109</value>
   </data>
   <data name="&gt;&gt;lblTitleTotalCustomers.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="accountSettingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Account Settings</value>
+  </data>
+  <data name="&gt;&gt;lblTotalVehicles.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="lblUsernameTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 14.25pt</value>
+  </data>
+  <data name="lblTotalRents.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="settingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 68</value>
+  </data>
+  <data name="changePasswordToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>384, 56</value>
+  </data>
+  <data name="&gt;&gt;lblTitleTotalCustomers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="signOutToolStripMenuItem.Text" xml:space="preserve">
+    <value>Sign Out</value>
+  </data>
+  <data name="&gt;&gt;mainteanceToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;settingsToolStripMenuItem.Name" xml:space="preserve">
+    <value>settingsToolStripMenuItem</value>
+  </data>
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>954, 359</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>252, 162</value>
+  </data>
   <data name="&gt;&gt;lblTitleTotalCustomers.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="lblTitleTotalVehicles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1604, 480</value>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
-  <data name="signOutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>389, 70</value>
-  </data>
-  <data name="accountSettingsToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+  <data name="PeopleToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="usersToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Users</value>
+  <data name="&gt;&gt;lblTotalVehicles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;showVehiclesToolStripMenuItem.Name" xml:space="preserve">
+    <value>showVehiclesToolStripMenuItem</value>
+  </data>
+  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="transactionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 68</value>
+  </data>
+  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1879, 317</value>
+  </data>
+  <data name="customersToolStripMenuItem.Text" xml:space="preserve">
+    <value>Customers</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblTotalBookings.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="VehiclesToolMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 68</value>
+  </data>
+  <data name="&gt;&gt;pbUserImage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="transactionsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Transactions</value>
+  </data>
+  <data name="pbUserImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 37</value>
+  </data>
+  <data name="returnToolStripMenuItem.Text" xml:space="preserve">
+    <value>Return</value>
+  </data>
+  <data name="&gt;&gt;lblUsername.Name" xml:space="preserve">
+    <value>lblUsername</value>
+  </data>
+  <data name="&gt;&gt;changePasswordToolStripMenuItem.Name" xml:space="preserve">
+    <value>changePasswordToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;lblTitleTotalRents.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="lblRole.Text" xml:space="preserve">
     <value>Admin</value>
   </data>
-  <data name="staticsToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblUsername.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="VehiclesToolMenuStrip.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="lblTitleTotalRents.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1604, 212</value>
+  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
+    <value>panel3</value>
   </data>
-  <data name="manageVehiclesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>373, 56</value>
+  <data name="lblTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 36pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;manageRentsToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;currentUserInfoToolStripMenuItem.Name" xml:space="preserve">
+    <value>currentUserInfoToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exitApplicationToolStripMenuItem.Name" xml:space="preserve">
+    <value>exitApplicationToolStripMenuItem</value>
+  </data>
+  <data name="lblTitleTotalRents.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="lblTotalRents.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="lblTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>894, 650</value>
+  </data>
+  <data name="&gt;&gt;changePasswordToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblRole.Location" type="System.Drawing.Point, System.Drawing">
-    <value>942, 280</value>
+  <data name="&gt;&gt;lblTotalRents.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;addRentToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 3, 5, 3</value>
+  </data>
+  <data name="mainteanceToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="pbUserImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 91</value>
+  </data>
+  <data name="lblTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="mainteanceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>265, 68</value>
+  </data>
+  <data name="showVehiclesToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;lblTotalBookings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTotalCustomers.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="changePasswordToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;manageVehiclesToolStripMenuItem.Name" xml:space="preserve">
+    <value>manageVehiclesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;allPeopleToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblTotalVehicles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 67</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;lblUsernameTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblTotalCustomers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 67</value>
+  </data>
+  <data name="accountSettingsToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="exitApplicationToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;returnToolStripMenuItem.Name" xml:space="preserve">
+    <value>returnToolStripMenuItem</value>
+  </data>
+  <data name="lblUsernameTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="returnToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>383, 287</value>
+  </data>
+  <data name="lblTotalCustomers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 51</value>
+  </data>
+  <data name="lblRole.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>2220, 72</value>
+  </data>
+  <data name="lblTotalRents.Location" type="System.Drawing.Point, System.Drawing">
+    <value>69, 52</value>
+  </data>
+  <data name="lblTotalBookings.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblRole.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="lblTitleTotalCustomers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>318, 67</value>
+  </data>
+  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblTitleTotalBookings.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 24pt, style=Bold</value>
+  </data>
+  <data name="lblTitleTotalVehicles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>304, 67</value>
+  </data>
+  <data name="lblRole.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt, style=Bold</value>
+  </data>
+  <data name="lblUsernameTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 24</value>
+  </data>
+  <data name="&gt;&gt;PeopleToolStripMenuItem.Name" xml:space="preserve">
+    <value>PeopleToolStripMenuItem</value>
+  </data>
+  <data name="lblTitleTotalRents.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1871, 245</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblTitleTotalVehicles.Text" xml:space="preserve">
+    <value>Total Vehicles </value>
+  </data>
+  <data name="&gt;&gt;allPeopleToolStripMenuItem.Name" xml:space="preserve">
+    <value>allPeopleToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;transactionsToolStripMenuItem.Name" xml:space="preserve">
+    <value>transactionsToolStripMenuItem</value>
+  </data>
+  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="lblTotalCustomers.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 27.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;accountSettingsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblTitleTotalBookings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>56, 255</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1879, 624</value>
+  </data>
+  <data name="lblTotalCustomers.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="lblTitleTotalCustomers.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;lblTitleTotalBookings.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblTotalRents.Name" xml:space="preserve">
+    <value>lblTotalRents</value>
+  </data>
+  <data name="&gt;&gt;PeopleToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="returnToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>389, 56</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTotalBookings.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;addRentToolStripMenuItem.Name" xml:space="preserve">
+    <value>addRentToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;staticsToolStripMenuItem.Name" xml:space="preserve">
+    <value>staticsToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;panel2.Name" xml:space="preserve">
     <value>panel2</value>
   </data>
+  <data name="&gt;&gt;lblTitle.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;lblTotalBookings.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblTitleTotalRents.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblUsernameTitle.Text" xml:space="preserve">
+    <value>Username :</value>
+  </data>
+  <data name="staticsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 68</value>
+  </data>
+  <data name="&gt;&gt;pbUserImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblUsername.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="pbUserImage.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblTotalCustomers.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;mainteanceToolStripMenuItem.Name" xml:space="preserve">
+    <value>mainteanceToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;lblTotalCustomers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="exitApplicationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>301, 68</value>
+  </data>
+  <data name="showVehiclesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>373, 56</value>
+  </data>
+  <data name="&gt;&gt;VehiclesToolMenuStrip.Name" xml:space="preserve">
+    <value>VehiclesToolMenuStrip</value>
+  </data>
+  <data name="lblTitleTotalVehicles.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 24pt, style=Bold</value>
+  </data>
+  <data name="lblRole.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 32</value>
+  </data>
+  <data name="&gt;&gt;lblTitleTotalVehicles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblTitleTotalRents.Text" xml:space="preserve">
+    <value>Total Rents</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>252, 162</value>
+  </data>
+  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>252, 162</value>
+  </data>
+  <data name="lblTitleTotalRents.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 24pt, style=Bold</value>
+  </data>
+  <data name="ايجارToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 68</value>
+  </data>
+  <data name="&gt;&gt;settingsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="manageVehiclesToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="lblTotalBookings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 44</value>
+  </data>
+  <data name="&gt;&gt;lblTotalVehicles.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblTitleTotalVehicles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblTitleTotalBookings.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="systemToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
   <data name="manageRentsToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="&gt;&gt;lblTotalBookings.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblTitleTotalCustomers.Name" xml:space="preserve">
+    <value>lblTitleTotalCustomers</value>
+  </data>
+  <data name="usersToolStripMenuItem1.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="lblUsername.Text" xml:space="preserve">
+    <value>[???]</value>
+  </data>
+  <data name="&gt;&gt;systemToolStripMenuItem.Name" xml:space="preserve">
+    <value>systemToolStripMenuItem</value>
+  </data>
+  <data name="addRentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>389, 56</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>252, 162</value>
+  </data>
+  <data name="lblTotalVehicles.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="currentUserInfoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Current User Info</value>
+  </data>
+  <data name="manageRentsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Manage Bookings</value>
+  </data>
+  <data name="lblTitleTotalRents.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="usersToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 50</value>
+  </data>
+  <data name="&gt;&gt;lblTotalRents.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="manageVehiclesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>373, 56</value>
+  </data>
+  <data name="panel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="lblTotalRents.Text" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;manageVehiclesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblUsernameTitle.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;lblTitle.Name" xml:space="preserve">
-    <value>lblTitle</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;VehiclesToolMenuStrip.Name" xml:space="preserve">
-    <value>VehiclesToolMenuStrip</value>
-  </data>
-  <data name="&gt;&gt;showVehiclesToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="VehiclesToolMenuStrip.Text" xml:space="preserve">
-    <value>Vehicles</value>
-  </data>
   <data name="addRentToolStripMenuItem.Text" xml:space="preserve">
     <value>Add Booking</value>
   </data>
-  <data name="&gt;&gt;customersToolStripMenuItem.Name" xml:space="preserve">
-    <value>customersToolStripMenuItem</value>
+  <data name="customersToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 50</value>
   </data>
-  <data name="&gt;&gt;lblRole.Name" xml:space="preserve">
-    <value>lblRole</value>
+  <data name="lblTotalRents.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 67</value>
   </data>
-  <data name="&gt;&gt;lblTitleTotalBookings.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="lblTotalRents.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
-  <data name="systemToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>389, 70</value>
-  </data>
-  <data name="lblTitleTotalBookings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>48, 221</value>
-  </data>
-  <data name="&gt;&gt;settingsToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblRole.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;lblTitleTotalBookings.Parent" xml:space="preserve">
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lblUsername.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="manageRentsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>389, 56</value>
-  </data>
-  <data name="lblTitleTotalBookings.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 24pt, style=Bold</value>
+  <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
   <data name="&gt;&gt;lblTitleTotalRents.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblTotalBookings.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 27.75pt, style=Bold</value>
-  </data>
-  <data name="lblTotalCustomers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>69, 44</value>
-  </data>
-  <data name="&gt;&gt;lblTitleTotalRents.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblRole.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="lblTitleTotalCustomers.Text" xml:space="preserve">
-    <value>Total Customers</value>
+  <data name="usersToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Users</value>
   </data>
-  <data name="currentUserInfoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Current User Info</value>
+  <data name="&gt;&gt;lblTitleTotalBookings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblTitle.Text" xml:space="preserve">
+    <value>Car Rental System</value>
+  </data>
+  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lblUsername.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="panel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="allPeopleToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="allPeopleToolStripMenuItem.Text" xml:space="preserve">
+    <value>All-People</value>
+  </data>
+  <data name="currentUserInfoToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="lblTitleTotalBookings.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="&gt;&gt;VehiclesToolMenuStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="&gt;&gt;lblTotalRents.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblTotalBookings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;lblUsernameTitle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblUsername.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ايجارToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;customersToolStripMenuItem.Name" xml:space="preserve">
+    <value>customersToolStripMenuItem</value>
+  </data>
+  <data name="lblTitleTotalVehicles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1871, 554</value>
+  </data>
+  <data name="&gt;&gt;lblTitleTotalVehicles.Name" xml:space="preserve">
+    <value>lblTitleTotalVehicles</value>
+  </data>
+  <data name="lblTitleTotalBookings.Text" xml:space="preserve">
+    <value>Total Bookings</value>
+  </data>
+  <data name="&gt;&gt;lblRole.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 325</value>
+  </data>
+  <data name="lblTotalVehicles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="lblTitleTotalBookings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>MainMenu</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="lblUsernameTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>59, 100</value>
+  </data>
+  <data name="&gt;&gt;customersToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTitleTotalVehicles.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;ايجارToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblTitleTotalCustomers.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="&gt;&gt;lblTotalCustomers.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblTitleTotalRents.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="pbUserImage.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="manageRentsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>389, 56</value>
+  </data>
+  <data name="systemToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>389, 70</value>
+  </data>
+  <data name="&gt;&gt;exitApplicationToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;usersToolStripMenuItem1.Name" xml:space="preserve">
+    <value>usersToolStripMenuItem1</value>
+  </data>
+  <data name="lblTitleTotalCustomers.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 24pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;lblUsername.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="lblTotalVehicles.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 27.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblTotalCustomers.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="systemToolStripMenuItem.Text" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="changePasswordToolStripMenuItem.Text" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="allPeopleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 50</value>
+  </data>
+  <data name="&gt;&gt;lblRole.Name" xml:space="preserve">
+    <value>lblRole</value>
+  </data>
+  <data name="lblTotalRents.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 27.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;lblTitleTotalBookings.Name" xml:space="preserve">
+    <value>lblTitleTotalBookings</value>
+  </data>
+  <data name="&gt;&gt;manageRentsToolStripMenuItem.Name" xml:space="preserve">
+    <value>manageRentsToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;lblTotalCustomers.Name" xml:space="preserve">
+    <value>lblTotalCustomers</value>
+  </data>
+  <data name="lblTitleTotalCustomers.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTotalBookings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 67</value>
+  </data>
+  <data name="&gt;&gt;systemToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;manageRentsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panel4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTotalVehicles.Name" xml:space="preserve">
+    <value>lblTotalVehicles</value>
+  </data>
+  <data name="&gt;&gt;lblTitleTotalRents.Name" xml:space="preserve">
+    <value>lblTitleTotalRents</value>
+  </data>
+  <data name="lblTitleTotalBookings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>306, 68</value>
+  </data>
+  <data name="lblUsername.Location" type="System.Drawing.Point, System.Drawing">
+    <value>209, 100</value>
+  </data>
+  <data name="mainteanceToolStripMenuItem.Text" xml:space="preserve">
+    <value>Maintenance</value>
+  </data>
+  <data name="signOutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>389, 70</value>
+  </data>
+  <data name="&gt;&gt;pbUserImage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;currentUserInfoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblUsernameTitle.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="&gt;&gt;ايجارToolStripMenuItem.Name" xml:space="preserve">
     <value>ايجارToolStripMenuItem</value>
   </data>
-  <data name="exitApplicationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>301, 68</value>
-  </data>
-  <data name="&gt;&gt;returnToolStripMenuItem.Name" xml:space="preserve">
-    <value>returnToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;signOutToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="usersToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>268, 50</value>
-  </data>
-  <data name="pbUserImage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 79</value>
-  </data>
-  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;lblUsernameTitle.Name" xml:space="preserve">
-    <value>lblUsernameTitle</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="&gt;&gt;lblUsername.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblTitleTotalVehicles.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="lblTitleTotalVehicles.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="lblTotalVehicles.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 27.75pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;systemToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTotalRents.Name" xml:space="preserve">
-    <value>lblTotalRents</value>
-  </data>
-  <data name="PeopleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 68</value>
-  </data>
-  <data name="&gt;&gt;lblRole.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblUsername.Location" type="System.Drawing.Point, System.Drawing">
-    <value>179, 87</value>
+  <data name="lblRole.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1099, 323</value>
   </data>
   <data name="showVehiclesToolStripMenuItem.Text" xml:space="preserve">
     <value>Show Vehicles</value>
   </data>
-  <data name="&gt;&gt;lblTitleTotalRents.Name" xml:space="preserve">
-    <value>lblTitleTotalRents</value>
-  </data>
-  <data name="menuStrip1.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;lblTitleTotalRents.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="PeopleToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+  <data name="signOutToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
-  </data>
-  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>68, 282</value>
-  </data>
-  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;lblUsername.Name" xml:space="preserve">
-    <value>lblUsername</value>
-  </data>
-  <data name="pbUserImage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 32</value>
-  </data>
-  <data name="lblTotalBookings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>69, 38</value>
-  </data>
-  <data name="lblTitleTotalCustomers.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="allPeopleToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;ايجارToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;transactionsToolStripMenuItem.Name" xml:space="preserve">
-    <value>transactionsToolStripMenuItem</value>
-  </data>
-  <data name="mainteanceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>265, 68</value>
-  </data>
-  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 141</value>
-  </data>
-  <data name="&gt;&gt;manageRentsToolStripMenuItem.Name" xml:space="preserve">
-    <value>manageRentsToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTotalVehicles.Name" xml:space="preserve">
-    <value>lblTotalVehicles</value>
-  </data>
-  <data name="lblTotalBookings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 58</value>
   </data>
   <data name="currentUserInfoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>384, 56</value>
   </data>
-  <data name="lblTotalBookings.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="lblTitleTotalCustomers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 554</value>
   </data>
-  <data name="lblTitleTotalBookings.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="pbUserImage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="manageRentsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Manage Bookings</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="settingsToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;VehiclesToolMenuStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblUsername.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 14.25pt</value>
-  </data>
-  <data name="&gt;&gt;pbUserImage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblRole.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;customersToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblRole.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 28</value>
-  </data>
-  <data name="&gt;&gt;addRentToolStripMenuItem.Name" xml:space="preserve">
-    <value>addRentToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="addRentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>389, 56</value>
-  </data>
-  <data name="lblTotalRents.Text" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lblTitleTotalVehicles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 58</value>
-  </data>
-  <data name="&gt;&gt;lblTotalBookings.Name" xml:space="preserve">
-    <value>lblTotalBookings</value>
+  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 2, 0, 2</value>
   </data>
   <data name="ايجارToolStripMenuItem.Text" xml:space="preserve">
     <value>Bookings</value>
   </data>
-  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;changePasswordToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblTotalCustomers.Text" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="staticsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 68</value>
-  </data>
-  <data name="ايجارToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+  <data name="customersToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblUsername.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 24</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1903, 961</value>
-  </data>
-  <data name="&gt;&gt;currentUserInfoToolStripMenuItem.Name" xml:space="preserve">
-    <value>currentUserInfoToolStripMenuItem</value>
-  </data>
-  <data name="manageVehiclesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Manage Vehicles</value>
-  </data>
-  <data name="&gt;&gt;exitApplicationToolStripMenuItem.Name" xml:space="preserve">
-    <value>exitApplicationToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;addRentToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;signOutToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="showVehiclesToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
+  <data name="accountSettingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>389, 70</value>
   </data>
-  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
+  <data name="menuStrip1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 24pt</value>
+  </data>
+  <data name="lblTitleTotalCustomers.Text" xml:space="preserve">
+    <value>Total Customers</value>
+  </data>
+  <data name="&gt;&gt;lblTitle.Name" xml:space="preserve">
+    <value>lblTitle</value>
+  </data>
+  <data name="lblTotalBookings.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 27.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;lblTitleTotalBookings.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;returnToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblUsernameTitle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;staticsToolStripMenuItem.Name" xml:space="preserve">
-    <value>staticsToolStripMenuItem</value>
+  <data name="&gt;&gt;pbUserImage.Name" xml:space="preserve">
+    <value>pbUserImage</value>
   </data>
-  <data name="&gt;&gt;lblUsername.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;returnToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="accountSettingsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Account Settings</value>
-  </data>
-  <data name="mainteanceToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+  <data name="addRentToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="lblTitleTotalCustomers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>273, 58</value>
+  <data name="&gt;&gt;transactionsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="VehiclesToolMenuStrip.Text" xml:space="preserve">
+    <value>Vehicles</value>
   </data>
-  <data name="lblUsernameTitle.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;showVehiclesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="staticsToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="lblTotalCustomers.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="&gt;&gt;lblUsernameTitle.Name" xml:space="preserve">
+    <value>lblUsernameTitle</value>
+  </data>
+  <data name="&gt;&gt;staticsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="lblTitleTotalRents.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 68</value>
+  </data>
+  <data name="&gt;&gt;lblRole.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="manageVehiclesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Manage Vehicles</value>
+  </data>
+  <data name="lblUsername.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 14.25pt</value>
   </data>
-  <data name="&gt;&gt;lblTotalCustomers.Parent" xml:space="preserve">
-    <value>panel2</value>
+  <data name="lblUsernameTitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
-  <data name="&gt;&gt;lblTotalBookings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblTitleTotalVehicles.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
-  <data name="&gt;&gt;manageVehiclesToolStripMenuItem.Name" xml:space="preserve">
-    <value>manageVehiclesToolStripMenuItem</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainMenu</value>
   </data>
-  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+  <data name="lblTotalVehicles.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
-  </data>
-  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 249</value>
-  </data>
-  <data name="&gt;&gt;changePasswordToolStripMenuItem.Name" xml:space="preserve">
-    <value>changePasswordToolStripMenuItem</value>
-  </data>
-  <data name="lblTitleTotalCustomers.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="&gt;&gt;lblTotalRents.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="signOutToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;allPeopleToolStripMenuItem.Name" xml:space="preserve">
-    <value>allPeopleToolStripMenuItem</value>
-  </data>
-  <data name="settingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 68</value>
-  </data>
-  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblTotalCustomers.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="mainteanceToolStripMenuItem.Text" xml:space="preserve">
-    <value>Maintenance</value>
-  </data>
-  <data name="lblUsername.Text" xml:space="preserve">
-    <value>[???]</value>
-  </data>
-  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>68, 541</value>
-  </data>
-  <data name="&gt;&gt;lblTitleTotalVehicles.Name" xml:space="preserve">
-    <value>lblTitleTotalVehicles</value>
-  </data>
-  <data name="exitApplicationToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="lblTitleTotalBookings.Text" xml:space="preserve">
-    <value>Total Bookings</value>
-  </data>
-  <data name="lblTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>766, 563</value>
-  </data>
-  <data name="customersToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="changePasswordToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
+    <value>pictureBox1</value>
+  </data>
+  <data name="&gt;&gt;usersToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;signOutToolStripMenuItem.Name" xml:space="preserve">
+    <value>signOutToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;lblTitle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblTotalBookings.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="&gt;&gt;accountSettingsToolStripMenuItem.Name" xml:space="preserve">
+    <value>accountSettingsToolStripMenuItem</value>
+  </data>
+  <data name="transactionsToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="customersToolStripMenuItem.Text" xml:space="preserve">
-    <value>Customers</value>
+  <data name="&gt;&gt;lblTotalBookings.Name" xml:space="preserve">
+    <value>lblTotalBookings</value>
   </data>
-  <data name="lblTotalVehicles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 624</value>
   </data>
-  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1611, 275</value>
+  <data name="staticsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reports</value>
   </data>
-  <data name="transactionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>270, 68</value>
+  <data name="PeopleToolStripMenuItem.Text" xml:space="preserve">
+    <value>People</value>
+  </data>
+  <data name="PeopleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 68</value>
+  </data>
+  <data name="&gt;&gt;panel4.Name" xml:space="preserve">
+    <value>panel4</value>
   </data>
   <data name="lblTotalVehicles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>59, 44</value>
+    <value>69, 51</value>
   </data>
-  <data name="lblTotalVehicles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 58</value>
+  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <data name="lblTitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="exitApplicationToolStripMenuItem.Text" xml:space="preserve">
+    <value>Exit Application</value>
+  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>86</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
     <value>ar</value>
   </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>86</value>
-  </metadata>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
 </root>
