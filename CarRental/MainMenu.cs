@@ -90,7 +90,8 @@ namespace CarRental
 
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-   
+            Properties.Settings.Default.AutoLogin = false;
+            Properties.Settings.Default.Save();
             Application.Restart();
 
         }

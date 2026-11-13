@@ -24,13 +24,13 @@ namespace CarRental
 
         public Booking? Booking { get { return _Booking; }}
 
-        public void LoadBooking(int BookingID)
+        public async Task LoadBooking(int BookingID)
         {
             if (BookingID < 0)
                 return;
 
             _BookingID = BookingID;
-            _LoadData();
+           await _LoadData();
            
         }
         public async void LoadBookingByTransactionID(int TransactionID)
@@ -41,7 +41,7 @@ namespace CarRental
             var transaction = await Transaction.GetTransactionByID(TransactionID);
             if (transaction == null) return;
             _BookingID =  transaction.BookingID;
-            _LoadData();
+           await _LoadData();
 
         }
 
@@ -50,7 +50,7 @@ namespace CarRental
         {
             _SetDefaults();
         }
-        private async void _LoadData()
+        private async Task _LoadData()
         {
              _Booking= await Booking.GetRentalByID(BookingID);
 

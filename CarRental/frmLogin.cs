@@ -64,6 +64,11 @@ namespace CarRental
                 txtUserName.Text = Username;
                 txtPassword.Text=Password;
                 cbRememberMe.Checked = true;
+                if (Properties.Settings.Default.AutoLogin)
+                {
+                    chbAutoLogin.Checked = true;
+                    btnLogin_Click(null, null);
+                }
                 btnLogin.Focus();
             }
             else
@@ -123,7 +128,9 @@ namespace CarRental
             {
                 GlobalClass.SaveUserInfoToReg("", "");
             }
-
+          
+                Properties.Settings.Default.AutoLogin = chbAutoLogin.Checked;
+            Properties.Settings.Default.Save();
         }
 
         private async void _Login()

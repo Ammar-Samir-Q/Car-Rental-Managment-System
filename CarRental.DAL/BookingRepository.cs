@@ -12,13 +12,40 @@ namespace CarRental.DAL
 {
     public class BookingRepository
     {
-        public static async Task<int> AddRent(Booking booking)
+        public static async Task<int> AddRent(Booking booking,Transaction transaction)
         {
             using AppDbContext context = DbContextFactory.CreateDbContext();
 
-            await context.RentalBookings.AddAsync(booking);
+            using var TransactionScope = await context.Database.BeginTransactionAsync();
 
-            await context.SaveChangesAsync();
+
+            try
+            {
+
+                await context.RentalBookings.AddAsync(booking);
+                await context.SaveChangesAsync();
+
+                if (transaction.ReturnID <= 0)
+                    transaction.ReturnID = null;
+
+
+                transaction.BookingID = booking.BookingID;
+
+                await context.RentalTransactions.AddAsync(transaction);
+
+                await context.SaveChangesAsync();
+
+                if (transaction.TransactionID > 0 && booking.BookingID > 0)
+                    await TransactionScope.CommitAsync();
+                else
+                    await TransactionScope.RollbackAsync();
+
+
+            }
+            catch
+            {
+                await TransactionScope.RollbackAsync();
+            }
 
             return booking.BookingID;
         }

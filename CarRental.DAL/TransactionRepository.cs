@@ -16,6 +16,9 @@ namespace CarRental.DAL
         {
             using AppDbContext context = DbContextFactory.CreateDbContext();
 
+            if (transaction.ReturnID <= 0)
+                transaction.ReturnID = null;
+
             await context.RentalTransactions.AddAsync(transaction);
 
             await context.SaveChangesAsync();

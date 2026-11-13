@@ -175,7 +175,7 @@ namespace CarRental
 
          private async void _NextPerosn()
         {
-            if(ctrlPersonInfoWithFilter1.SelectedPersonID<1?false:!await Person.IsPersonExists(ctrlPersonInfoWithFilter1.SelectedPersonID))
+            if(ctrlPersonInfoWithFilter1.SelectedPersonID<1||!await Person.IsPersonExists(ctrlPersonInfoWithFilter1.SelectedPersonID))
             {
                 MessageBox.Show("Select Person First", "Select Person", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -348,36 +348,37 @@ namespace CarRental
             _Booking.InitialCheckNotes = txtInitialNotes.Text;
 
 
+
+            Transaction? Transaction = new Transaction();
+
+            if (_Mode == enMode.Update)
+                Transaction = await Transaction.GetTransactionByBookingID(_Booking.BookingID);
+
+
+
+            Transaction.BookingID = _Booking.BookingID;
+            Transaction.PaidInitialTotalDueAmount = _Booking.InitialTotalDueAmount;
+            Transaction.PaymentsDetails = txtPaymentDetails.Text;
+
+            if (_Mode == enMode.AddNew)
+                Transaction.TransactionDate = DateTime.Now;
+
+            Transaction.UpdatedTransactionDate = DateOnly.FromDateTime(DateTime.Now);
+
+
+            _Booking.Transaction = Transaction;
+
+
             if ( !await _Booking.Save())
             {
                 MessageBox.Show("Error : Faild While Saving The Rent Data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            Transaction? Transaction = new Transaction();
 
-            if (_Mode == enMode.Update)
-                Transaction =await Transaction.GetTransactionByBookingID(_Booking.BookingID);
-
-         
-
-            Transaction.BookingID = _Booking.BookingID;
-            Transaction.PaidInitialTotalDueAmount=_Booking.InitialTotalDueAmount;
-            Transaction.PaymentsDetails = txtPaymentDetails.Text;
-            
-            if(_Mode==enMode.AddNew)
-            Transaction.TransactionDate = DateTime.Now;
-            
-            Transaction.UpdatedTransactionDate = DateOnly.FromDateTime(DateTime.Now);
-            if(!await Transaction.Save())
-            {
-                MessageBox.Show("Faild While Saving Transaction", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                _Booking.Delete();
-                return;
-            }
 
             lblRentID.Text = _Booking.BookingID.ToString();
-            lblTransactionID.Text=Transaction.TransactionID.ToString();
+            lblTransactionID.Text=_Booking.Transaction.TransactionID.ToString();
 
 
 
@@ -388,9 +389,9 @@ namespace CarRental
         }
 
       
-        private void btnSave_Click(object sender, EventArgs e)
+        private async void btnSave_Click(object sender, EventArgs e)
         {
-            _SaveData();
+           await _SaveData();
         }
 
         private void dtpStartDate_ValueChanged(object sender, EventArgs e)

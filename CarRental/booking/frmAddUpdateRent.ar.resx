@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -117,9 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1628, 914</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnClose.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="btnClose.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1166, 845</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnClose.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 62</value>
   </data>
   <data name="btnClose.Text" xml:space="preserve">
     <value>اغلاق</value>
@@ -127,18 +144,41 @@
   <data name="btnSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1393, 845</value>
+  </data>
+  <data name="btnSave.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 62</value>
+  </data>
   <data name="lblTitle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>690, 62</value>
+  </data>
+  <data name="lblTitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
   <data name="lblTitle.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 42</value>
   </data>
   <data name="lblTitle.Text" xml:space="preserve">
     <value>اضافة حجز</value>
   </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
   <data name="label15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>147, 629</value>
+  </data>
+  <data name="label15.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 42</value>
@@ -149,11 +189,68 @@
   <data name="pictureBox24.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBox24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 592</value>
+  </data>
+  <data name="pictureBox24.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox24.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 99</value>
+  </data>
   <data name="btnNext.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="btnNext.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1372, 640</value>
+  </data>
+  <data name="btnNext.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnNext.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 51</value>
+  </data>
+  <data name="ctrlPersonInfoWithFilter1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 36</value>
+  </data>
+  <data name="ctrlPersonInfoWithFilter1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 3, 5, 3</value>
+  </data>
+  <data name="ctrlPersonInfoWithFilter1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1142, 543</value>
+  </data>
+  <data name="gbSelectPerosn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>203, 46</value>
+  </data>
+  <data name="gbSelectPerosn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="gbSelectPerosn.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="gbSelectPerosn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1164, 587</value>
+  </data>
+  <data name="tpPerson.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="tpPerson.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="tpPerson.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="tpPerson.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1601, 700</value>
+  </data>
   <data name="label13.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>138, 627</value>
+  </data>
+  <data name="label13.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>193, 42</value>
@@ -164,17 +261,83 @@
   <data name="button3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="button3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>482, 108</value>
+  </data>
+  <data name="button3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="button3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 51</value>
+  </data>
   <data name="button3.Text" xml:space="preserve">
     <value>تحديد</value>
+  </data>
+  <data name="ctrlVehicleInfo1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 166</value>
+  </data>
+  <data name="ctrlVehicleInfo1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 3, 5, 3</value>
+  </data>
+  <data name="ctrlVehicleInfo1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1306, 342</value>
+  </data>
+  <data name="gbSelectVehicle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 68</value>
+  </data>
+  <data name="gbSelectVehicle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="gbSelectVehicle.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="gbSelectVehicle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1379, 522</value>
   </data>
   <data name="pictureBox23.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBox23.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 592</value>
+  </data>
+  <data name="pictureBox23.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox23.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 99</value>
+  </data>
   <data name="btnNextVehicle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="btnNextVehicle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1372, 640</value>
+  </data>
+  <data name="btnNextVehicle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnNextVehicle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 51</value>
+  </data>
+  <data name="tpVehicle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="tpVehicle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="tpVehicle.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="tpVehicle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1601, 700</value>
+  </data>
   <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>138, 620</value>
+  </data>
+  <data name="label11.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
     <value>203, 42</value>
@@ -208,8 +371,26 @@
   <data name="pictureBox7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBox7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>892, 204</value>
+  </data>
+  <data name="pictureBox7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
+  </data>
   <data name="pictureBox6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="pictureBox6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>296, 402</value>
+  </data>
+  <data name="pictureBox6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
   </data>
   <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -237,44 +418,224 @@
   <data name="pictureBox5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>296, 204</value>
+  </data>
+  <data name="pictureBox5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
+  </data>
   <data name="pictureBox4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="pictureBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>296, 300</value>
+  </data>
+  <data name="pictureBox4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
   </data>
   <data name="pictureBox3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>892, 102</value>
+  </data>
+  <data name="pictureBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
+  </data>
   <data name="pictureBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>604, 102</value>
+  </data>
+  <data name="pictureBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
   </data>
   <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>288, 97</value>
+  </data>
+  <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
+  </data>
   <data name="label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 400</value>
+  </data>
+  <data name="label10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="txtPaymentDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>345, 402</value>
+  </data>
+  <data name="txtPaymentDetails.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="txtPaymentDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>742, 72</value>
   </data>
   <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 300</value>
+  </data>
+  <data name="label8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
   <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>668, 202</value>
+  </data>
+  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="txtInitialNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>345, 300</value>
+  </data>
+  <data name="txtInitialNotes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="txtInitialNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>742, 72</value>
   </data>
   <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 100</value>
+  </data>
+  <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="txtDropOffLocation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>954, 203</value>
+  </data>
+  <data name="txtDropOffLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="txtDropOffLocation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 26</value>
+  </data>
+  <data name="txtPickupLocation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>345, 203</value>
+  </data>
+  <data name="txtPickupLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="txtPickupLocation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 26</value>
+  </data>
   <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 204</value>
+  </data>
+  <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>668, 102</value>
+  </data>
+  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="dtpEndDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>954, 99</value>
+  </data>
+  <data name="dtpEndDate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="dtpEndDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 26</value>
+  </data>
+  <data name="dtpStartDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>345, 102</value>
+  </data>
+  <data name="dtpStartDate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="dtpStartDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 26</value>
+  </data>
+  <data name="gbRentInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>178, 42</value>
+  </data>
+  <data name="gbRentInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="gbRentInfo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="gbRentInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1239, 526</value>
+  </data>
   <data name="pictureBox22.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="pictureBox22.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 585</value>
+  </data>
+  <data name="pictureBox22.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox22.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 99</value>
   </data>
   <data name="btnNextRent.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="btnNextRent.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1374, 644</value>
+  </data>
+  <data name="btnNextRent.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnNextRent.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 51</value>
+  </data>
+  <data name="tpRentInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="tpRentInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="tpRentInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1601, 700</value>
+  </data>
   <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 572</value>
+  </data>
+  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 42</value>
@@ -285,38 +646,134 @@
   <data name="pictureBox21.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBox21.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 554</value>
+  </data>
+  <data name="pictureBox21.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox21.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 67</value>
+  </data>
   <data name="pictureBox20.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="pictureBox20.Location" type="System.Drawing.Point, System.Drawing">
+    <value>695, 102</value>
+  </data>
+  <data name="pictureBox20.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 134</value>
   </data>
   <data name="pictureBox19.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBox19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1106, 298</value>
+  </data>
+  <data name="pictureBox19.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
+  </data>
   <data name="pictureBox18.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="pictureBox18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>426, 298</value>
+  </data>
+  <data name="pictureBox18.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
   </data>
   <data name="pictureBox17.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBox17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>706, 278</value>
+  </data>
+  <data name="pictureBox17.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 83</value>
+  </data>
   <data name="linklblVehicleInfo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="linklblVehicleInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1132, 45</value>
+  </data>
+  <data name="linklblVehicleInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="linklblCustomerInfo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="linklblCustomerInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>257, 45</value>
+  </data>
+  <data name="linklblCustomerInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
   <data name="lblEndDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="lblEndDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>905, 294</value>
+  </data>
+  <data name="lblEndDate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="lblStartDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="lblStartDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>488, 294</value>
+  </data>
+  <data name="lblStartDate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
   <data name="pictureBox16.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="pictureBox16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>352, 186</value>
+  </data>
+  <data name="pictureBox16.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
   </data>
   <data name="pictureBox15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBox15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>352, 137</value>
+  </data>
+  <data name="pictureBox15.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
+  </data>
   <data name="pictureBox14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="pictureBox14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>352, 39</value>
+  </data>
+  <data name="pictureBox14.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
   </data>
   <data name="pictureBox13.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -339,35 +796,122 @@
   <data name="pictureBox13.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBox13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>352, 82</value>
+  </data>
+  <data name="pictureBox13.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
+  </data>
   <data name="label25.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="label25.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 87</value>
+  </data>
+  <data name="label25.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label22.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="label22.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 39</value>
+  </data>
+  <data name="label22.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
   <data name="lblTransactionID.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="lblTransactionID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>407, 190</value>
+  </data>
+  <data name="lblTransactionID.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="lblTotalDays.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="lblTotalDays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>407, 39</value>
+  </data>
+  <data name="lblTotalDays.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
   <data name="lblTransactionIDTitla.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="lblTransactionIDTitla.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 190</value>
+  </data>
+  <data name="lblTransactionIDTitla.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label24.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="label24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 137</value>
+  </data>
+  <data name="label24.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
   <data name="lblRentID.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="lblRentID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>407, 137</value>
+  </data>
+  <data name="lblRentID.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="lblTotalInitialAmount.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="lblTotalInitialAmount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>407, 87</value>
+  </data>
+  <data name="lblTotalInitialAmount.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>354, 368</value>
+  </data>
+  <data name="groupBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="groupBox3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>845, 237</value>
+  </data>
   <data name="pictureBox12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBox12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 136</value>
+  </data>
+  <data name="pictureBox12.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
+  </data>
   <data name="pictureBox11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="pictureBox11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 22</value>
+  </data>
+  <data name="pictureBox11.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
   </data>
   <data name="pictureBox10.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -390,43 +934,181 @@
   <data name="pictureBox10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBox10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 81</value>
+  </data>
+  <data name="pictureBox10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
+  </data>
   <data name="label16.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>46, 81</value>
+  </data>
+  <data name="label16.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>46, 22</value>
+  </data>
+  <data name="label14.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
   <data name="lblVehicleModel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="lblVehicleModel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>309, 25</value>
+  </data>
+  <data name="lblVehicleModel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="lblRentalPricePerDay.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="lblRentalPricePerDay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>309, 85</value>
+  </data>
+  <data name="lblRentalPricePerDay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
   <data name="label18.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>46, 141</value>
+  </data>
+  <data name="label18.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="lblCurrentMilage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="lblCurrentMilage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>309, 141</value>
+  </data>
+  <data name="lblCurrentMilage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>912, 72</value>
+  </data>
+  <data name="groupBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="groupBox2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>600, 180</value>
+  </data>
   <data name="pictureBox9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="pictureBox9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>278, 38</value>
+  </data>
+  <data name="pictureBox9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
   </data>
   <data name="pictureBox8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBox8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>278, 102</value>
+  </data>
+  <data name="pictureBox8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
+  </data>
   <data name="label12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 102</value>
+  </data>
+  <data name="label12.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 39</value>
+  </data>
+  <data name="label9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
   <data name="lblCustomerName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="lblCustomerName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>327, 43</value>
+  </data>
+  <data name="lblCustomerName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="lblDriverLicenseNumber.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="lblDriverLicenseNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>327, 102</value>
+  </data>
+  <data name="lblDriverLicenseNumber.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 72</value>
+  </data>
+  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>628, 180</value>
+  </data>
   <data name="gbSummary.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 31</value>
+    <value>27, 36</value>
+  </data>
+  <data name="gbSummary.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="gbSummary.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="gbSummary.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1519, 628</value>
+  </data>
+  <data name="tpSummary.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="tpSummary.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="tpSummary.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1601, 700</value>
+  </data>
+  <data name="tcRent.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 114</value>
+  </data>
+  <data name="tcRent.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="tcRent.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1609, 728</value>
   </data>
 </root>

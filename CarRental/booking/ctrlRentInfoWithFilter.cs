@@ -25,7 +25,7 @@ namespace CarRental
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool FilterEnabled { get { return gbFilter.Enabled; } set { gbFilter.Enabled = value; } }
         
-        public async void LoadBooking(int BookingID)
+        public async Task LoadBooking(int BookingID)
         {
             this.FilterEnabled = false;
             if (BookingID <= 0)
@@ -38,8 +38,7 @@ namespace CarRental
             }
 
 
-            ctrlRentInfo1.LoadBooking(BookingID);
-
+           await ctrlRentInfo1.LoadBooking(BookingID);
 
         }
 

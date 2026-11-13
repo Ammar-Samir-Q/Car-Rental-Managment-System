@@ -38,6 +38,8 @@ namespace CarRental.BLL
 
         public decimal InitialTotalDueAmount { get { return RentalPricePerDay * TotalDays; } }
 
+        public Transaction Transaction { get; set; }
+
         private enMode _Mode = enMode.AddNew;
 
         //------------------------------------------------
@@ -90,12 +92,23 @@ namespace CarRental.BLL
                 RentalPricePerDay = this.RentalPricePerDay,
                 InitialCheckNotes = this.InitialCheckNotes,
                 CreatedByUserID = this.CreatedByUserID
+            };
 
-
+            var transaction = new Data.Transaction()
+            {
+                BookingID= this.Transaction.BookingID,
+                ActualTotalDueAmount = this.Transaction.ActualTotalDueAmount,
+                PaidInitialTotalDueAmount=this.Transaction.PaidInitialTotalDueAmount,
+                TotalRefundedAmount = this.Transaction.TotalRefundedAmount,
+                TransactionDate = this.Transaction.TransactionDate,
+                UpdatedTransactionDate = this.Transaction.UpdatedTransactionDate,
+                PaymentDetails=this.Transaction.PaymentsDetails,
+                ReturnID= this.Transaction.ReturnID,
+                
             };
 
 
-            this.BookingID = await DAL.BookingRepository.AddRent(rent);
+            this.BookingID = await DAL.BookingRepository.AddRent(rent,transaction);
             return this.BookingID > 0;
         }
 

@@ -8,8 +8,18 @@ namespace CarRental
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+
+
+            //Language Handling
+            string Language = Properties.Settings.Default.Language;
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Language);
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(Language);
+            //Language Handling
+
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
             ApplicationConfiguration.Initialize();
             Application.Run(new frmLogin());
         }

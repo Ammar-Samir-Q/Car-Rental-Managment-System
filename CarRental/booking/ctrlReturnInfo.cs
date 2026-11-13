@@ -51,7 +51,8 @@ namespace CarRental
             lblCheckNotes.Text = Return.FinalCheckNotes == "" ? "No Notes" : Return.FinalCheckNotes;
             lblFuelLevel.Text = Return.FuelLevelTitle;
             lblReturnCondition.Text=Return.ReturnConditionTitle;
-            //lblRentalDays.Text = ((Return.ActualReturnDate) - DateOnly.FromDateTime(_transaction.BookingInfo.RentalStartDate)).ToString();
+           int RentalDays = Math.Abs((Return.ActualReturnDate.DayNumber) - DateOnly.FromDateTime(_transaction.BookingInfo.RentalStartDate).DayNumber);
+            lblRentalDays.Text = RentalDays.ToString();
         }
 
         private void lblLinkBookingInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

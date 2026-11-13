@@ -8,5 +8,8 @@
     <Setting Name="MainColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">SteelBlue</Value>
     </Setting>
+    <Setting Name="AutoLogin" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -40,22 +40,23 @@ namespace CarRental
 
         }
 
-        private void _LoadData()
+        private async Task _LoadData()
         {
 
-            ctrlRentInfoWithFilter1.LoadBooking(_BookingID);
-            dtpReturnDate.MinDate=ctrlRentInfoWithFilter1.Booking.RentalStartDate.AddDays(1);
-            gbReturn.Enabled = true;
-            btnSave.Enabled = true;
-            btnNext.Visible = false;
-            tc.SelectedTab=tpReturnDetails;
+               await ctrlRentInfoWithFilter1.LoadBooking(_BookingID);           
+                dtpReturnDate.MinDate = ctrlRentInfoWithFilter1.Booking.RentalStartDate.AddDays(1);
+                gbReturn.Enabled = true;
+                btnSave.Enabled = true;
+                btnNext.Visible = false;
+                tc.SelectedTab = tpReturnDetails;
+            
         }
 
-        private void frmAddRent_Load(object sender, EventArgs e)
+        private async void frmAddRent_Load(object sender, EventArgs e)
         {
             _SetDefaults();
             if(_BookingID>0)
-                _LoadData();
+               await _LoadData();
 
         }
 
