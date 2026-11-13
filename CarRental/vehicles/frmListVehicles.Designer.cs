@@ -59,8 +59,8 @@
             // 
             // cbFuelType
             // 
-            cbFuelType.DropDownStyle = ComboBoxStyle.DropDownList;
             resources.ApplyResources(cbFuelType, "cbFuelType");
+            cbFuelType.DropDownStyle = ComboBoxStyle.DropDownList;
             cbFuelType.FormattingEnabled = true;
             cbFuelType.Items.AddRange(new object[] { resources.GetString("cbFuelType.Items"), resources.GetString("cbFuelType.Items1"), resources.GetString("cbFuelType.Items2"), resources.GetString("cbFuelType.Items3"), resources.GetString("cbFuelType.Items4"), resources.GetString("cbFuelType.Items5") });
             cbFuelType.Name = "cbFuelType";
@@ -80,8 +80,8 @@
             // 
             // cbFilter
             // 
-            cbFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             resources.ApplyResources(cbFilter, "cbFilter");
+            cbFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             cbFilter.FormattingEnabled = true;
             cbFilter.Items.AddRange(new object[] { resources.GetString("cbFilter.Items"), resources.GetString("cbFilter.Items1"), resources.GetString("cbFilter.Items2"), resources.GetString("cbFilter.Items3"), resources.GetString("cbFilter.Items4"), resources.GetString("cbFilter.Items5"), resources.GetString("cbFilter.Items6"), resources.GetString("cbFilter.Items7"), resources.GetString("cbFilter.Items8") });
             cbFilter.Name = "cbFilter";
@@ -104,21 +104,21 @@
             // 
             // btnClose
             // 
-            btnClose.DialogResult = DialogResult.Cancel;
             resources.ApplyResources(btnClose, "btnClose");
+            btnClose.DialogResult = DialogResult.Cancel;
             btnClose.Name = "btnClose";
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
             // 
             // dgvVehicles
             // 
+            resources.ApplyResources(dgvVehicles, "dgvVehicles");
             dgvVehicles.AllowUserToAddRows = false;
             dgvVehicles.AllowUserToDeleteRows = false;
             dgvVehicles.AllowUserToOrderColumns = true;
             dgvVehicles.BackgroundColor = Color.White;
             dgvVehicles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvVehicles.ContextMenuStrip = contextMenuStrip1;
-            resources.ApplyResources(dgvVehicles, "dgvVehicles");
             dgvVehicles.MultiSelect = false;
             dgvVehicles.Name = "dgvVehicles";
             dgvVehicles.ReadOnly = true;
@@ -132,50 +132,50 @@
             // 
             // infoToolStripMenuItem
             // 
-            infoToolStripMenuItem.Image = Properties.Resources.icon_info;
             resources.ApplyResources(infoToolStripMenuItem, "infoToolStripMenuItem");
+            infoToolStripMenuItem.Image = Properties.Resources.icon_info;
             infoToolStripMenuItem.Name = "infoToolStripMenuItem";
             infoToolStripMenuItem.Click += infoToolStripMenuItem_Click;
             // 
             // editToolStripMenuItem
             // 
-            editToolStripMenuItem.Image = Properties.Resources.icon_Edit;
             resources.ApplyResources(editToolStripMenuItem, "editToolStripMenuItem");
+            editToolStripMenuItem.Image = Properties.Resources.icon_Edit;
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Click += this.editToolStripMenuItem_Click;
+            editToolStripMenuItem.Click += editToolStripMenuItem_Click;
             // 
             // deleteToolStripMenuItem
             // 
-            deleteToolStripMenuItem.Image = Properties.Resources.icon_Delete32;
             resources.ApplyResources(deleteToolStripMenuItem, "deleteToolStripMenuItem");
+            deleteToolStripMenuItem.Image = Properties.Resources.icon_Delete32;
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
             // 
             // maintenanceToolStripMenuItem
             // 
-            maintenanceToolStripMenuItem.Image = Properties.Resources.icon_Maintenance;
             resources.ApplyResources(maintenanceToolStripMenuItem, "maintenanceToolStripMenuItem");
+            maintenanceToolStripMenuItem.Image = Properties.Resources.icon_Maintenance;
             maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
             maintenanceToolStripMenuItem.Click += maintenanceToolStripMenuItem_Click;
             // 
             // maintencaneHistoryToolStripMenuItem
             // 
-            maintencaneHistoryToolStripMenuItem.Image = Properties.Resources.icon_History;
             resources.ApplyResources(maintencaneHistoryToolStripMenuItem, "maintencaneHistoryToolStripMenuItem");
+            maintencaneHistoryToolStripMenuItem.Image = Properties.Resources.icon_History;
             maintencaneHistoryToolStripMenuItem.Name = "maintencaneHistoryToolStripMenuItem";
             maintencaneHistoryToolStripMenuItem.Click += maintencaneHistoryToolStripMenuItem_Click;
             // 
             // vehicleRentHistoryToolStripMenuItem
             // 
-            vehicleRentHistoryToolStripMenuItem.Image = Properties.Resources.icon_History;
             resources.ApplyResources(vehicleRentHistoryToolStripMenuItem, "vehicleRentHistoryToolStripMenuItem");
+            vehicleRentHistoryToolStripMenuItem.Image = Properties.Resources.icon_History;
             vehicleRentHistoryToolStripMenuItem.Name = "vehicleRentHistoryToolStripMenuItem";
             vehicleRentHistoryToolStripMenuItem.Click += vehicleRentHistoryToolStripMenuItem_Click;
             // 
             // cbVehicleCategory
             // 
-            cbVehicleCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             resources.ApplyResources(cbVehicleCategory, "cbVehicleCategory");
+            cbVehicleCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             cbVehicleCategory.FormattingEnabled = true;
             cbVehicleCategory.Items.AddRange(new object[] { resources.GetString("cbVehicleCategory.Items"), resources.GetString("cbVehicleCategory.Items1"), resources.GetString("cbVehicleCategory.Items2"), resources.GetString("cbVehicleCategory.Items3"), resources.GetString("cbVehicleCategory.Items4"), resources.GetString("cbVehicleCategory.Items5"), resources.GetString("cbVehicleCategory.Items6"), resources.GetString("cbVehicleCategory.Items7"), resources.GetString("cbVehicleCategory.Items8"), resources.GetString("cbVehicleCategory.Items9"), resources.GetString("cbVehicleCategory.Items10"), resources.GetString("cbVehicleCategory.Items11") });
             cbVehicleCategory.Name = "cbVehicleCategory";
@@ -183,8 +183,8 @@
             // 
             // cbIsAvailable
             // 
-            cbIsAvailable.DropDownStyle = ComboBoxStyle.DropDownList;
             resources.ApplyResources(cbIsAvailable, "cbIsAvailable");
+            cbIsAvailable.DropDownStyle = ComboBoxStyle.DropDownList;
             cbIsAvailable.FormattingEnabled = true;
             cbIsAvailable.Items.AddRange(new object[] { resources.GetString("cbIsAvailable.Items"), resources.GetString("cbIsAvailable.Items1"), resources.GetString("cbIsAvailable.Items2") });
             cbIsAvailable.Name = "cbIsAvailable";
@@ -192,22 +192,22 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Properties.Resources.Icon_Filter;
             resources.ApplyResources(pictureBox2, "pictureBox2");
+            pictureBox2.Image = Properties.Resources.Icon_Filter;
             pictureBox2.Name = "pictureBox2";
             pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.pngwing_com__3_;
             resources.ApplyResources(pictureBox1, "pictureBox1");
+            pictureBox1.Image = Properties.Resources.pngwing_com__3_;
             pictureBox1.Name = "pictureBox1";
             pictureBox1.TabStop = false;
             // 
             // button1
             // 
-            button1.Image = Properties.Resources.icon_Add;
             resources.ApplyResources(button1, "button1");
+            button1.Image = Properties.Resources.icon_Add;
             button1.Name = "button1";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;

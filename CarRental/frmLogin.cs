@@ -20,6 +20,8 @@ namespace CarRental
             InitializeComponent();
         }
 
+        private string PasswordHash; 
+
         private bool ReadUserNameAndPassowrd(ref string userName,ref string password)
         {
             try
@@ -62,7 +64,8 @@ namespace CarRental
             if(GlobalClass.ReadUserInfoFromReg(ref Username,ref Password))
             {
                 txtUserName.Text = Username;
-                txtPassword.Text=Password;
+                PasswordHash = Password;
+                txtPassword.Text= "GETHASHFROMREGISTERY"; 
                 cbRememberMe.Checked = true;
                 if (Properties.Settings.Default.AutoLogin)
                 {
@@ -117,9 +120,12 @@ namespace CarRental
 
         private void _HandelSavingData()
         {
+            if (!string.IsNullOrEmpty(PasswordHash)&&txtPassword.Text== "GETHASHFROMREGISTERY")
+                return;
+
             if (cbRememberMe.Checked)
             {
-                if (!GlobalClass.SaveUserInfoToReg(txtUserName.Text, txtPassword.Text))
+                if (!GlobalClass.SaveUserInfoToReg(txtUserName.Text, Util.Security.SecurityHelper.HashData(txtPassword.Text)))
                 {
                     MessageBox.Show("Faild To Save Login Data", "Reg Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -135,7 +141,18 @@ namespace CarRental
 
         private async void _Login()
         {
-            User User =await User.GetUserByUsernameAndPasswordAsync(txtUserName.Text, txtPassword.Text);
+            User? User;
+            if (string.IsNullOrEmpty(PasswordHash))
+            {
+                 User = await User.GetUserByUsernameAndPasswordAsync(txtUserName.Text, txtPassword.Text,false);
+            }
+            else
+            {
+                 User = await User.GetUserByUsernameAndPasswordAsync(txtUserName.Text, PasswordHash,true);
+            }
+
+
+
             if (User==null)
             {
                 MessageBox.Show("Wrong Username Or Password", " User Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);

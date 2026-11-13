@@ -34,7 +34,7 @@ namespace CarRental
                 dgvRents.Columns[1].Visible = false;
 
                 dgvRents.Columns[2].HeaderText = "Fullname";
-                dgvRents.Columns[2].Width = 247;
+                dgvRents.Columns[2].Width = 290;
 
                 dgvRents.Columns[3].HeaderText = "Vehicle ID";
                 dgvRents.Columns[3].Width = 100;
@@ -50,7 +50,7 @@ namespace CarRental
                 dgvRents.Columns[6].Width = 100;
 
                 dgvRents.Columns[7].HeaderText = "Pickup Location";
-                dgvRents.Columns[7].Width = 150;
+                dgvRents.Columns[7].Width = 200;
 
                 dgvRents.Columns[8].HeaderText = "DropOff Location";
                 dgvRents.Columns[8].Width = 150;
@@ -60,7 +60,7 @@ namespace CarRental
 
 
                 dgvRents.Columns[10].HeaderText = "Initial Check Notes";
-                dgvRents.Columns[10].Width = 100;
+                dgvRents.Columns[10].Width = 200;
                 dgvRents.Columns[10].Visible = false;
 
                 dgvRents.Columns[11].HeaderText = "Created By User ID";

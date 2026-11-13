@@ -28,179 +28,170 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListRents));
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtFilter = new System.Windows.Forms.TextBox();
-            this.cbFilter = new System.Windows.Forms.ComboBox();
-            this.lblRecordsNumber = new System.Windows.Forms.Label();
-            this.lblRecords = new System.Windows.Forms.Label();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.dgvRents = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.returnInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRents)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            label1 = new Label();
+            txtFilter = new TextBox();
+            cbFilter = new ComboBox();
+            lblRecordsNumber = new Label();
+            lblRecords = new Label();
+            lblTitle = new Label();
+            btnClose = new Button();
+            dgvRents = new DataGridView();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            infoToolStripMenuItem = new ToolStripMenuItem();
+            editToolStripMenuItem = new ToolStripMenuItem();
+            setReturnToolStripMenuItem = new ToolStripMenuItem();
+            returnInfoToolStripMenuItem = new ToolStripMenuItem();
+            pictureBox2 = new PictureBox();
+            btnAdd = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)dgvRents).BeginInit();
+            contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(label1, "label1");
+            label1.Name = "label1";
             // 
             // txtFilter
             // 
-            resources.ApplyResources(this.txtFilter, "txtFilter");
-            this.txtFilter.Name = "txtFilter";
-            this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
-            this.txtFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilter_KeyPress);
+            resources.ApplyResources(txtFilter, "txtFilter");
+            txtFilter.Name = "txtFilter";
+            txtFilter.TextChanged += txtFilter_TextChanged;
+            txtFilter.KeyPress += txtFilter_KeyPress;
             // 
             // cbFilter
             // 
-            resources.ApplyResources(this.cbFilter, "cbFilter");
-            this.cbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFilter.FormattingEnabled = true;
-            this.cbFilter.Items.AddRange(new object[] {
-            resources.GetString("cbFilter.Items"),
-            resources.GetString("cbFilter.Items1"),
-            resources.GetString("cbFilter.Items2"),
-            resources.GetString("cbFilter.Items3"),
-            resources.GetString("cbFilter.Items4")});
-            this.cbFilter.Name = "cbFilter";
-            this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
+            resources.ApplyResources(cbFilter, "cbFilter");
+            cbFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbFilter.FormattingEnabled = true;
+            cbFilter.Items.AddRange(new object[] { resources.GetString("cbFilter.Items"), resources.GetString("cbFilter.Items1"), resources.GetString("cbFilter.Items2"), resources.GetString("cbFilter.Items3"), resources.GetString("cbFilter.Items4") });
+            cbFilter.Name = "cbFilter";
+            cbFilter.SelectedIndexChanged += cbFilter_SelectedIndexChanged;
             // 
             // lblRecordsNumber
             // 
-            resources.ApplyResources(this.lblRecordsNumber, "lblRecordsNumber");
-            this.lblRecordsNumber.Name = "lblRecordsNumber";
+            resources.ApplyResources(lblRecordsNumber, "lblRecordsNumber");
+            lblRecordsNumber.Name = "lblRecordsNumber";
             // 
             // lblRecords
             // 
-            resources.ApplyResources(this.lblRecords, "lblRecords");
-            this.lblRecords.Name = "lblRecords";
+            resources.ApplyResources(lblRecords, "lblRecords");
+            lblRecords.Name = "lblRecords";
             // 
             // lblTitle
             // 
-            resources.ApplyResources(this.lblTitle, "lblTitle");
-            this.lblTitle.Name = "lblTitle";
+            resources.ApplyResources(lblTitle, "lblTitle");
+            lblTitle.Name = "lblTitle";
             // 
             // btnClose
             // 
-            resources.ApplyResources(this.btnClose, "btnClose");
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Name = "btnClose";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            resources.ApplyResources(btnClose, "btnClose");
+            btnClose.DialogResult = DialogResult.Cancel;
+            btnClose.Name = "btnClose";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
             // dgvRents
             // 
-            resources.ApplyResources(this.dgvRents, "dgvRents");
-            this.dgvRents.AllowUserToAddRows = false;
-            this.dgvRents.AllowUserToDeleteRows = false;
-            this.dgvRents.AllowUserToOrderColumns = true;
-            this.dgvRents.BackgroundColor = System.Drawing.Color.White;
-            this.dgvRents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRents.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvRents.MultiSelect = false;
-            this.dgvRents.Name = "dgvRents";
-            this.dgvRents.ReadOnly = true;
-            this.dgvRents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            resources.ApplyResources(dgvRents, "dgvRents");
+            dgvRents.AllowUserToAddRows = false;
+            dgvRents.AllowUserToDeleteRows = false;
+            dgvRents.AllowUserToOrderColumns = true;
+            dgvRents.BackgroundColor = Color.White;
+            dgvRents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRents.ContextMenuStrip = contextMenuStrip1;
+            dgvRents.MultiSelect = false;
+            dgvRents.Name = "dgvRents";
+            dgvRents.ReadOnly = true;
+            dgvRents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             // 
             // contextMenuStrip1
             // 
-            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.infoToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.setReturnToolStripMenuItem,
-            this.returnInfoToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            resources.ApplyResources(contextMenuStrip1, "contextMenuStrip1");
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { infoToolStripMenuItem, editToolStripMenuItem, setReturnToolStripMenuItem, returnInfoToolStripMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Opening += contextMenuStrip1_Opening;
             // 
             // infoToolStripMenuItem
             // 
-            resources.ApplyResources(this.infoToolStripMenuItem, "infoToolStripMenuItem");
-            this.infoToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_info;
-            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
+            resources.ApplyResources(infoToolStripMenuItem, "infoToolStripMenuItem");
+            infoToolStripMenuItem.Image = Properties.Resources.icon_info;
+            infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            infoToolStripMenuItem.Click += infoToolStripMenuItem_Click;
             // 
             // editToolStripMenuItem
             // 
-            resources.ApplyResources(this.editToolStripMenuItem, "editToolStripMenuItem");
-            this.editToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_Edit;
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            resources.ApplyResources(editToolStripMenuItem, "editToolStripMenuItem");
+            editToolStripMenuItem.Image = Properties.Resources.icon_Edit;
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Click += editToolStripMenuItem_Click;
             // 
             // setReturnToolStripMenuItem
             // 
-            resources.ApplyResources(this.setReturnToolStripMenuItem, "setReturnToolStripMenuItem");
-            this.setReturnToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_Arrow;
-            this.setReturnToolStripMenuItem.Name = "setReturnToolStripMenuItem";
-            this.setReturnToolStripMenuItem.Click += new System.EventHandler(this.setReturnToolStripMenuItem_Click);
+            resources.ApplyResources(setReturnToolStripMenuItem, "setReturnToolStripMenuItem");
+            setReturnToolStripMenuItem.Image = Properties.Resources.icon_Arrow;
+            setReturnToolStripMenuItem.Name = "setReturnToolStripMenuItem";
+            setReturnToolStripMenuItem.Click += setReturnToolStripMenuItem_Click;
             // 
             // returnInfoToolStripMenuItem
             // 
-            resources.ApplyResources(this.returnInfoToolStripMenuItem, "returnInfoToolStripMenuItem");
-            this.returnInfoToolStripMenuItem.Image = global::CarRental.Properties.Resources.icon_Rent;
-            this.returnInfoToolStripMenuItem.Name = "returnInfoToolStripMenuItem";
-            this.returnInfoToolStripMenuItem.Click += new System.EventHandler(this.returnInfoToolStripMenuItem_Click);
+            resources.ApplyResources(returnInfoToolStripMenuItem, "returnInfoToolStripMenuItem");
+            returnInfoToolStripMenuItem.Image = Properties.Resources.icon_Rent;
+            returnInfoToolStripMenuItem.Name = "returnInfoToolStripMenuItem";
+            returnInfoToolStripMenuItem.Click += returnInfoToolStripMenuItem_Click;
             // 
             // pictureBox2
             // 
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
-            this.pictureBox2.Image = global::CarRental.Properties.Resources.Icon_Filter;
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.TabStop = false;
+            resources.ApplyResources(pictureBox2, "pictureBox2");
+            pictureBox2.Image = Properties.Resources.Icon_Filter;
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.TabStop = false;
             // 
             // btnAdd
             // 
-            resources.ApplyResources(this.btnAdd, "btnAdd");
-            this.btnAdd.Image = global::CarRental.Properties.Resources.icon_Add;
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            resources.ApplyResources(btnAdd, "btnAdd");
+            btnAdd.Image = Properties.Resources.icon_Add;
+            btnAdd.Name = "btnAdd";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // pictureBox1
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Image = global::CarRental.Properties.Resources.png_RentKey;
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
+            resources.ApplyResources(pictureBox1, "pictureBox1");
+            pictureBox1.Image = Properties.Resources.png_RentKey;
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.TabStop = false;
             // 
             // frmListRents
             // 
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtFilter);
-            this.Controls.Add(this.cbFilter);
-            this.Controls.Add(this.lblRecordsNumber);
-            this.Controls.Add(this.lblRecords);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.dgvRents);
-            this.Controls.Add(this.pictureBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.Name = "frmListRents";
-            this.Load += new System.EventHandler(this.frmListRents_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRents)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(lblTitle);
+            Controls.Add(pictureBox2);
+            Controls.Add(label1);
+            Controls.Add(txtFilter);
+            Controls.Add(cbFilter);
+            Controls.Add(lblRecordsNumber);
+            Controls.Add(lblRecords);
+            Controls.Add(btnAdd);
+            Controls.Add(btnClose);
+            Controls.Add(dgvRents);
+            Controls.Add(pictureBox1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            Name = "frmListRents";
+            Load += frmListRents_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvRents).EndInit();
+            contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

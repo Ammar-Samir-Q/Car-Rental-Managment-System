@@ -39,7 +39,7 @@ namespace CarRental
 
         private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (GlobalClass.CurrentUser!=null&&GlobalClass.CurrentUser.UserID > 0)
+            if (GlobalClass.CurrentUser != null && GlobalClass.CurrentUser.UserID > 0)
             {
                 Form frm = new frmUserInfo(GlobalClass.CurrentUser.UserID);
                 frm.ShowDialog();
@@ -119,7 +119,7 @@ namespace CarRental
         }
         private async void _LoadDashBoard()
         {
-            int TotalVehicles= await Vehicle.GetTotalVehicles();
+            int TotalVehicles = await Vehicle.GetTotalVehicles();
             int TotalCustomers = await Customer.GetTotalCustomers();
             int TotalCompletedRents = await Booking.GetTotalCompletedRents();
             int TotalBookings = await Booking.GetTotalBookings();
@@ -138,7 +138,7 @@ namespace CarRental
                 this.Close();
                 return;
             }
-             if(GlobalClass.CurrentUser.Role != User.enRole.Customer)
+            if (GlobalClass.CurrentUser.Role != User.enRole.Customer)
             {
                 lblUsername.Text = GlobalClass.CurrentUser.Username;
                 if (GlobalClass.CurrentUser.PersonInfo.ImagePath != "")
@@ -224,5 +224,7 @@ namespace CarRental
             //Form frm = new frmReports();
             //frm.ShowDialog();
         }
+
+     
     }
 }

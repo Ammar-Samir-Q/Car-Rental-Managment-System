@@ -135,9 +135,13 @@ namespace CarRental.BLL
                 return null;
         }
 
-        public async static Task<User?> GetUserByUsernameAndPasswordAsync(string Username, string Password)
+        public async static Task<User?> GetUserByUsernameAndPasswordAsync(string Username, string Password,bool IsHash=false)
         {
-            var User = await DAL.UserRepository.GetUserByUsernameAndPasswordAsync(Username,Util.Security.SecurityHelper.HashData(Password));
+            Data.User? User;
+            if (IsHash)
+                User = await DAL.UserRepository.GetUserByUsernameAndPasswordAsync(Username,Password);
+            else
+                User = await DAL.UserRepository.GetUserByUsernameAndPasswordAsync(Username,Util.Security.SecurityHelper.HashData(Password));
 
             if (User != null)
             {

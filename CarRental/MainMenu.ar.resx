@@ -119,28 +119,28 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="addRentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>329, 56</value>
+    <value>444, 56</value>
   </data>
   <data name="addRentToolStripMenuItem.Text" xml:space="preserve">
-    <value>اضافة ايجار</value>
+    <value>إضافة إيجار</value>
   </data>
   <data name="returnToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>329, 56</value>
+    <value>444, 56</value>
   </data>
   <data name="returnToolStripMenuItem.Text" xml:space="preserve">
-    <value>ارجاع تأجير</value>
+    <value>إضافة سجل إرجاع مركبة</value>
   </data>
   <data name="manageRentsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>329, 56</value>
+    <value>444, 56</value>
   </data>
   <data name="manageRentsToolStripMenuItem.Text" xml:space="preserve">
-    <value>اداراة الحجوزات</value>
+    <value>إدارة الحجوزات</value>
   </data>
   <data name="ايجارToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 68</value>
   </data>
   <data name="ايجارToolStripMenuItem.Text" xml:space="preserve">
-    <value>الايجار</value>
+    <value>الإيجار</value>
   </data>
   <data name="transactionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>212, 68</value>
@@ -158,7 +158,7 @@
     <value>327, 56</value>
   </data>
   <data name="manageVehiclesToolStripMenuItem.Text" xml:space="preserve">
-    <value>اداره المركبات</value>
+    <value>إداره المركبات</value>
   </data>
   <data name="VehiclesToolMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>194, 68</value>
