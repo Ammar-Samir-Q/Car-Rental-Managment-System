@@ -183,10 +183,10 @@ namespace CarRental
             }
 
         }
-        private void frmLogin_Load(object sender, EventArgs e)
+        private async void frmLogin_Load(object sender, EventArgs e)
         {
             _HandelBackColor();
-            if(!DatabaseService.TestConnection())
+            if(!await DatabaseService.TestConnection())
             {
                 btnLogin.Visible = false;
                 btnEnterAsCustomer.Visible = false;

@@ -178,12 +178,12 @@ namespace CarRental.BLL
 
         public async Task<bool> IsReturned()
         {
-            return await DAL.ReturnRepository.GetByBookingID(this.BookingID);
+            return await DAL.ReturnRepository.IsExistsByBookingID(this.BookingID);
         }
 
         public static async Task<bool> IsBookingReturned(int BookingID)
         {
-            return await DAL.ReturnRepository.GetByBookingID(BookingID);
+            return await DAL.ReturnRepository.IsExistsByBookingID(BookingID);
         }
 
         public static async Task<int> GetTotalBookings()
@@ -196,13 +196,5 @@ namespace CarRental.BLL
             return await DAL.BookingRepository.GetTotalCompletedRents();
         }
 
-        public static async Task<DataTable> GetTotalRentTimesVehicleReport()
-        {
-            return await DAL.BookingRepository.GetVehiclesRentTimesReport();
-        }
-        public static async Task<DataTable> GetVehiclesCountReport()
-        {
-            return await DAL.BookingRepository.GetVehiclesCountReport();
-        }
     }
 }

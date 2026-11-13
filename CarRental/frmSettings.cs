@@ -101,7 +101,7 @@ namespace CarRental
             this.Close();
         }
 
-        private void btnBackupDataBase_Click(object sender, EventArgs e)
+        private async void btnBackupDataBase_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             
@@ -113,7 +113,7 @@ namespace CarRental
                     return;
                 }
 
-                if(BLL.DatabaseService.BackupDatabase(fbd.SelectedPath))
+                if(await BLL.DatabaseService.BackupDatabase(fbd.SelectedPath))
                 {
                     MessageBox.Show("DataBase Backup Created Successfully", "Backup Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;

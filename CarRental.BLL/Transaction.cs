@@ -181,14 +181,6 @@ namespace CarRental.BLL
                 return await DAL.TransactionRepository.IsTransactionExists(this.TransactionID);
             }
 
-            public static async Task<DataTable> GetDailyReportData()
-            {
-                return await DAL.TransactionRepository.GetDailyReport();
-            }
-
-            public static async Task<DataTable> GetRentReportData()
-            {
-                return await DAL.TransactionRepository.GetRentReport();
-            }
+      
         }
 }

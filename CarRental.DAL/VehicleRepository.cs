@@ -213,31 +213,6 @@ namespace CarRental.DAL
             return await context.Vehicles.CountAsync();
         }
 
-        //ADO.NET
-        public static async Task<int> GetTopRentedVehicle()
-        {
-            int TopVehicleID = 0;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT TOP 1 VehicleID,Count(BookingID) as TotalRents From RentalBooking
-                        Group By VehicleID 
-                        Order by TotalRents DESC ;";
-            SqlCommand command = new SqlCommand(Query, connection);
-
-            try
-            {
-               await connection.OpenAsync();
-                object? result =await command.ExecuteScalarAsync();
-                if (result != null && int.TryParse(result.ToString(), out int Count))
-                    TopVehicleID = Count;
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally { connection.Close(); }
-            return TopVehicleID;
-        }
 
         public static async Task<int> GetTotalAvailableVehicles()
         {

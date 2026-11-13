@@ -6,15 +6,15 @@ namespace CarRental.BLL
 {
     public class DatabaseService
     {
-        public static bool TestConnection()
+        public static async Task<bool> TestConnection()
         {
-            return DAL.DataHelper.CheckConnection();
+            return await DAL.DataHelper.CheckConnection();
         }
 
 
-        public static bool BackupDatabase(string Path)
+        public static async Task<bool> BackupDatabase(string Path)
         {
-            return DAL.DataHelper.BackupDatabase(Path);
+            return await DAL.DataHelper.BackupDatabase(Path);
         }
     }
 }

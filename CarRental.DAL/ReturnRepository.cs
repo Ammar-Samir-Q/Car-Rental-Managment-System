@@ -96,31 +96,10 @@ namespace CarRental.DAL
         }
 
         //Replace With EF
-        public async static Task<bool> GetByBookingID(int BookingID)
+        public async static Task<bool> IsExistsByBookingID(int BookingID)
         {
-            bool IsExists = false;
-            SqlConnection connection = new SqlConnection(DataHelper.ConnectionString);
-            string Query = @"SELECT 1 FROM VehicleReturns Join
-                RentalTransactions On VehicleReturns.ReturnID=RentalTransactions.ReturnID
-                WHERE RentalTransactions.BookingID=@BookingID;";
-            SqlCommand command = new SqlCommand(Query, connection);
-            command.Parameters.AddWithValue("@BookingID", BookingID);
-            try
-            {
-               await connection.OpenAsync();
-                SqlDataReader reader =await command.ExecuteReaderAsync();
-                IsExists = reader.HasRows;
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally { connection.Close(); }
-            return IsExists;
-
-
-
+            using AppDbContext context = DbContextFactory.CreateDbContext();
+            return await context.RentalTransactions.Where(t=>t.BookingID==BookingID).AnyAsync(t => t.ReturnID!=null);
         }
     }
 }
